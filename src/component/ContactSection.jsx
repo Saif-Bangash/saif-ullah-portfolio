@@ -46,11 +46,11 @@ const ContactSection = () => {
                       {info.label}
                     </p>
                     {info.href ? (
-                      <a href={info.href} className="text-gray-800 dark:text-gray-200 font-bold text-base md:text-lg hover:text-[#5C4DFF] dark:hover:text-purple-400 break-all transition-colors">
+                      <a href={info.href} className="text-gray-800 dark:text-gray-200 font-bold text-base md:text-sm hover:text-[#5C4DFF] dark:hover:text-purple-400 break-all transition-colors">
                         {info.value}
                       </a>
                     ) : (
-                      <p className="text-gray-800 dark:text-gray-200 font-bold text-base md:text-lg">
+                      <p className="text-gray-800 dark:text-gray-200 font-bold text-base md:text-sm">
                         {info.value}
                       </p>
                     )}
