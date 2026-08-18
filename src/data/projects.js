@@ -6,7 +6,7 @@ export const projects = [
     image: "/assets/vape.png",
     github: "https://github.com/username/vape-store",
     live: "https://vapestore.com",
-    tech: ["React", "Tailwind", "API"]
+    tech: ["React", "Tailwind", "API"],
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ export const projects = [
     image: "/assets/dashboard.png",
     github: "https://github.com/username/admin-dashboard",
     live: "#",
-    tech: ["React", "Bootstrap", "Charts"]
+    tech: ["React", "Bootstrap", "Charts"],
   },
   {
     id: 3,
@@ -24,6 +24,6 @@ export const projects = [
     image: "/assets/portfolio.png",
     github: "https://github.com/username/portfolio",
     live: "#",
-    tech: ["React", "Tailwind", "Framer Motion"]
+    tech: ["React", "Tailwind", "Framer Motion"],
   },
 ];

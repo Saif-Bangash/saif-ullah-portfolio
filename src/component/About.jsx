@@ -2,22 +2,43 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const About = () => {
-  const details = [
-    { label: "Birthday", value: "16-05-2001" },
-    { label: "Email", value: "saifbangash480@gmail.com", type: "email" },
-    { label: "Age", value: "24" },
-    { label: "Phone", value: "+92 332 6767 615" },
-    { label: "Address", value: "Pakistan" },
-    { label: "Freelance", value: "Available" },
-  ];
+const details = [
+  {
+    label: "Role",
+    value: "Web Developer",
+  },
+  {
+    label: "Specialization",
+    value: "WordPress & SEO",
+  },
+  {
+    label: "Email",
+    value: "saifbangash480@gmail.com",
+    type: "email",
+  },
+  {
+    label: "Phone",
+    value: "+92 332 6767 615",
+    type: "phone",
+  },
+  
+  {
+    label: "Experience",
+    value: "1+ Years",
+  },
+  {
+    label: "Location",
+    value: "Pakistan",
+  }, 
+];
 
   return (
     <section
       id="about"
-      className="w-full bg-white dark:bg-[#0a0118] py-20 lg:py-32 px-6 md:px-12 lg:px-20 overflow-hidden transition-colors duration-500"
+      className="w-full bg-white dark:bg-[#0a0118] py-18 lg:py-20 px-6 md:px-12 lg:px-20 overflow-hidden transition-colors duration-500"
     >
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-        
+
         {/* Left Side: Image Container */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -32,16 +53,18 @@ const About = () => {
           <div className="relative z-10 rounded-[2rem] overflow-hidden bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow-xl">
             <img
               src="/assets/img/about.png"
-              alt="About Saifullah"
+              alt="About Saifullah - Web Developer"
               className="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-cover hover:scale-105 transition-all duration-700"
             />
           </div>
 
-          {/* Experience Tag Overlay - Responsive Size */}
-          <div className="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-6 bg-[#5C4DFF] p-2 md:p-6 rounded-2xl shadow-2xl z-20">
-            <p className="text-white font-bold text-xl md:text-2xl text-center">MERN</p>
+          {/* Expertise Tag Overlay */}
+          <div className="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-6 bg-[#5C4DFF] p-3 md:p-6 rounded-2xl shadow-2xl z-20">
+            <p className="text-white font-bold text-xl md:text-2xl text-center">
+              WEB
+            </p>
             <p className="text-purple-100 text-[10px] md:text-xs uppercase tracking-widest font-medium">
-              Stack Expert
+              Development
             </p>
           </div>
         </motion.div>
@@ -54,24 +77,49 @@ const About = () => {
           transition={{ duration: 0.8 }}
           className="w-full lg:w-1/2 flex flex-col gap-6 md:gap-8 text-center lg:text-left items-center lg:items-start"
         >
+
           <div className="space-y-4">
+
             <h4 className="text-[#5C4DFF] dark:text-purple-400 font-bold uppercase tracking-[0.3em] text-xs md:text-sm">
               About Me
             </h4>
+
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#2F4066] dark:text-white leading-tight">
-              Crafting Scalable{" "}
+              Building Better{" "}
               <span className="font-serif italic text-gray-400 dark:text-gray-500">
-                Web Solutions
+                Digital Experiences
               </span>
             </h2>
+
             <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl">
               I am a dedicated{" "}
               <span className="text-[#5C4DFF] dark:text-purple-300 font-semibold">
-                MERN Stack Developer
+                Web Developer
+              </span>{" "}
+              focused on creating fast, responsive, and user-friendly websites
+              using modern web technologies. I specialize in{" "}
+              <span className="text-[#5C4DFF] dark:text-purple-300 font-semibold">
+                WordPress
+              </span>{" "}
+              website development and{" "}
+              <span className="text-[#5C4DFF] dark:text-purple-300 font-semibold">
+                SEO optimization
               </span>
-              . While I have 1 year of formal experience, I have spent countless
-              hours mastering the art of building full-stack applications.
+              , helping businesses build a strong online presence and improve
+              their search engine visibility.
             </p>
+
+            <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl">
+              My work focuses on{" "}
+              <span className="text-[#2F4066] dark:text-gray-200 font-semibold">
+                responsive design, website performance, technical SEO,
+                on-page SEO, and Core Web Vitals
+              </span>
+              . I aim to create websites that not only look professional but
+              also deliver a smooth user experience and better search
+              performance.
+            </p>
+
             <div className="w-20 h-1.5 bg-[#5C4DFF] rounded-full mx-auto lg:mx-0"></div>
           </div>
 
@@ -87,22 +135,30 @@ const About = () => {
                 <p className="text-[#5C4DFF] dark:text-purple-400 text-[10px] md:text-xs font-bold uppercase tracking-widest mb-1">
                   {info.label}
                 </p>
-                
-                {info.type === "email" ? (
-                  <a 
-                    href={`mailto:${info.value}`}
-                    className="text-[#2F4066] dark:text-gray-200 font-semibold break-all hover:text-[#5C4DFF] transition-colors"
-                  >
-                    {info.value}
-                  </a>
-                ) : (
-                  <p className="text-[#2F4066] dark:text-gray-200 font-semibold">
-                    {info.value}
-                  </p>
-                )}
+
+               {info.type === "email" ? (
+  <a
+    href={`mailto:${info.value}`}
+    className="text-[#2F4066] dark:text-gray-200 font-semibold break-all hover:text-[#5C4DFF] transition-colors"
+  >
+    {info.value}
+  </a>
+) : info.type === "phone" ? (
+  <a
+    href={`tel:${info.value.replace(/\s/g, "")}`}
+    className="text-[#2F4066] dark:text-gray-200 font-semibold hover:text-[#5C4DFF] transition-colors"
+  >
+    {info.value}
+  </a>
+) : (
+  <p className="text-[#2F4066] dark:text-gray-200 font-semibold">
+    {info.value}
+  </p>
+)}
               </div>
             ))}
           </div>
+
         </motion.div>
       </div>
     </section>

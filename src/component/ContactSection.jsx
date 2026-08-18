@@ -1,15 +1,65 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   FaPhoneAlt,
   FaEnvelope,
   FaMapMarkerAlt,
   FaPaperPlane,
+  FaSpinner,
 } from "react-icons/fa";
 
 const ContactSection = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState({ type: "", message: "" });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus({ type: "", message: "" });
+
+    try {
+      const response = await fetch("https://blogifyguides.vercel.app/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "text/plain",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus({
+          type: "success",
+          message: "Message sent successfully!",
+        });
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setStatus({
+          type: "error",
+          message: "Failed to send message. Please try again.",
+        });
+      }
+    } catch (error) {
+      setStatus({
+        type: "error",
+        message: "Something went wrong. Please check your connection.",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <section id="contact" className="py-20 lg:py-28 bg-gray-50 dark:bg-[#0a0118] transition-colors duration-500">
+    <section id="contact" className="py-10 lg:py-25 bg-gray-50 dark:bg-[#0a0118] transition-colors duration-500">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
         
         {/* Section Heading */}
@@ -62,12 +112,17 @@ const ContactSection = () => {
 
           {/* Right Side: Contact Form */}
           <div className="lg:col-span-2">
-            <form className="bg-white dark:bg-white/5 p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] shadow-xl shadow-purple-100/20 dark:shadow-none border border-gray-50 dark:border-white/10 space-y-6">
+            <form onSubmit={handleSubmit} className="bg-white dark:bg-white/5 p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] shadow-xl shadow-purple-100/20 dark:shadow-none border border-gray-50 dark:border-white/10 space-y-6">
+              
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-xs md:text-sm font-bold text-gray-700 dark:text-gray-300 ml-2">Full Name</label>
                   <input
                     type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
                     placeholder="Edward Norton"
                     className="w-full px-5 py-4 bg-gray-50 dark:bg-white/5 dark:text-white border-none rounded-2xl focus:ring-2 focus:ring-[#5C4DFF] outline-none transition-all placeholder:text-gray-400"
                   />
@@ -76,6 +131,10 @@ const ContactSection = () => {
                   <label className="text-xs md:text-sm font-bold text-gray-700 dark:text-gray-300 ml-2">Email Address</label>
                   <input
                     type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
                     placeholder="example@mail.com"
                     className="w-full px-5 py-4 bg-gray-50 dark:bg-white/5 dark:text-white border-none rounded-2xl focus:ring-2 focus:ring-[#5C4DFF] outline-none transition-all placeholder:text-gray-400"
                   />
@@ -83,25 +142,45 @@ const ContactSection = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="text-xs md:text-sm font-bold text-gray-700 dark:text-gray-300 ml-2">Subject</label>
-                <input
-                  type="text"
-                  placeholder="How can I help you?"
-                  className="w-full px-5 py-4 bg-gray-50 dark:bg-white/5 dark:text-white border-none rounded-2xl focus:ring-2 focus:ring-[#5C4DFF] outline-none transition-all placeholder:text-gray-400"
-                />
-              </div>
-
-              <div className="space-y-2">
                 <label className="text-xs md:text-sm font-bold text-gray-700 dark:text-gray-300 ml-2">Message</label>
                 <textarea
-                  rows="4"
+                  rows="5"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
                   placeholder="Write your message here..."
                   className="w-full px-5 py-4 bg-gray-50 dark:bg-white/5 dark:text-white border-none rounded-2xl focus:ring-2 focus:ring-[#5C4DFF] outline-none transition-all resize-none placeholder:text-gray-400"
                 ></textarea>
               </div>
 
-              <button className="w-full md:w-auto bg-[#5C4DFF] hover:bg-[#4A3DDF] text-white font-bold px-10 py-4 md:py-5 rounded-2xl flex items-center justify-center gap-3 transition-all hover:shadow-lg active:scale-95">
-                Send Message <FaPaperPlane className="text-sm" />
+              {/* Status Message Display */}
+              {status.message && (
+                <div
+                  className={`p-4 rounded-xl text-sm font-medium ${
+                    status.type === "success"
+                      ? "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400"
+                      : "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400"
+                  }`}
+                >
+                  {status.message}
+                </div>
+              )}
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full md:w-auto bg-[#5C4DFF] hover:bg-[#4A3DDF] text-white font-bold px-10 py-4 md:py-5 rounded-2xl flex items-center justify-center gap-3 transition-all hover:shadow-lg active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {loading ? (
+                  <>
+                    Sending... <FaSpinner className="animate-spin text-sm" />
+                  </>
+                ) : (
+                  <>
+                    Send Message <FaPaperPlane className="text-sm" />
+                  </>
+                )}
               </button>
             </form>
           </div>

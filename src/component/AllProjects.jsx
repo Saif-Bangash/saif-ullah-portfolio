@@ -1,9 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
- 
 
-const Project = () => {
+const AllProjects = () => {
   return (
     <div className="bg-white dark:bg-[#0a0118] transition-colors duration-500">
       {/* Featured Projects Section */}
@@ -273,11 +272,9 @@ const Project = () => {
             </div>
           </div>
         </div>
-
- 
       </section>
     </div>
   );
 };
 
-export default Project;
+export default AllProjects;
