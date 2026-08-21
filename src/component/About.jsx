@@ -52,7 +52,7 @@ const details = [
 
           <div className="relative z-10 rounded-[2rem] overflow-hidden bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow-xl">
             <img
-              src="/assets/img/about.png"
+              src="/assets/img/about-img.png"
               alt="About Saifullah - Web Developer"
               className="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-cover hover:scale-105 transition-all duration-700"
             />

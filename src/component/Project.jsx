@@ -274,6 +274,90 @@ const Project = () => {
           </div>
         </div>
 
+        {/* Project 4 */}
+        <div className="flex flex-col lg:flex-row-reverse items-center gap-8 md:gap-12">
+          {/* Image Container (Right on desktop) */}
+          <div className="relative group w-full lg:flex-1">
+            <div className="absolute -inset-4 bg-[#5C4DFF]/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div className="relative bg-gray-100 dark:bg-white/5 rounded-3xl overflow-hidden border border-gray-200 dark:border-white/10 shadow-xl">
+              <div className="h-64 md:h-80 lg:h-96 bg-gray-800 flex items-center justify-center text-gray-500 overflow-hidden">
+                <a href="https://isafegadgets.co.uk/" rel="noopener noreferrer">
+                  <img
+                    src="assets/img/isafegadgets-image.jfif"
+                    alt="isafegadgets image"
+                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Content Container (Left on desktop) */}
+          <div className="w-full lg:flex-1 space-y-4 text-center lg:text-left">
+            <span className="text-[#5C4DFF] dark:text-purple-400 text-xs font-bold uppercase tracking-widest">
+              Featured Project
+            </span>
+
+            <h3 className="text-2xl md:text-4xl font-bold text-gray-900 dark:text-white font-serif">
+              Business Website Design for iSafe Gadgets Tech Shop
+            </h3>
+
+            {/* Description Card */}
+            <div
+              className="p-6 md:p-8 rounded-2xl border border-gray-100 dark:border-white/10 
+            bg-white dark:bg-white/5 backdrop-blur-xl shadow-lg
+            lg:-mr-20 transition-all duration-300"
+            >
+              <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                iSafe Gadgets Tech Shop, a Walton-on-Thames based repair
+                store, needed a modern website to showcase their phone,
+                tablet, laptop and gaming device repair services along with
+                their premium tech accessories.
+              </p>
+              <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mt-2">
+                We built a fast, easy-to-navigate site with an online repair
+                booking flow, service pages, and an accessories showcase —
+                helping the shop build trust, attract local customers, and
+                grow bookings.
+              </p>
+            </div>
+
+            {/* Tech Stack */}
+            <div className="flex flex-wrap justify-center lg:justify-start gap-3 mt-4 text-xs font-mono text-gray-500 dark:text-gray-400">
+              <span>React</span>
+              <span>Tailwind CSS</span>
+              <span>JavaScript</span>
+            </div>
+
+            {/* Live Link */}
+            <div className="pt-6 flex justify-center lg:justify-start">
+              <a
+                href="https://isafegadgets.co.uk/"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 font-semibold text-sm 
+              text-gray-900 dark:text-white hover:text-[#5C4DFF] transition-colors"
+              >
+                <span>View Live Project</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+                >
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
  
       </section>
     </div>
