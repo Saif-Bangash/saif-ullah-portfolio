@@ -283,7 +283,7 @@ const Project = () => {
               <div className="h-64 md:h-80 lg:h-96 bg-gray-800 flex items-center justify-center text-gray-500 overflow-hidden">
                 <a href="https://isafegadgets.co.uk/" rel="noopener noreferrer">
                   <img
-                    src="assets/img/isafegadgets-image.jfif"
+                    src="assets/img/isafegadgets-img.jfif"
                     alt="isafegadgets image"
                     className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700"
                   />
@@ -324,8 +324,8 @@ const Project = () => {
 
             {/* Tech Stack */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-3 mt-4 text-xs font-mono text-gray-500 dark:text-gray-400">
-              <span>React</span>
-              <span>Tailwind CSS</span>
+              <span>Bootstrap 5</span>
+              <span> CSS</span>
               <span>JavaScript</span>
             </div>
 
@@ -358,7 +358,92 @@ const Project = () => {
           </div>
         </div>
 
- 
+        {/* Project 5 */}
+        <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12">
+          {/* Left: Image Container */}
+          <div className="relative group w-full lg:flex-1">
+            <div className="absolute -inset-4 bg-[#5C4DFF]/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div className="relative bg-gray-100 dark:bg-white/5 rounded-3xl overflow-hidden border border-gray-200 dark:border-white/10 shadow-xl">
+               <div className="h-64 md:h-80 lg:h-96 bg-gray-800 flex items-center justify-center text-gray-500 overflow-hidden">
+                <a
+                  href="https://finroute.co.uk/"   
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="https://www.webcomforts.com/mtill-uploads/files/corporate-web-design-268.webp"   
+                    alt="Project Thumbnail"
+                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Right: Content Container */}
+          <div className="w-full lg:flex-1 space-y-4 text-center lg:text-left">
+            <span className="text-[#5C4DFF] dark:text-purple-400 text-xs font-bold uppercase tracking-widest">
+              Featured Project
+            </span>
+            <h3 className="text-2xl md:text-4xl font-bold text-gray-900 dark:text-white font-serif">
+              Study Abroad & Immigration Website for Finroute
+            </h3>
+
+            {/* Description Card - Overlapping only on Large Screens */}
+            <div
+              className="p-6 md:p-8 rounded-2xl border border-gray-100 dark:border-white/10 relative z-10 
+              bg-white dark:bg-white/5 backdrop-blur-xl shadow-lg
+              lg:-ml-20   transition-all duration-300"
+            >
+              <p className="text-sm   text-gray-600 dark:text-gray-300 leading-relaxed">
+                We designed and developed a modern, conversion-focused website
+                for Finroute, a trusted UK study and immigration consultancy
+                helping students navigate study abroad, PTE/IELTS test
+                preparation, and English learning journeys.
+              </p>
+
+              <p className="text-sm  text-gray-600 dark:text-gray-300 leading-relaxed mt-2">
+                The website features a clean hero section, service highlights
+                (Study Abroad, Test Centers, Learn English), destination
+                showcases, and a fully responsive layout — built to build
+                trust and drive free consultation sign-ups across all devices.
+              </p>
+            </div>
+
+            {/* Tech Stack used in Project */}
+            <div className="flex flex-wrap justify-center lg:justify-start gap-3 mt-4 text-xs font-mono text-gray-500 dark:text-gray-400">
+              <span>Bootstarp</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+            </div>
+
+            {/* Project Link Section */}
+            <div className="pt-6 flex justify-center lg:justify-start">
+              <a
+                href="https://finroute.co.uk/"   
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 text-gray-900 dark:text-white font-semibold text-sm hover:text-[#5C4DFF] dark:hover:text-purple-400 transition-colors"
+              >
+                <span>View Live Project</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+                >
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
       </section>
     </div>
   );
