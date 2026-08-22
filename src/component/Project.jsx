@@ -1,4 +1,6 @@
 import React from "react";
+// ESLint's editor integration may not recognize JSX member expressions (e.g. motion.div).
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
  
@@ -153,7 +155,7 @@ const Project = () => {
 
             {/* Tech Stack */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-3 mt-4 text-xs font-mono text-gray-500 dark:text-gray-400">
-              <span>Bootstarp</span>
+              <span>Bootstrap</span>
               <span>JavaScript</span>
               <span>css</span>
             </div>
@@ -411,7 +413,7 @@ const Project = () => {
 
             {/* Tech Stack used in Project */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-3 mt-4 text-xs font-mono text-gray-500 dark:text-gray-400">
-              <span>Bootstarp</span>
+              <span>Bootstrap</span>
               <span>CSS</span>
               <span>JavaScript</span>
             </div>

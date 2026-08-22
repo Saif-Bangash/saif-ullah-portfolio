@@ -1,4 +1,6 @@
 import React from "react";
+// ESLint's editor integration may not recognize JSX member expressions (e.g. motion.div).
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import {
   FaGithub,
@@ -105,7 +107,7 @@ const Hero = () => {
       <div className="w-full lg:w-2/5 relative mt-10 sm:mt-16 lg:mt-0 flex justify-center z-10 pb-12 sm:pb-0">
         <div className="relative">
           {/* Main Image Container */}
-          <div className="w-64 h-80 sm:w-72 sm:h-96 md:w-80 md:h-[450px] bg-gradient-to-b from-purple-100 to-white dark:from-purple-900/40 dark:to-[#0a0118] rounded-[2.5rem] md:rounded-[3rem] overflow-hidden border-4 md:border-8 border-gray-50 dark:border-white/5 shadow-2xl">
+          <div className="w-64 h-80 sm:w-72 sm:h-96 md:w-80 md:h-112.5 bg-linear-to-b from-purple-100 to-white dark:from-purple-900/40 dark:to-[#0a0118] rounded-[2.5rem] md:rounded-[3rem] overflow-hidden border-4 md:border-8 border-gray-50 dark:border-white/5 shadow-2xl">
             <img
               src="/assets/img/saif-pic.jfif"
               alt="Saifullah"
@@ -138,7 +140,7 @@ const Hero = () => {
           </motion.div>
 
           {/* Social Icons */}
-          <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 flex flex-row lg:flex-col lg:left-auto lg:right-[-70px] lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0 gap-3 sm:gap-4 z-20">
+          <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 flex flex-row lg:flex-col lg:left-auto lg:-right-17.5 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0 gap-3 sm:gap-4 z-20">
             {[
               {
                 icon: <FaLinkedin />,

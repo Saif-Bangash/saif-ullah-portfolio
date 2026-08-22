@@ -23,7 +23,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full z-[100] transition-all duration-500 ${
+      className={`fixed w-full z-100 transition-all duration-500 ${
         scrolled
           ? "bg-white backdrop-blur-xl py-3 shadow-2xl border-b border-white/5" // Scroll hone par DARK
           : "bg-white/80 backdrop-blur-md py-2 border-b border-gray-100" // Default WHITE
@@ -77,7 +77,7 @@ const Navbar = () => {
 
         {/* Mobile Toggle */}
         <div
-          className={`md:hidden cursor-pointer transition-colors ${scrolled ? "text-[#000]" : "text-[#2F4066]"}`}
+          className={`md:hidden cursor-pointer transition-colors ${scrolled ? "text-black" : "text-[#2F4066]"}`}
           onClick={() => setOpen(!open)}
         >
           {open ? <FaTimes size={24} /> : <FaBars size={24} />}

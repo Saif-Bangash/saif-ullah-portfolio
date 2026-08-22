@@ -99,7 +99,7 @@ const Footer = () => {
         <div className="relative group flex items-center justify-center">
           {/* Animated Ring */}
           <div
-            className={`absolute -inset-1 rounded-full bg-gradient-to-r from-green-400 via-emerald-500 to-teal-300 blur-sm transition-opacity duration-300 opacity-80 group-hover:opacity-100 ${
+            className={`absolute -inset-1 rounded-full bg-linear-to-r from-green-400 via-emerald-500 to-teal-300 blur-sm transition-opacity duration-300 opacity-80 group-hover:opacity-100 ${
               isScrolling ? "animate-spin" : ""
             }`}
             style={{ animationDuration: "3s" }}
@@ -211,7 +211,7 @@ const Footer = () => {
                     >
                       {item}
 
-                      <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-purple-600 group-hover:w-full transition-all duration-300" />
+                      <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-purple-600 group-hover:w-full transition-all duration-300" />
                     </a>
                   </li>
                 ))}
@@ -231,7 +231,7 @@ const Footer = () => {
                   href="mailto:saifbangash480@gmail.com"
                   className="flex items-start gap-3 text-gray-500 hover:text-purple-600 transition-colors duration-300"
                 >
-                  <FaEnvelope className="mt-1 text-purple-500 flex-shrink-0" />
+                  <FaEnvelope className="mt-1 text-purple-500 shrink-0" />
 
                   <span className="text-sm sm:text-base break-all">
                    saifbangash480@gmail.com
@@ -243,7 +243,7 @@ const Footer = () => {
                   href="tel:+923326767615"
                   className="flex items-center gap-3 text-gray-500 hover:text-purple-600 transition-colors duration-300"
                 >
-                  <FaPhoneAlt className="text-purple-500 flex-shrink-0" />
+                  <FaPhoneAlt className="text-purple-500 shrink-0" />
 
                   <span className="text-sm sm:text-base">
                     +92 332 6767615
@@ -252,7 +252,7 @@ const Footer = () => {
 
                 {/* Location */}
                 <div className="flex items-start gap-3 text-gray-500">
-                  <FaMapMarkerAlt className="mt-1 text-purple-500 flex-shrink-0" />
+                  <FaMapMarkerAlt className="mt-1 text-purple-500 shrink-0" />
 
                   <span className="text-sm sm:text-base">
                     Pakistan

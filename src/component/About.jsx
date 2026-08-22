@@ -1,4 +1,5 @@
 import React from "react";
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
 const About = () => {
@@ -36,13 +37,13 @@ const About = () => {
           className="w-full lg:w-1/2 relative group px-4 md:px-10 lg:px-0"
         >
           {/* Decorative Background Box */}
-          <div className="absolute -top-4 -left-2 md:-top-6 md:-left-6 w-full h-full border-2 border-[#5C4DFF]/20 rounded-[2rem] group-hover:top-0 group-hover:left-0 transition-all duration-500"></div>
+          <div className="absolute -top-4 -left-2 md:-top-6 md:-left-6 w-full h-full border-2 border-[#5C4DFF]/20 rounded-4xl group-hover:top-0 group-hover:left-0 transition-all duration-500"></div>
 
-          <div className="relative z-10 rounded-[2rem] overflow-hidden bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow-xl">
+          <div className="relative z-10 rounded-4xl overflow-hidden bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow-xl">
             <img
               src="/assets/img/about-img.png"
               alt="About Saifullah - Web Developer"
-              className="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-cover hover:scale-105 transition-all duration-700"
+              className="w-full h-87.5 sm:h-112.5 lg:h-137.5 object-cover hover:scale-105 transition-all duration-700"
             />
           </div>
 

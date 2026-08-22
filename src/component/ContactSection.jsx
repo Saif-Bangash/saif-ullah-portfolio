@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import {
@@ -221,7 +222,7 @@ const ContactSection = () => {
     <form
       ref={formRef}
       onSubmit={handleSubmit}
-      className="bg-white dark:bg-white/5 p-5 sm:p-8 md:p-10 rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[2.5rem] shadow-xl shadow-purple-100/20 dark:shadow-none border border-gray-50 dark:border-white/10 space-y-4 sm:space-y-6"
+      className="bg-white dark:bg-white/5 p-5 sm:p-8 md:p-10 rounded-3xl sm:rounded-4xl md:rounded-[2.5rem] shadow-xl shadow-purple-100/20 dark:shadow-none border border-gray-50 dark:border-white/10 space-y-4 sm:space-y-6"
     >
       {statusMessage.text && (
         <div
@@ -298,7 +299,7 @@ const ContactSection = () => {
       {/* Perfect Fit Email Modal */}
       <AnimatePresence>
         {isModalOpen && (
-          <div className="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-sm">
+          <div className="fixed inset-0 z-9999 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-sm">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
