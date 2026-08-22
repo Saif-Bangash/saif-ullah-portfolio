@@ -79,7 +79,7 @@ const Hero = () => {
           </a>
 
           <a
-            href="https://drive.google.com/file/d/1zUGsN_QWxuN1J_iDtxDmzdzTuPVFoRWk/view?usp=sharing"
+            href="https://drive.google.com/file/d/1IP2cLNP53LkG7PBknRqfYXOB4iswCav9/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             download="My Resume.pdf"

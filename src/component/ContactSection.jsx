@@ -40,7 +40,6 @@ const ContactSection = () => {
     message: "",
   });
 
-  // Initialize EmailJS once when component mounts
   useEffect(() => {
     emailjs.init(PUBLIC_KEY);
   }, []);
@@ -59,7 +58,6 @@ const ContactSection = () => {
     });
   };
 
-  // Main Contact Form Handler
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -73,8 +71,7 @@ const ContactSection = () => {
     };
 
     emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY).then(
-      (response) => {
-        console.log("EmailJS Success:", response.status, response.text);
+      () => {
         setLoading(false);
         setStatusMessage({
           type: "success",
@@ -88,12 +85,10 @@ const ContactSection = () => {
           type: "error",
           text: `Failed: ${error?.text || "Check console for details"}`,
         });
-        console.error("EmailJS Error:", error);
-      },
+      }
     );
   };
 
-  // Popup Modal Form Handler
   const handleModalSubmit = (e) => {
     e.preventDefault();
     setModalLoading(true);
@@ -107,8 +102,7 @@ const ContactSection = () => {
     };
 
     emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY).then(
-      (response) => {
-        console.log("EmailJS Modal Success:", response.status, response.text);
+      () => {
         setModalLoading(false);
         setModalStatusMessage({
           type: "success",
@@ -126,8 +120,7 @@ const ContactSection = () => {
           type: "error",
           text: `Failed: ${error?.text || "Check console for details"}`,
         });
-        console.error("EmailJS Modal Error:", error);
-      },
+      }
     );
   };
 
@@ -156,9 +149,7 @@ const ContactSection = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-12 items-start">
-          {/* Left Column: Info Cards */}
           <div className="lg:col-span-1 space-y-4 md:space-y-6">
-            {/* Phone Card */}
             <div className="bg-white dark:bg-white/5 p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-sm border border-gray-100 dark:border-white/10 group hover:border-[#5C4DFF]/50 transition-all">
               <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl shrink-0 flex items-center justify-center bg-gray-50 dark:bg-white/5 text-[#5C4DFF] dark:text-purple-400 text-base md:text-xl group-hover:bg-[#5C4DFF] group-hover:text-white transition-all">
@@ -178,7 +169,6 @@ const ContactSection = () => {
               </div>
             </div>
 
-            {/* Email Card - Triggers Popup Modal */}
             <div
               onClick={() => setIsModalOpen(true)}
               className="bg-white dark:bg-white/5 p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-sm border border-gray-100 dark:border-white/10 group hover:border-[#5C4DFF]/50 transition-all cursor-pointer"
@@ -198,7 +188,6 @@ const ContactSection = () => {
               </div>
             </div>
 
-            {/* Location Card */}
             <div className="bg-white dark:bg-white/5 p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-sm border border-gray-100 dark:border-white/10 group hover:border-[#5C4DFF]/50 transition-all">
               <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl shrink-0 flex items-center justify-center bg-gray-50 dark:bg-white/5 text-[#5C4DFF] dark:text-purple-400 text-base md:text-xl group-hover:bg-[#5C4DFF] group-hover:text-white transition-all">
@@ -216,7 +205,6 @@ const ContactSection = () => {
             </div>
           </div>
 
-          {/* Right Column: Main Form */}
           <div className="lg:col-span-2 w-full">
             <form
               ref={formRef}
@@ -295,117 +283,126 @@ const ContactSection = () => {
         </div>
       </div>
 
-      {/* Email Modal */}
       <AnimatePresence>
         {isModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-sm">
+          <div className="fixed inset-0 z-50 overflow-y-auto">
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              className="bg-white dark:bg-[#12072B] p-5 sm:p-6 rounded-2xl w-full max-w-md relative border border-gray-100 dark:border-white/10 shadow-2xl max-h-[90vh] overflow-y-auto"
-            >
-              <button
-                onClick={() => setIsModalOpen(false)}
-                className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-all"
-                aria-label="Close modal"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsModalOpen(false)}
+              className="fixed inset-0 bg-black/75 backdrop-blur-sm"
+            />
+
+            <div className="flex min-h-full items-center justify-center p-4 text-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 10 }}
+                className="relative w-full max-w-md bg-white dark:bg-[#12072B] p-6 rounded-3xl border border-gray-100 dark:border-white/10 shadow-2xl text-left z-10 my-8"
               >
-                <FaTimes className="text-sm" />
-              </button>
-
-              <div className="mb-4 pr-6">
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-                  Send Direct Email
-                </h3>
-                <p className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">
-                  Send a quick email to get in touch.
-                </p>
-              </div>
-
-              {modalStatusMessage.text && (
-                <div
-                  className={`p-3 rounded-xl text-xs font-medium mb-3 ${
-                    modalStatusMessage.type === "success"
-                      ? "bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-300 border border-green-200 dark:border-green-800"
-                      : "bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-300 border border-red-200 dark:border-red-800"
-                  }`}
-                >
-                  {modalStatusMessage.text}
-                </div>
-              )}
-
-              <form
-                ref={modalFormRef}
-                onSubmit={handleModalSubmit}
-                className="space-y-3"
-              >
-                <div>
-                  <label className="text-xs font-semibold text-gray-700 dark:text-gray-300 block mb-1">
-                    To Email
-                  </label>
-                  <input
-                    type="email"
-                    value={MY_EMAIL}
-                    readOnly
-                    className="w-full px-3 py-2 bg-gray-100 dark:bg-white/10 text-gray-500 dark:text-gray-400 rounded-lg text-xs border border-transparent outline-none cursor-not-allowed"
-                  />
-                </div>
-
-                <div>
-                  <label className="text-xs font-semibold text-gray-700 dark:text-gray-300 block mb-1">
-                    Your Email (From)
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={modalFormData.email}
-                    onChange={handleModalChange}
-                    required
-                    placeholder="example@mail.com"
-                    className="w-full px-3 py-2.5 bg-gray-50 dark:bg-white/5 dark:text-white rounded-lg text-xs outline-none focus:ring-2 focus:ring-[#5C4DFF] border border-gray-200 dark:border-white/10"
-                  />
-                </div>
-
-                <div>
-                  <label className="text-xs font-semibold text-gray-700 dark:text-gray-300 block mb-1">
-                    Your Name
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={modalFormData.name}
-                    onChange={handleModalChange}
-                    required
-                    placeholder="Your Name"
-                    className="w-full px-3 py-2.5 bg-gray-50 dark:bg-white/5 dark:text-white rounded-lg text-xs outline-none focus:ring-2 focus:ring-[#5C4DFF] border border-gray-200 dark:border-white/10"
-                  />
-                </div>
-
-                <div>
-                  <label className="text-xs font-semibold text-gray-700 dark:text-gray-300 block mb-1">
-                    Message
-                  </label>
-                  <textarea
-                    rows="3"
-                    name="message"
-                    value={modalFormData.message}
-                    onChange={handleModalChange}
-                    required
-                    placeholder="Write your message here..."
-                    className="w-full px-3 py-2.5 bg-gray-50 dark:bg-white/5 dark:text-white rounded-lg text-xs outline-none focus:ring-2 focus:ring-[#5C4DFF] resize-none border border-gray-200 dark:border-white/10"
-                  ></textarea>
-                </div>
-
                 <button
-                  type="submit"
-                  disabled={modalLoading}
-                  className="w-full bg-[#5C4DFF] hover:bg-[#4A3DDF] text-white font-semibold py-2.5 rounded-xl flex items-center justify-center gap-2 transition-all active:scale-95 disabled:opacity-50 text-xs mt-1"
+                  onClick={() => setIsModalOpen(false)}
+                  className="absolute top-5 right-5 w-8 h-8 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-all"
+                  aria-label="Close modal"
                 >
-                  {modalLoading ? "Sending..." : "Send Email"}
-                  <FaPaperPlane className="text-[10px]" />
+                  <FaTimes className="text-sm" />
                 </button>
-              </form>
-            </motion.div>
+
+                <div className="mb-5 pr-6">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                    Send Direct Email
+                  </h3>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs mt-1">
+                    Send a quick email to get in touch.
+                  </p>
+                </div>
+
+                {modalStatusMessage.text && (
+                  <div
+                    className={`p-3 rounded-xl text-xs font-medium mb-4 ${
+                      modalStatusMessage.type === "success"
+                        ? "bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-300 border border-green-200 dark:border-green-800"
+                        : "bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-300 border border-red-200 dark:border-red-800"
+                    }`}
+                  >
+                    {modalStatusMessage.text}
+                  </div>
+                )}
+
+                <form
+                  ref={modalFormRef}
+                  onSubmit={handleModalSubmit}
+                  className="space-y-4"
+                >
+                  <div>
+                    <label className="text-xs font-semibold text-gray-700 dark:text-gray-300 block mb-1.5">
+                      To Email
+                    </label>
+                    <input
+                      type="email"
+                      value={MY_EMAIL}
+                      readOnly
+                      className="w-full px-3.5 py-2.5 bg-gray-100 dark:bg-white/10 text-gray-500 dark:text-gray-400 rounded-xl text-xs border border-transparent outline-none cursor-not-allowed font-medium"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-xs font-semibold text-gray-700 dark:text-gray-300 block mb-1.5">
+                      Your Email (From)
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={modalFormData.email}
+                      onChange={handleModalChange}
+                      required
+                      placeholder="example@mail.com"
+                      className="w-full px-3.5 py-2.5 bg-gray-50 dark:bg-white/5 dark:text-white rounded-xl text-xs outline-none focus:ring-2 focus:ring-[#5C4DFF] border border-gray-200 dark:border-white/10 transition-all"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-xs font-semibold text-gray-700 dark:text-gray-300 block mb-1.5">
+                      Your Name
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={modalFormData.name}
+                      onChange={handleModalChange}
+                      required
+                      placeholder="Your Name"
+                      className="w-full px-3.5 py-2.5 bg-gray-50 dark:bg-white/5 dark:text-white rounded-xl text-xs outline-none focus:ring-2 focus:ring-[#5C4DFF] border border-gray-200 dark:border-white/10 transition-all"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-xs font-semibold text-gray-700 dark:text-gray-300 block mb-1.5">
+                      Message
+                    </label>
+                    <textarea
+                      rows="3"
+                      name="message"
+                      value={modalFormData.message}
+                      onChange={handleModalChange}
+                      required
+                      placeholder="Write your message here..."
+                      className="w-full px-3.5 py-2.5 bg-gray-50 dark:bg-white/5 dark:text-white rounded-xl text-xs outline-none focus:ring-2 focus:ring-[#5C4DFF] resize-none border border-gray-200 dark:border-white/10 transition-all"
+                    ></textarea>
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={modalLoading}
+                    className="w-full bg-[#5C4DFF] hover:bg-[#4A3DDF] text-white font-semibold py-3 rounded-xl flex items-center justify-center gap-2 transition-all active:scale-95 disabled:opacity-50 text-xs shadow-md"
+                  >
+                    {modalLoading ? "Sending..." : "Send Email"}
+                    <FaPaperPlane className="text-[10px]" />
+                  </button>
+                </form>
+              </motion.div>
+            </div>
           </div>
         )}
       </AnimatePresence>
