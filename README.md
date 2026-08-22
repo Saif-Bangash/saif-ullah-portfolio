@@ -14,7 +14,7 @@ Experience the live portfolio here:
 
 ## 📸 Preview
 
-![Portfolio Screenshot](public/assets/img/about.png)
+![Portfolio Screenshot](public/assets/img/about-img.png)
 
 > Make sure the image path is correct and the image exists in your repository.
 
