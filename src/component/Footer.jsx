@@ -81,7 +81,7 @@ const Footer = () => {
     },
     {
       icon: <FaInstagram />,
-      link: "https://www.instagram.com/saifbangash480/",
+      link: "https://www.instagram.com/saifullahbangash480/",
       label: "Instagram",
     },
     {
@@ -125,7 +125,7 @@ const Footer = () => {
 
       {/* ================= FOOTER ================= */}
       <footer className="bg-white border-t border-gray-100 text-gray-500 pt-14 sm:pt-16 pb-8">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-20 xl:px-24">
+        <div className="max-w-7xl  px-5 sm:px-8 md:px-12 lg:px-20 xl:px-24">
 
           {/* ================= MAIN FOOTER GRID ================= */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 mb-14">

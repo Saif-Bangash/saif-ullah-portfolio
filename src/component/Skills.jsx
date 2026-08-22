@@ -116,7 +116,7 @@ const Skills = () => {
       id="resume"
       className="w-full bg-white dark:bg-[#0a0118] py-10 lg:py-25 px-6 md:px-12 lg:px-20 relative overflow-hidden transition-colors duration-500"
     >
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl  relative z-10">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-20 space-y-4">
           <motion.h4
@@ -158,7 +158,7 @@ const Skills = () => {
               key={skill.name}
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
-              className={`group flex flex-col items-center p-6 md:p-10 bg-gray-50/50 dark:bg-white/5 border border-gray-100 dark:border-white/10 rounded-[1.5rem] md:rounded-[2.5rem] transition-all duration-300 shadow-sm hover:shadow-xl hover:bg-white dark:hover:bg-white/10 ${skill.border}`}
+              className={`group flex flex-col items-center p-6 md:p-10 bg-gray-50/50 dark:bg-white/5 border border-gray-100 dark:border-white/10 rounded-3xl md:rounded-[2.5rem] transition-all duration-300 shadow-sm hover:shadow-xl hover:bg-white dark:hover:bg-white/10 ${skill.border}`}
             >
               <div
                 className={`text-4xl md:text-5xl text-gray-400 dark:text-gray-600 transition-colors duration-300 ${skill.color}`}

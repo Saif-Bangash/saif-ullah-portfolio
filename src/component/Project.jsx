@@ -8,7 +8,7 @@ const Project = () => {
       {/* Featured Projects Section */}
       <section
         id="projects"
-        className="max-w-6xl mx-auto py-10 md:py-25 px-6 space-y-24 md:space-y-32"
+        className="max-w-7xl px-6 md:px-12 lg:px-20 py-10 md:py-25 space-y-24 md:space-y-32"
       >
         {/* Section Title */}
         <div className="text-center lg:text-left mb-10">

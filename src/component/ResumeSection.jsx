@@ -33,7 +33,7 @@ const ResumeSection = () => {
       id="resume"
       className="py-10 lg:py-25 bg-white dark:bg-[#0a0118] transition-colors duration-500"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+      <div className="max-w-7xl   px-6 md:px-12 lg:px-20">
 
         {/* Header */}
         <div className="mb-12 md:mb-20 text-center lg:text-left">
@@ -72,7 +72,7 @@ const ResumeSection = () => {
               <h3 className="text-2xl md:text-3xl font-bold mb-10 md:mb-12 text-gray-800 dark:text-gray-100 flex items-center gap-4">
                 {column.title}
 
-                <div className="flex-1 h-[1px] bg-gray-100 dark:bg-white/10 hidden sm:block"></div>
+                <div className="flex-1 h-px bg-gray-100 dark:bg-white/10 hidden sm:block"></div>
               </h3>
 
               {/* Timeline */}
@@ -86,7 +86,7 @@ const ResumeSection = () => {
 
                     {/* Timeline Dot */}
                     <div
-                      className={`absolute -left-[9px] top-2 w-4 h-4 rounded-full border-2 border-white dark:border-[#0a0118] shadow-md transition-colors duration-300 ${
+                      className={`absolute -left-2.25 top-2 w-4 h-4 rounded-full border-2 border-white dark:border-[#0a0118] shadow-md transition-colors duration-300 ${
                         index === 0
                           ? "bg-[#5C4DFF]"
                           : "bg-gray-300 dark:bg-gray-700"
