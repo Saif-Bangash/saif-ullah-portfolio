@@ -29,7 +29,7 @@ const Navbar = () => {
           : "bg-white/80 backdrop-blur-md py-2 border-b border-gray-100" // Default WHITE
       }`}
     >
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 md:px-12">
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-4 ">
         {/* Logo */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
