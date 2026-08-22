@@ -1,7 +1,4 @@
 import React from "react";
-// ESLint's editor integration may not recognize JSX member expressions (e.g. motion.div).
-// eslint-disable-next-line no-unused-vars
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
  
 

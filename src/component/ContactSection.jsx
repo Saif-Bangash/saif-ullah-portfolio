@@ -247,7 +247,7 @@ const ContactSection = () => {
             value={formData.name}
             onChange={handleChange}
             required
-            placeholder="Edward Norton"
+            placeholder="name"
             className="w-full px-4 sm:px-5 py-3.5 sm:py-4 bg-gray-50 dark:bg-white/5 dark:text-white border-none rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#5C4DFF] outline-none transition-all placeholder:text-gray-400 text-sm sm:text-base"
           />
         </div>

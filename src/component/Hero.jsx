@@ -1,7 +1,5 @@
 import React from "react";
-// ESLint's editor integration may not recognize JSX member expressions (e.g. motion.div).
-// eslint-disable-next-line no-unused-vars
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import {
   FaGithub,
   FaLinkedin,
@@ -27,15 +25,15 @@ const Hero = () => {
 
       {/* Left Side: Content */}
       <div className="w-full lg:w-3/5 flex flex-col gap-3 md:gap-6 z-10 text-center lg:text-left items-center lg:items-start mt-2 sm:mt-0">
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           className="inline-block w-fit px-4 py-1.5 rounded-full bg-purple-50 dark:bg-white/5 border border-purple-100 dark:border-white/10 text-[#5C4DFF] dark:text-purple-400 text-xs md:text-sm font-bold tracking-wide"
         >
           Available for Hire
-        </motion.div>
+        </Motion.div>
 
-        <motion.h1
+        <Motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
@@ -51,9 +49,9 @@ const Hero = () => {
           <span className="font-serif italic text-gray-400 dark:text-gray-500 text-2xl sm:text-3xl md:text-5xl xl:text-5xl font-normal block mt-2 sm:mt-8">
             Web Developer & SEO Specialist
           </span>
-        </motion.h1>
+        </Motion.h1>
 
-        <motion.p
+        <Motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
@@ -65,9 +63,9 @@ const Hero = () => {
           </span>{" "}
           using React and WordPress, while helping businesses grow through
           technical SEO, on-page optimization, and performance improvements.
-        </motion.p>
+        </Motion.p>
 
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
@@ -89,7 +87,7 @@ const Hero = () => {
           >
             View CV
           </a>
-        </motion.div>
+        </Motion.div>
 
         {/* Tech Stack Mini Icons */}
         <div className="flex flex-wrap gap-4 sm:gap-6 mt-4 sm:mt-6 text-gray-400 dark:text-gray-500 text-xl sm:text-2xl justify-center lg:justify-start">
@@ -116,7 +114,7 @@ const Hero = () => {
           </div>
 
           {/* Floating Experience Card */}
-          <motion.div
+          <Motion.div
             animate={{ y: [0, -10, 0] }}
             transition={{ repeat: Infinity, duration: 4 }}
             className="absolute -top-3 -right-2 sm:-top-6 sm:-right-6 bg-white dark:bg-[#1a1033] border border-gray-100 dark:border-white/10 p-2.5 sm:p-5 rounded-2xl sm:rounded-3xl shadow-xl z-20"
@@ -125,10 +123,10 @@ const Hero = () => {
             <p className="text-[7px] sm:text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-widest font-extrabold">
               Year of <br /> Experience
             </p>
-          </motion.div>
+          </Motion.div>
 
           {/* Floating Projects Card */}
-          <motion.div
+          <Motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 5 }}
             className="absolute -bottom-3 -left-2 sm:-bottom-6 sm:-left-6 bg-white dark:bg-[#1a1033] border border-gray-100 dark:border-white/10 p-2.5 sm:p-5 rounded-2xl sm:rounded-3xl shadow-xl z-20"
@@ -137,7 +135,7 @@ const Hero = () => {
             <p className="text-[7px] sm:text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-widest font-extrabold">
               Projects <br /> Completed
             </p>
-          </motion.div>
+          </Motion.div>
 
           {/* Social Icons */}
           <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 flex flex-row lg:flex-col lg:left-auto lg:-right-17.5 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0 gap-3 sm:gap-4 z-20">
