@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
   FaLinkedinIn,
   FaGithub,
@@ -12,16 +13,23 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
   FaPhoneAlt,
+  FaArrowRight,
 } from "react-icons/fa";
 
 const Footer = () => {
   const [isScrolling, setIsScrolling] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     let scrollTimeout;
 
     const handleScroll = () => {
       setIsScrolling(true);
+      const scrollableHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(
+        scrollableHeight > 0 ? (window.scrollY / scrollableHeight) * 100 : 0,
+      );
 
       clearTimeout(scrollTimeout);
 
@@ -31,6 +39,7 @@ const Footer = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -49,23 +58,32 @@ const Footer = () => {
     {
       icon: <FaCode />,
       title: "Web Development",
-      link: "#services",
+      link: "/custom-web-development",
     },
     {
       icon: <FaReact />,
       title: "React JS Development",
-      link: "#services",
+      link: "/projects",
     },
     {
       icon: <FaWordpress />,
       title: "WordPress Development",
-      link: "#services",
+      link: "/projects",
     },
     {
       icon: <FaSearch />,
       title: "SEO Optimization",
-      link: "#services",
+      link: "/projects",
     },
+  ];
+
+  const quickLinks = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Skills", path: "/skills" },
+    { name: "Resume", path: "/resume" },
+    { name: "Projects", path: "/projects" },
+    { name: "Contact", path: "/contact" },
   ];
 
   const socialLinks = [
@@ -94,15 +112,53 @@ const Footer = () => {
 
   return (
     <>
+      {/* ================= FLOATING BACK TO TOP ================= */}
+      {scrollProgress > 2 && (
+        <div className="fixed bottom-[6.5rem] right-5 sm:right-6 z-50">
+          <button
+            onClick={scrollToTop}
+            aria-label="Back to top"
+            title="Back to top"
+            className="group relative flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full transition-transform duration-300 hover:-translate-y-1"
+          >
+            <svg
+              className="absolute inset-0 -rotate-90"
+              viewBox="0 0 64 64"
+              aria-hidden="true"
+            >
+              <circle
+                cx="32"
+                cy="32"
+                r="29"
+                fill="#0B1030"
+                stroke="rgba(255,255,255,0.14)"
+                strokeWidth="1"
+              />
+              <circle
+                cx="32"
+                cy="32"
+                r="29"
+                fill="none"
+                stroke="#38E8FF"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeDasharray="182.2"
+                strokeDashoffset={182.2 - (scrollProgress / 100) * 182.2}
+                className="transition-[stroke-dashoffset] duration-150"
+              />
+            </svg>
+            <FaArrowUp className="relative text-xl text-white transition-transform duration-300 group-hover:-translate-y-1" />
+          </button>
+        </div>
+      )}
+
       {/* ================= FLOATING WHATSAPP ================= */}
       <div className="fixed bottom-6 right-5 sm:right-6 z-50">
         <div className="relative group flex items-center justify-center">
-          {/* Animated Ring */}
           <div
-            className={`absolute -inset-1 rounded-full bg-linear-to-r from-green-400 via-emerald-500 to-teal-300 blur-sm transition-opacity duration-300 opacity-80 group-hover:opacity-100 ${
-              isScrolling ? "animate-spin" : ""
+            className={`absolute -inset-2 rounded-full bg-emerald-400/40 blur-xl transition-opacity duration-300 group-hover:opacity-100 ${
+              isScrolling ? "opacity-90" : "opacity-60"
             }`}
-            style={{ animationDuration: "3s" }}
           />
 
           {/* WhatsApp Button */}
@@ -113,10 +169,9 @@ const Footer = () => {
             aria-label="Contact me on WhatsApp"
             className="relative flex items-center justify-center 
             w-14 h-14 sm:w-16 sm:h-16 
-            rounded-full bg-white/90 backdrop-blur-md 
-            text-green-500 border border-green-400/30 
-            hover:bg-white transition-all duration-300 
-            shadow-xl hover:scale-110"
+            rounded-full bg-linear-to-br from-[#35EA7A] to-[#00A884] 
+            text-[#06251D] border border-emerald-300/50 
+            transition-all duration-300 shadow-[0_12px_30px_rgba(16,185,129,0.35)] hover:scale-110"
           >
             <FaWhatsapp className="w-7 h-7 sm:w-8 sm:h-8" />
           </a>
@@ -124,8 +179,8 @@ const Footer = () => {
       </div>
 
       {/* ================= FOOTER ================= */}
-      <footer className="bg-white border-t border-gray-100 text-gray-500 pt-14 sm:pt-16 pb-8">
-        <div className="max-w-7xl  px-5 sm:px-8 md:px-12 lg:px-20 xl:px-24">
+      <footer className="bg-[#05070B] border-t border-white/10 text-[#8891A5] pt-14 sm:pt-16 pb-8">
+        <div className="max-w-7xl px-5 sm:px-6 lg:px-8 mx-auto">
 
           {/* ================= MAIN FOOTER GRID ================= */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 mb-14">
@@ -134,7 +189,7 @@ const Footer = () => {
             <div className="sm:col-span-2 lg:col-span-1">
               <div className="mb-5">
                 <img
-                  src="/assets/logo/logo-svg.svg"
+                  src="/assets/logo/logo (2).png"
                   alt="Saif Ullah Bangash Logo"
                   width="180"
                   height="70"
@@ -142,7 +197,7 @@ const Footer = () => {
                 />
               </div>
 
-              <p className="text-gray-500 leading-relaxed text-sm sm:text-base max-w-sm">
+              <p className="text-[#8891A5] leading-relaxed text-sm sm:text-base max-w-sm">
                 Web Developer specializing in Web Development, WordPress,
                 React JS, and SEO. I build fast, responsive, user-friendly
                 websites designed for better performance and online visibility.
@@ -150,100 +205,95 @@ const Footer = () => {
 
               {/* Technologies */}
               <div className="flex flex-wrap gap-2 mt-5">
-                <span className="px-3 py-1 text-xs font-medium rounded-full bg-purple-50 text-purple-600">
+                <span className="px-3 py-1 text-xs font-medium rounded-full bg-white/5 border border-white/10 text-[#C9BBFF]">
                   React JS
                 </span>
 
-                <span className="px-3 py-1 text-xs font-medium rounded-full bg-blue-50 text-blue-600">
+                <span className="px-3 py-1 text-xs font-medium rounded-full bg-white/5 border border-white/10 text-cyan-300">
                   WordPress
                 </span>
 
-                <span className="px-3 py-1 text-xs font-medium rounded-full bg-green-50 text-green-600">
+                <span className="px-3 py-1 text-xs font-medium rounded-full bg-white/5 border border-white/10 text-[#C9BBFF]">
                   SEO
                 </span>
               </div>
             </div>
 
+            {/* ================= QUICK LINKS ================= */}
+            <div className="text-start sm:text-center">
+              <h4 className="text-lg font-bold text-[#E9EBF2] mb-6">
+                Quick Links
+              </h4>
+
+              <ul className="inline-block space-y-4 text-left">
+                {quickLinks.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      to={item.path}
+                      className="relative inline-flex items-center gap-2 text-[#8891A5] hover:text-[#C9BBFF] transition-colors duration-300 text-sm sm:text-base group"
+                    >
+                      <FaArrowRight className="text-xs text-cyan-300 transition-transform duration-300 group-hover:translate-x-1" />
+                      {item.name}
+
+                      <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-linear-to-r from-[#7C5CFC] to-[#22D3EE] group-hover:w-full transition-all duration-300" />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             {/* ================= SERVICES ================= */}
             <div>
-              <h4 className="text-lg font-bold text-gray-800 mb-6">
+              <h4 className="text-lg font-bold text-[#E9EBF2] mb-6">
                 Services
               </h4>
 
-              <ul className="space-y-4">
+              <ul className="inline-block space-y-4 text-center">
                 {services.map((service, index) => (
                   <li key={index}>
-                    <a
-                      href={service.link}
-                      className="group flex items-center gap-3 text-gray-500 hover:text-purple-600 transition-all duration-300"
+                    <Link
+                      to={service.link}
+                      className="group flex items-center gap-3 text-[#8891A5] hover:text-[#C9BBFF] transition-all duration-300"
                     >
-                      <span className="text-purple-500 group-hover:scale-110 transition-transform">
+                      <span className="text-cyan-300 group-hover:scale-110 transition-transform">
                         {service.icon}
                       </span>
 
                       <span className="text-sm sm:text-base">
                         {service.title}
                       </span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* ================= QUICK LINKS ================= */}
-            <div>
-              <h4 className="text-lg font-bold text-gray-800 mb-6">
-                Quick Links
-              </h4>
-
-              <ul className="space-y-4">
-                {[
-                  "Home",
-                  "About",
-                  "Resume",
-                  "Projects",
-                  "Contact",
-                ].map((item) => (
-                  <li key={item}>
-                    <a
-                      href={`#${item.toLowerCase()}`}
-                      className="relative inline-block text-gray-500 hover:text-purple-600 transition-colors duration-300 text-sm sm:text-base group"
-                    >
-                      {item}
-
-                      <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-purple-600 group-hover:w-full transition-all duration-300" />
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
 
             {/* ================= CONTACT ================= */}
-            <div>
-              <h4 className="text-lg font-bold text-gray-800 mb-6">
+            <div className="text-start">
+              <h4 className="text-lg font-bold text-[#E9EBF2] mb-6">
                 Contact Me
               </h4>
 
-              <div className="space-y-4">
+              <div className="inline-block space-y-4 text-left">
 
                 {/* Email */}
                 <a
                   href="mailto:saifbangash480@gmail.com"
-                  className="flex items-start gap-3 text-gray-500 hover:text-purple-600 transition-colors duration-300"
+                  className="flex items-start gap-3 text-[#8891A5] hover:text-[#C9BBFF] transition-colors duration-300"
                 >
-                  <FaEnvelope className="mt-1 text-purple-500 shrink-0" />
+                  <FaEnvelope className="mt-1 text-cyan-300 shrink-0" />
 
                   <span className="text-sm sm:text-base break-all">
-                   saifbangash480@gmail.com
+                    saifbangash480@gmail.com
                   </span>
                 </a>
 
                 {/* Phone */}
                 <a
                   href="tel:+923326767615"
-                  className="flex items-center gap-3 text-gray-500 hover:text-purple-600 transition-colors duration-300"
+                  className="flex items-center gap-3 text-[#8891A5] hover:text-[#C9BBFF] transition-colors duration-300"
                 >
-                  <FaPhoneAlt className="text-purple-500 shrink-0" />
+                  <FaPhoneAlt className="text-cyan-300 shrink-0" />
 
                   <span className="text-sm sm:text-base">
                     +92 332 6767615
@@ -251,8 +301,8 @@ const Footer = () => {
                 </a>
 
                 {/* Location */}
-                <div className="flex items-start gap-3 text-gray-500">
-                  <FaMapMarkerAlt className="mt-1 text-purple-500 shrink-0" />
+                <div className="flex items-start gap-3 text-[#8891A5]">
+                  <FaMapMarkerAlt className="mt-1 text-cyan-300 shrink-0" />
 
                   <span className="text-sm sm:text-base">
                     Pakistan
@@ -262,11 +312,11 @@ const Footer = () => {
 
               {/* Social Media */}
               <div className="mt-7">
-                <h5 className="text-sm font-semibold text-gray-700 mb-4">
+                <h5 className="text-sm font-semibold text-[#E9EBF2] mb-4">
                   Follow Me
                 </h5>
 
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap justify-center gap-3">
                   {socialLinks.map((social, index) => (
                     <a
                       key={index}
@@ -275,14 +325,10 @@ const Footer = () => {
                       rel="noopener noreferrer"
                       aria-label={social.label}
                       title={social.label}
-                      className={`w-10 h-10 sm:w-11 sm:h-11 rounded-xl 
+                      className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl 
                       flex items-center justify-center 
                       transition-all duration-300 shadow-sm border 
-                      hover:-translate-y-1 ${
-                        social.isWhatsapp
-                          ? "bg-green-50 border-green-200 text-green-600 hover:bg-green-500 hover:text-white hover:border-green-500"
-                          : "bg-gray-50 border-gray-100 text-gray-600 hover:bg-purple-600 hover:text-white hover:border-purple-600"
-                      }`}
+                      hover:-translate-y-1 bg-white/5 border-white/10 text-[#E9EBF2] hover:bg-[#7C5CFC] hover:text-white hover:border-[#7C5CFC]"
                     >
                       {social.icon}
                     </a>
@@ -293,49 +339,28 @@ const Footer = () => {
           </div>
 
           {/* ================= DIVIDER ================= */}
-          <hr className="border-gray-100" />
+          <hr className="border-white/10" />
 
           {/* ================= BOTTOM BAR ================= */}
-          <div className="mt-8 flex flex-col md:flex-row justify-between items-center gap-5 text-center md:text-left">
+          <div className="mt-8 flex flex-col items-center gap-5 text-center">
 
             {/* Copyright */}
-            <p className="text-gray-400 text-sm">
+            <p className="text-[#8891A5] text-sm">
               © 2026{" "}
-              <span className="text-gray-700 font-semibold">
+              <span className="text-[#E9EBF2] font-semibold">
                 Saif Ullah Bangash
               </span>
               . All rights reserved.
             </p>
 
             {/* Skills */}
-            <p className="text-gray-400 text-xs sm:text-sm">
-              Web Development
-              <span className="mx-2 text-purple-400">•</span>
-              WordPress
-              <span className="mx-2 text-purple-400">•</span>
-              SEO
-            </p>
-
-            {/* Back To Top */}
-            <button
-              onClick={scrollToTop}
-              aria-label="Back to top"
-              className="group flex items-center gap-2 
-              text-gray-400 hover:text-purple-600 
-              transition-colors text-xs sm:text-sm 
-              font-bold uppercase tracking-widest"
-            >
-              Back to Top
-
-              <div
-                className="w-10 h-10 rounded-full border border-gray-200 
-                flex items-center justify-center 
-                group-hover:border-purple-600 
-                group-hover:bg-purple-50 transition-all"
-              >
-                <FaArrowUp className="group-hover:-translate-y-1 transition-transform" />
-              </div>
-            </button>
+            <div className="flex flex-wrap items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-xs text-[#C9BBFF] shadow-lg shadow-black/10 sm:px-5 sm:text-sm">
+              <span>Web Development</span>
+              <span className="h-1.5 w-1.5 rounded-full bg-cyan-300" />
+              <span>WordPress</span>
+              <span className="h-1.5 w-1.5 rounded-full bg-cyan-300" />
+              <span>SEO</span>
+            </div>
           </div>
         </div>
       </footer>

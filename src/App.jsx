@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./App.css";
 import About from "./component/About";
 import Hero from "./component/Hero";
@@ -7,17 +8,33 @@ import Skills from "./component/Skills";
 import Project from "./component/Project";
 import ContactSection from "./component/ContactSection";
 import Footer from "./component/Footer";
+import { Route, Routes, useLocation } from "react-router-dom";
+import CustomWebDevelopment from "./services/Web_Development/Customwebdevelopment";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
   return (
     <>
+      <ScrollToTop />
       <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <ResumeSection />
-      <Project />
-      <ContactSection />
+      <Routes>
+        <Route path="/" element={<Hero />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/skills" element={<Skills />} />
+        <Route path="/resume" element={<ResumeSection />} />
+        <Route path="/projects" element={<Project />} />
+        <Route path="/contact" element={<ContactSection />} />
+        <Route path="/custom-web-development" element={<CustomWebDevelopment />} />
+      </Routes>
       <Footer />
     </>
   );
