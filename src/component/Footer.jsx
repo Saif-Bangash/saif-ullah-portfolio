@@ -57,13 +57,13 @@ const Footer = () => {
   const services = [
     {
       icon: <FaCode />,
-      title: "Web Development",
+      title: "Custom Web Development",
       link: "/custom-web-development",
     },
     {
       icon: <FaReact />,
       title: "React JS Development",
-      link: "/projects",
+      link: "/react-development",
     },
     {
       icon: <FaWordpress />,
@@ -114,7 +114,7 @@ const Footer = () => {
     <>
       {/* ================= FLOATING BACK TO TOP ================= */}
       {scrollProgress > 2 && (
-        <div className="fixed bottom-[6.5rem] right-5 sm:right-6 z-50">
+        <div className="fixed bottom-26 right-5 sm:right-6 z-50">
           <button
             onClick={scrollToTop}
             aria-label="Back to top"

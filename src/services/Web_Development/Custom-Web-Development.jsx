@@ -1,13 +1,46 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useRef, useState, useCallback } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { FaWhatsapp } from "react-icons/fa";
 import {
-  Code2, LayoutDashboard, ShoppingCart, Plug, RefreshCcw, Building2,
-  CheckCircle2, XCircle, Smartphone, Tablet, Monitor, Database, Lock,
-  Github, ExternalLink, ChevronDown, HelpCircle, ArrowRight, Rocket, Users, Boxes,
-  Compass, PenTool, Hammer, TestTube2, GitBranch, Layers, ShieldCheck,
-  Search, CircleGauge, Briefcase, ClipboardList, Landmark, CalendarCheck,
-  MonitorSmartphone, Workflow, Sparkles
+  Code2,
+  LayoutDashboard,
+  ShoppingCart,
+  Plug,
+  RefreshCcw,
+  Building2,
+  CheckCircle2,
+  XCircle,
+  Smartphone,
+  Tablet,
+  Monitor,
+  Database,
+  Lock,
+  Github,
+  ExternalLink,
+  ChevronDown,
+  HelpCircle,
+  ArrowRight,
+  Rocket,
+  Users,
+  Boxes,
+  Compass,
+  PenTool,
+  Hammer,
+  TestTube2,
+  GitBranch,
+  Layers,
+  ShieldCheck,
+  Search,
+  CircleGauge,
+  Briefcase,
+  ClipboardList,
+  Landmark,
+  CalendarCheck,
+  MonitorSmartphone,
+  Workflow,
+  Sparkles,
 } from "lucide-react";
 
 /* =========================================================
@@ -51,7 +84,7 @@ const GlobalStyle = () => (
     .cwd-editor-body{ padding:1.15rem 1.3rem; font-family:"JetBrains Mono",monospace; font-size:.8rem; line-height:1.85; min-height:210px; }
     .cwd-ln{ color:#3A4A63; display:inline-block; width:1.5rem; user-select:none; }
     .tok-kw{ color:#C4B5FD; } .tok-fn{ color:#22D3EE; } .tok-str{ color:#86EFAC; }
-    .tok-tag{ color:#7DD3FC; } .tok-attr{ color:#FDE68A; } .tok-punc{ color:#94A3B8; } .tok-com{ color:#475569; }
+    .tok-tag{ color:#7DD3FC; } .tok-attr{ color:#FDE68A; } .tok-pune{ color:#94A3B8; } .tok-com{ color:#475569; }
     .cwd-caret{ display:inline-block; width:6px; height:1em; background:var(--accent); vertical-align:text-bottom; margin-left:2px; animation:cwdBlink 1s step-end infinite; }
     @keyframes cwdBlink{ 50%{ opacity:0; } }
 
@@ -80,6 +113,13 @@ const GlobalStyle = () => (
     .cwd-acc-body > div{ overflow:hidden; }
     .cwd-plus{ transition:transform .3s ease; }
     .cwd-plus.open{ transform:rotate(45deg); }
+
+    .rjs-btn-primary{ background:linear-gradient(135deg, var(--primary), var(--secondary)); color:#fff; border-radius:12px; padding:.8rem 1.6rem; font-weight:600; display:inline-flex; align-items:center; gap:.5rem; box-shadow:0 12px 28px -10px rgba(124,58,237,.55); transition:transform .2s ease, box-shadow .2s ease; border:none; cursor:pointer; }
+    .rjs-btn-primary:hover{ transform:translateY(-2px); box-shadow:0 16px 32px -10px rgba(124,58,237,.65); }
+ 
+    .rjs-btn-ghost{ border:1px solid var(--accent); border-radius:12px; padding:.8rem 1.6rem; font-weight:600; display:inline-flex; align-items:center; gap:.5rem; transition:all .2s ease; background:transparent; cursor:pointer; }
+    .rjs-btn-ghost:hover{ border-color:var(--accent); color:var(--accent); }
+
   `}</style>
 );
 
@@ -101,7 +141,7 @@ function useInView(threshold = 0.15) {
           }
         });
       },
-      { threshold, rootMargin: "0px 0px -40px 0px" }
+      { threshold, rootMargin: "0px 0px -40px 0px" },
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -135,16 +175,30 @@ function Eyebrow({ children, dark = false }) {
    SIGNATURE HERO VISUAL — typed JSX snippet in an editor window
    ========================================================= */
 const HERO_LINES = [
-  { html: '<span class="tok-kw">function</span> <span class="tok-fn">CustomBuild</span><span class="tok-punc">(</span>requirements<span class="tok-punc">) {</span>' },
-  { html: '&nbsp;&nbsp;<span class="tok-kw">const</span> solution <span class="tok-punc">=</span> <span class="tok-fn">design</span><span class="tok-punc">(</span>requirements<span class="tok-punc">);</span>' },
-  { html: '&nbsp;&nbsp;<span class="tok-kw">return</span> <span class="tok-punc">(</span>' },
-  { html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="tok-punc">&lt;</span><span class="tok-tag">Website</span>' },
-  { html: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tok-attr">builtFor</span><span class="tok-punc">=</span><span class="tok-str">"your-business"</span>' },
-  { html: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tok-attr">scalable</span><span class="tok-punc">={</span><span class="tok-kw">true</span><span class="tok-punc">}</span>' },
-  { html: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tok-attr">template</span><span class="tok-punc">={</span><span class="tok-kw">false</span><span class="tok-punc">}</span>' },
-  { html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="tok-punc">/&gt;</span>' },
-  { html: '&nbsp;&nbsp;<span class="tok-punc">);</span>' },
-  { html: '<span class="tok-punc">}</span>' },
+  {
+    html: '<span class="tok-kw">function</span> <span class="tok-fn">CustomBuild</span><span class="tok-pune">(</span>requirements<span class="tok-pune">) {</span>',
+  },
+  {
+    html: '&nbsp;&nbsp;<span class="tok-kw">const</span> solution <span class="tok-pune">=</span> <span class="tok-fn">design</span><span class="tok-pune">(</span>requirements<span class="tok-pune">);</span>',
+  },
+  {
+    html: '&nbsp;&nbsp;<span class="tok-kw">return</span> <span class="tok-pune">(</span>',
+  },
+  {
+    html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="tok-pune">&lt;</span><span class="tok-tag">Website</span>',
+  },
+  {
+    html: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tok-attr">builtFor</span><span class="tok-pune">=</span><span class="tok-str">"your-business"</span>',
+  },
+  {
+    html: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tok-attr">scalable</span><span class="tok-pune">={</span><span class="tok-kw">true</span><span class="tok-pune">}</span>',
+  },
+  {
+    html: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tok-attr">template</span><span class="tok-pune">={</span><span class="tok-kw">false</span><span class="tok-pune">}</span>',
+  },
+  { html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="tok-pune">/&gt;</span>' },
+  { html: '&nbsp;&nbsp;<span class="tok-pune">);</span>' },
+  { html: '<span class="tok-pune">}</span>' },
 ];
 
 function HeroEditor() {
@@ -202,42 +256,69 @@ function HeroEditor() {
    1. CUSTOM HERO
    ========================================================= */
 function CustomHero() {
-  const badges = ["React.js", "JavaScript", "HTML5", "CSS3", "Tailwind CSS", "Bootstrap", "REST API"];
+  const badges = [
+    "React.js",
+    "JavaScript",
+    "HTML5",
+    "CSS3",
+    "Tailwind CSS",
+    "Bootstrap",
+    "REST API",
+  ];
   return (
-    <section className="relative bg-(--dark) text-white overflow-hidden pt-28 pb-20 md:pt-36 md:pb-28" style={{ background: "var(--dark)" }}>
+    <section
+      className="relative bg-(--dark) text-white overflow-hidden pt-28 pb-20 md:pt-36 md:pb-28"
+      style={{ background: "var(--dark)" }}
+    >
       <div className="absolute inset-0 cwd-grid-noise opacity-30" />
-      <div className="absolute -top-40 -left-40 w-[30rem] h-[30rem] rounded-full blur-[140px]" style={{ background: "rgba(124,58,237,.25)" }} />
-      <div className="absolute top-16 -right-32 w-[26rem] h-[26rem] rounded-full blur-[140px]" style={{ background: "rgba(34,211,238,.15)" }} />
+      <div
+        className="absolute -top-40 -left-40 w-120 h-120 rounded-full blur-[140px]"
+        style={{ background: "rgba(124,58,237,.25)" }}
+      />
+      <div
+        className="absolute top-16 -right-32 w-120 h-120 rounded-full blur-[140px]"
+        style={{ background: "rgba(34,211,238,.15)" }}
+      />
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-10 grid lg:grid-cols-2 gap-14 items-center">
         <div>
-          <p className="font-mono text-xs text-slate-500 mb-3">web development / custom web development</p>
+          <p className="font-mono text-xs text-slate-500 mb-3">
+            web development / custom web development
+          </p>
           <Eyebrow dark>custom web development</Eyebrow>
           <h1 className="font-display text-[2.1rem] leading-[1.12] sm:text-4xl md:text-[2.9rem] font-semibold mt-6 tracking-tight">
-            Custom Web Development Built <span className="cwd-grad-text">Around Your Business</span>
+            Custom Web Development Built{" "}
+            <span className="cwd-grad-text">Around Your Business</span>
           </h1>
           <p className="text-slate-400 font-mono text-sm mt-4">
-            Custom websites &amp; web applications designed to fit your exact requirements.
+            Custom websites &amp; web applications designed to fit your exact
+            requirements.
           </p>
           <p className="mt-5 text-slate-300 text-lg leading-relaxed max-w-xl">
-            I build custom websites and web applications tailored to your business goals, workflow and users — from responsive business websites to dynamic, API-powered web applications.
+            I build custom websites and web applications tailored to your
+            business goals, workflow and users — from responsive business
+            websites to dynamic, API-powered web applications.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <a href="#cwd-cta" className="cwd-btn-primary">
-              Start Your Project <ArrowRight size={16} />
+             <Link to={"/contact"} className="rjs-btn-primary">Start a Project <ArrowRight size={16} /> </Link>
+            <a href="#cwd-projects" className="cwd-btn-ghost text-white">
+              View My Projects
             </a>
-            <a href="#cwd-projects" className="cwd-btn-ghost text-white">View My Projects</a>
           </div>
           <div className="mt-9 flex flex-wrap gap-2.5">
             {badges.map((b) => (
-              <span key={b} className="cwd-chip-dark">{b}</span>
+              <span key={b} className="cwd-chip-dark">
+                {b}
+              </span>
             ))}
           </div>
         </div>
 
         <Reveal>
           <HeroEditor />
-          <p className="text-center font-mono text-xs text-slate-500 mt-4">$ requirements → design → build → your website</p>
+          <p className="text-center font-mono text-xs text-slate-500 mt-4">
+            $ requirements → design → build → your website
+          </p>
         </Reveal>
       </div>
     </section>
@@ -249,8 +330,14 @@ function CustomHero() {
    ========================================================= */
 function WhatIsCustom() {
   const provides = [
-    "Custom functionality", "Custom UI/UX", "Business-specific workflows", "API integrations",
-    "Custom dashboards", "Dynamic content", "Scalable architecture", "Performance optimization",
+    "Custom functionality",
+    "Custom UI/UX",
+    "Business-specific workflows",
+    "API integrations",
+    "Custom dashboards",
+    "Dynamic content",
+    "Scalable architecture",
+    "Performance optimization",
     "SEO-friendly structure",
   ];
   return (
@@ -261,8 +348,10 @@ function WhatIsCustom() {
           <h2 className="font-display text-3xl md:text-4xl font-semibold mt-5 tracking-tight">
             Your business is unique. Your website should be too.
           </h2>
-          <p className="text-[var(--muted)] mt-4 text-lg leading-relaxed">
-            Custom web development means building a website or web application specifically around your business requirements instead of relying on a one-size-fits-all template.
+          <p className="text-(--muted) mt-4 text-lg leading-relaxed">
+            Custom web development means building a website or web application
+            specifically around your business requirements instead of relying on
+            a one-size-fits-all template.
           </p>
         </Reveal>
         <Reveal>
@@ -285,22 +374,63 @@ function WhatIsCustom() {
    ========================================================= */
 function CustomServices() {
   const services = [
-    { icon: Building2, title: "Custom Business Websites", desc: "Professional websites designed around your brand, services and business goals." },
-    { icon: Code2, title: "Custom Web Applications", desc: "Interactive web applications with dynamic functionality and user-focused workflows." },
-    { icon: LayoutDashboard, title: "Custom Admin Dashboards", desc: "Responsive dashboards for managing users, products, orders, content and business data." },
-    { icon: ShoppingCart, title: "Custom E-commerce Websites", desc: "E-commerce platforms with product management, cart functionality, filtering, search and API integration." },
-    { icon: Plug, title: "API-Powered Applications", desc: "Web applications connected with REST APIs and external services." },
-    { icon: Rocket, title: "Custom Landing Pages", desc: "High-converting landing pages designed specifically for campaigns, products and services." },
-    { icon: RefreshCcw, title: "Website Redesign & Customization", desc: "Transform an existing website into a modern, responsive and performance-focused experience." },
-    { icon: Briefcase, title: "Business Management Systems", desc: "Custom web-based systems designed to simplify business processes and workflows." },
+    {
+      icon: Building2,
+      title: "Custom Business Websites",
+      desc: "Professional websites designed around your brand, services and business goals.",
+    },
+    {
+      icon: Code2,
+      title: "Custom Web Applications",
+      desc: "Interactive web applications with dynamic functionality and user-focused workflows.",
+    },
+    {
+      icon: LayoutDashboard,
+      title: "Custom Admin Dashboards",
+      desc: "Responsive dashboards for managing users, products, orders, content and business data.",
+    },
+    {
+      icon: ShoppingCart,
+      title: "Custom E-commerce Websites",
+      desc: "E-commerce platforms with product management, cart functionality, filtering, search and API integration.",
+    },
+    {
+      icon: Plug,
+      title: "API-Powered Applications",
+      desc: "Web applications connected with REST APIs and external services.",
+    },
+    {
+      icon: Rocket,
+      title: "Custom Landing Pages",
+      desc: "High-converting landing pages designed specifically for campaigns, products and services.",
+    },
+    {
+      icon: RefreshCcw,
+      title: "Website Redesign & Customization",
+      desc: "Transform an existing website into a modern, responsive and performance-focused experience.",
+    },
+    {
+      icon: Briefcase,
+      title: "Business Management Systems",
+      desc: "Custom web-based systems designed to simplify business processes and workflows.",
+    },
   ];
   return (
-    <section id="cwd-services" className="py-24 md:py-32 bg-[var(--light)]" style={{ background: "var(--light)" }}>
+    <section
+      id="cwd-services"
+      className="py-24 md:py-32 bg-(--light)"
+      style={{ background: "var(--light)" }}
+    >
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <Reveal className="max-w-2xl">
           <Eyebrow>// what i can build</Eyebrow>
-          <h2 className="font-display text-3xl md:text-4xl font-semibold mt-5 tracking-tight">What I Can Build</h2>
-          <p className="text-[var(--muted)] mt-4 text-lg">Real solutions shaped around what your business actually needs — not a bundled template.</p>
+          <h2 className="font-display text-3xl md:text-4xl font-semibold mt-5 tracking-tight">
+            What I Can Build
+          </h2>
+          <p className="text-(--muted) mt-4 text-lg">
+            Real solutions shaped around what your business actually needs — not
+            a bundled template.
+          </p>
         </Reveal>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-14">
           {services.map((s) => (
@@ -309,8 +439,12 @@ function CustomServices() {
                 <div className="w-11 h-11 rounded-xl cwd-grad-primary flex items-center justify-center text-white">
                   <s.icon size={20} />
                 </div>
-                <h3 className="font-display font-semibold text-lg mt-5">{s.title}</h3>
-                <p className="text-[var(--muted)] text-sm mt-2 leading-relaxed">{s.desc}</p>
+                <h3 className="font-display font-semibold text-lg mt-5">
+                  {s.title}
+                </h3>
+                <p className="text-(--muted) text-sm mt-2 leading-relaxed">
+                  {s.desc}
+                </p>
               </div>
             </Reveal>
           ))}
@@ -325,24 +459,46 @@ function CustomServices() {
    ========================================================= */
 function CustomFeatures() {
   const features = [
-    "Custom UI/UX", "Responsive Design", "Mobile-First Development", "Reusable Components",
-    "Dynamic Content", "REST API Integration", "Authentication", "Protected Routes",
-    "CRUD Functionality", "Search & Filtering", "Pagination", "Form Validation",
-    "File Uploads", "Admin Dashboards", "Database Integration", "Performance Optimization",
+    "Custom UI/UX",
+    "Responsive Design",
+    "Mobile-First Development",
+    "Reusable Components",
+    "Dynamic Content",
+    "REST API Integration",
+    "Authentication",
+    "Protected Routes",
+    "CRUD Functionality",
+    "Search & Filtering",
+    "Pagination",
+    "Form Validation",
+    "File Uploads",
+    "Admin Dashboards",
+    "Database Integration",
+    "Performance Optimization",
     "SEO-Friendly Structure",
   ];
   return (
-    <section className="py-24 md:py-32 bg-[var(--dark)] text-white relative overflow-hidden" style={{ background: "var(--dark)" }}>
+    <section
+      className="py-24 md:py-32 bg-(--dark) text-white relative overflow-hidden"
+      style={{ background: "var(--dark)" }}
+    >
       <div className="absolute inset-0 cwd-grid-noise opacity-20" />
       <div className="relative max-w-7xl mx-auto px-6 md:px-10">
         <Reveal className="max-w-2xl">
           <Eyebrow dark>// development features</Eyebrow>
-          <h2 className="font-display text-3xl md:text-4xl font-semibold mt-5 tracking-tight">Custom Development Features</h2>
-          <p className="text-slate-300 mt-4 text-lg">The building blocks behind every custom project, combined based on what your project needs.</p>
+          <h2 className="font-display text-3xl md:text-4xl font-semibold mt-5 tracking-tight">
+            Custom Development Features
+          </h2>
+          <p className="text-slate-300 mt-4 text-lg">
+            The building blocks behind every custom project, combined based on
+            what your project needs.
+          </p>
         </Reveal>
         <div className="flex flex-wrap gap-2.5 mt-12">
           {features.map((f) => (
-            <span key={f} className="cwd-chip-dark">{f}</span>
+            <span key={f} className="cwd-chip-dark">
+              {f}
+            </span>
           ))}
         </div>
       </div>
@@ -355,7 +511,20 @@ function CustomFeatures() {
    ========================================================= */
 function TechStack() {
   const groups = [
-    { label: "Frontend", items: ["React.js", "JavaScript ES6+", "HTML5", "CSS3", "Tailwind CSS", "Bootstrap 5", "React Router", "Redux Toolkit", "Context API"] },
+    {
+      label: "Frontend",
+      items: [
+        "React.js",
+        "JavaScript ES6+",
+        "HTML5",
+        "CSS3",
+        "Tailwind CSS",
+        "Bootstrap 5",
+        "React Router",
+        "Redux Toolkit",
+        "Context API",
+      ],
+    },
     { label: "Backend", items: ["Node.js", "Express.js", "PHP"] },
     { label: "Database", items: ["MySQL", "MongoDB"] },
     { label: "APIs", items: ["REST API", "Fetch API", "Axios", "JSON"] },
@@ -366,17 +535,25 @@ function TechStack() {
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <Reveal className="max-w-2xl">
           <Eyebrow>$ stack --list</Eyebrow>
-          <h2 className="font-display text-3xl md:text-4xl font-semibold mt-5 tracking-tight">Technology Stack</h2>
-          <p className="text-[var(--muted)] mt-4 text-lg">Only the tools I actually build with, day to day.</p>
+          <h2 className="font-display text-3xl md:text-4xl font-semibold mt-5 tracking-tight">
+            Technology Stack
+          </h2>
+          <p className="text-(--muted) mt-4 text-lg">
+            Only the tools I actually build with, day to day.
+          </p>
         </Reveal>
         <div className="grid md:grid-cols-2 gap-8 mt-12">
           {groups.map((g) => (
             <Reveal key={g.label}>
               <div className="cwd-card p-6">
-                <p className="font-mono text-xs text-[var(--primary)] mb-4">{g.label}</p>
+                <p className="font-mono text-xs text-(--primary) mb-4">
+                  {g.label}
+                </p>
                 <div className="flex flex-wrap gap-2.5">
                   {g.items.map((i) => (
-                    <span key={i} className="cwd-chip">{i}</span>
+                    <span key={i} className="cwd-chip">
+                      {i}
+                    </span>
                   ))}
                 </div>
               </div>
@@ -393,32 +570,88 @@ function TechStack() {
    ========================================================= */
 function DevelopmentProcess() {
   const steps = [
-    { n: "01", title: "Discover", icon: Compass, desc: "Understand the business, goals, target users and requirements." },
-    { n: "02", title: "Plan", icon: ClipboardList, desc: "Define features, technology stack, structure and development approach." },
-    { n: "03", title: "Design", icon: PenTool, desc: "Create a clean and responsive UI/UX based on the project requirements." },
-    { n: "04", title: "Develop", icon: Hammer, desc: "Build reusable components and custom functionality." },
-    { n: "05", title: "Integrate", icon: Plug, desc: "Connect APIs, databases and required third-party services." },
-    { n: "06", title: "Test", icon: TestTube2, desc: "Test responsiveness, functionality, performance and browser compatibility." },
-    { n: "07", title: "Launch", icon: Rocket, desc: "Deploy the website and provide post-launch improvements and support." },
+    {
+      n: "01",
+      title: "Discover",
+      icon: Compass,
+      desc: "Understand the business, goals, target users and requirements.",
+    },
+    {
+      n: "02",
+      title: "Plan",
+      icon: ClipboardList,
+      desc: "Define features, technology stack, structure and development approach.",
+    },
+    {
+      n: "03",
+      title: "Design",
+      icon: PenTool,
+      desc: "Create a clean and responsive UI/UX based on the project requirements.",
+    },
+    {
+      n: "04",
+      title: "Develop",
+      icon: Hammer,
+      desc: "Build reusable components and custom functionality.",
+    },
+    {
+      n: "05",
+      title: "Integrate",
+      icon: Plug,
+      desc: "Connect APIs, databases and required third-party services.",
+    },
+    {
+      n: "06",
+      title: "Test",
+      icon: TestTube2,
+      desc: "Test responsiveness, functionality, performance and browser compatibility.",
+    },
+    {
+      n: "07",
+      title: "Launch",
+      icon: Rocket,
+      desc: "Deploy the website and provide post-launch improvements and support.",
+    },
   ];
   return (
-    <section id="cwd-process" className="py-24 md:py-32 bg-[var(--light)]" style={{ background: "var(--light)" }}>
+    <section
+      id="cwd-process"
+      className="py-24 md:py-32 bg-(--light)"
+      style={{ background: "var(--light)" }}
+    >
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <Reveal className="max-w-2xl">
           <Eyebrow>// custom development process</Eyebrow>
-          <h2 className="font-display text-3xl md:text-4xl font-semibold mt-5 tracking-tight">Custom Development Process</h2>
-          <p className="text-[var(--muted)] mt-4 text-lg">A fixed sequence, run the same way on every custom project.</p>
+          <h2 className="font-display text-3xl md:text-4xl font-semibold mt-5 tracking-tight">
+            Custom Development Process
+          </h2>
+          <p className="text-(--muted) mt-4 text-lg">
+            A fixed sequence, run the same way on every custom project.
+          </p>
         </Reveal>
         <div className="mt-14">
           {steps.map((s, idx) => (
             <Reveal key={s.n}>
-              <div className={`flex gap-6 md:gap-10 py-7 border-t border-slate-200 ${idx === steps.length - 1 ? "border-b" : ""}`}>
-                <span className="font-display text-2xl font-semibold w-14 shrink-0" style={{ color: "var(--primary)" }}>{s.n}</span>
+              <div
+                className={`flex gap-6 md:gap-10 py-7 border-t border-slate-200 ${idx === steps.length - 1 ? "border-b" : ""}`}
+              >
+                <span
+                  className="font-display text-2xl font-semibold w-14 shrink-0"
+                  style={{ color: "var(--primary)" }}
+                >
+                  {s.n}
+                </span>
                 <div className="flex gap-4 items-start">
-                  <s.icon size={20} className="mt-1 shrink-0" color="var(--secondary)" />
+                  <s.icon
+                    size={20}
+                    className="mt-1 shrink-0"
+                    color="var(--secondary)"
+                  />
                   <div>
-                    <h3 className="font-display font-semibold text-lg">{s.title}</h3>
-                    <p className="text-[var(--muted)] text-sm mt-1 max-w-xl">{s.desc}</p>
+                    <h3 className="font-display font-semibold text-lg">
+                      {s.title}
+                    </h3>
+                    <p className="text-(--muted)-sm mt-1 max-w-xl">{s.desc}</p>
                   </div>
                 </div>
               </div>
@@ -434,10 +667,26 @@ function DevelopmentProcess() {
    7. WHY CUSTOM DEVELOPMENT (comparison)
    ========================================================= */
 function CustomComparison() {
-  const template = ["Limited customization", "Generic functionality", "Less flexibility", "Difficult to scale", "Unnecessary features"];
-  const custom = ["Built around your requirements", "Complete design flexibility", "Custom functionality", "Scalable architecture", "Better performance", "Easier future expansion"];
+  const template = [
+    "Limited customization",
+    "Generic functionality",
+    "Less flexibility",
+    "Difficult to scale",
+    "Unnecessary features",
+  ];
+  const custom = [
+    "Built around your requirements",
+    "Complete design flexibility",
+    "Custom functionality",
+    "Scalable architecture",
+    "Better performance",
+    "Easier future expansion",
+  ];
   return (
-    <section className="py-24 md:py-32 bg-[var(--dark)] text-white relative overflow-hidden" style={{ background: "var(--dark)" }}>
+    <section
+      className="py-24 md:py-32 bg-(--dark) text-white relative overflow-hidden"
+      style={{ background: "var(--dark)" }}
+    >
       <div className="absolute inset-0 cwd-grid-noise opacity-20" />
       <div className="relative max-w-6xl mx-auto px-6 md:px-10">
         <Reveal className="text-center max-w-2xl mx-auto">
@@ -450,23 +699,42 @@ function CustomComparison() {
         <div className="grid md:grid-cols-2 gap-6 mt-14">
           <Reveal>
             <div className="cwd-card-dark p-8 h-full">
-              <p className="font-mono text-xs text-slate-500 mb-5">TEMPLATE WEBSITE</p>
+              <p className="font-mono text-xs text-slate-500 mb-5">
+                TEMPLATE WEBSITE
+              </p>
               <ul className="space-y-4">
                 {template.map((t) => (
-                  <li key={t} className="flex items-center gap-3 text-slate-400 text-sm">
-                    <XCircle size={17} className="shrink-0" color="#F87171" /> {t}
+                  <li
+                    key={t}
+                    className="flex items-center gap-3 text-slate-400 text-sm"
+                  >
+                    <XCircle size={17} className="shrink-0" color="#F87171" />{" "}
+                    {t}
                   </li>
                 ))}
               </ul>
             </div>
           </Reveal>
           <Reveal>
-            <div className="cwd-card-dark p-8 h-full" style={{ borderColor: "rgba(34,211,238,.35)" }}>
-              <p className="font-mono text-xs text-[var(--accent)] mb-5">CUSTOM DEVELOPMENT</p>
+            <div
+              className="cwd-card-dark p-8 h-full"
+              style={{ borderColor: "rgba(34,211,238,.35)" }}
+            >
+              <p className="font-mono text-xs text-(--accent) mb-5">
+                CUSTOM DEVELOPMENT
+              </p>
               <ul className="space-y-4">
                 {custom.map((c) => (
-                  <li key={c} className="flex items-center gap-3 text-slate-200 text-sm">
-                    <CheckCircle2 size={17} className="shrink-0" color="var(--accent)" /> {c}
+                  <li
+                    key={c}
+                    className="flex items-center gap-3 text-slate-200 text-sm"
+                  >
+                    <CheckCircle2
+                      size={17}
+                      className="shrink-0"
+                      color="var(--accent)"
+                    />{" "}
+                    {c}
                   </li>
                 ))}
               </ul>
@@ -480,12 +748,23 @@ function CustomComparison() {
 
 /* =========================================================
    8. PERFORMANCE & SEO
-   ========================================================= */ 
+   ========================================================= */
 function PerformanceSection() {
   const items = [
-    "Semantic HTML", "SEO-friendly structure", "Clean URLs", "Meta titles", "Meta descriptions",
-    "Image optimization", "Lazy loading", "Responsive images", "Core Web Vitals",
-    "LCP optimization", "CLS optimization", "INP optimization", "Mobile optimization", "Fast loading performance",
+    "Semantic HTML",
+    "SEO-friendly structure",
+    "Clean URLs",
+    "Meta titles",
+    "Meta descriptions",
+    "Image optimization",
+    "Lazy loading",
+    "Responsive images",
+    "Core Web Vitals",
+    "LCP optimization",
+    "CLS optimization",
+    "INP optimization",
+    "Mobile optimization",
+    "Fast loading performance",
   ];
   return (
     <section className="py-24 md:py-32 bg-white border-y border-slate-100">
@@ -495,15 +774,20 @@ function PerformanceSection() {
           <h2 className="font-display text-3xl md:text-4xl font-semibold mt-5 tracking-tight">
             Custom Development With Performance &amp; SEO in Mind
           </h2>
-          <p className="text-[var(--muted)] mt-4 text-lg leading-relaxed">
-            I don't just build websites. I build websites that are structured for performance, usability and search visibility.
+          <p className="text-(--muted) mt-4 text-lg leading-relaxed">
+            I don't just build websites. I build websites that are structured
+            for performance, usability and search visibility.
           </p>
         </Reveal>
         <div className="flex flex-wrap gap-2.5 mt-10">
           {items.map((i) => (
-            <Reveal key={i} className="inline-block"> 
-              <span className="cwd-chip flex flex-col items-start gap-2"> 
-                <CircleGauge size={14} color="var(--secondary)" className="mb-1" />
+            <Reveal key={i} className="inline-block">
+              <span className="cwd-chip flex flex-col items-start gap-2">
+                <CircleGauge
+                  size={14}
+                  color="var(--secondary)"
+                  className="mb-1"
+                />
                 <span>{i}</span>
               </span>
             </Reveal>
@@ -525,14 +809,21 @@ function ResponsiveSection() {
     { icon: Monitor, label: "Desktop", w: "w-44", h: "h-28" },
   ];
   return (
-    <section className="py-24 md:py-32 bg-[var(--dark)] text-white relative overflow-hidden" style={{ background: "var(--dark)" }}>
+    <section
+      className="py-24 md:py-32 bg-(--dark) text-white relative overflow-hidden"
+      style={{ background: "var(--dark)" }}
+    >
       <div className="absolute inset-0 cwd-grid-noise opacity-20" />
       <div className="relative max-w-5xl mx-auto px-6 md:px-10 text-center">
         <Reveal>
           <Eyebrow dark>// responsive development</Eyebrow>
-          <h2 className="font-display text-3xl md:text-4xl font-semibold mt-5 tracking-tight">Perfectly Responsive on Every Screen</h2>
+          <h2 className="font-display text-3xl md:text-4xl font-semibold mt-5 tracking-tight">
+            Perfectly Responsive on Every Screen
+          </h2>
           <p className="text-slate-300 mt-4 text-lg max-w-xl mx-auto">
-            Every custom website is developed with a mobile-first approach and tested across different screen sizes to provide a consistent experience.
+            Every custom website is developed with a mobile-first approach and
+            tested across different screen sizes to provide a consistent
+            experience.
           </p>
         </Reveal>
         <Reveal>
@@ -541,11 +832,25 @@ function ResponsiveSection() {
               <div key={d.label} className="flex flex-col items-center gap-3">
                 <div
                   className={`${d.w} ${d.h} rounded-xl border-2 flex items-center justify-center`}
-                  style={{ borderColor: idx === devices.length - 1 ? "var(--accent)" : "#475569" }}
+                  style={{
+                    borderColor:
+                      idx === devices.length - 1 ? "var(--accent)" : "#475569",
+                  }}
                 >
-                  <d.icon size={18} color={idx === devices.length - 1 ? "var(--accent)" : "#64748B"} />
+                  <d.icon
+                    size={18}
+                    color={
+                      idx === devices.length - 1 ? "var(--accent)" : "#64748B"
+                    }
+                  />
                 </div>
-                <span className="font-mono text-xs" style={{ color: idx === devices.length - 1 ? "var(--accent)" : "#94A3B8" }}>
+                <span
+                  className="font-mono text-xs"
+                  style={{
+                    color:
+                      idx === devices.length - 1 ? "var(--accent)" : "#94A3B8",
+                  }}
+                >
                   {d.label}
                 </span>
               </div>
@@ -562,22 +867,37 @@ function ResponsiveSection() {
    ========================================================= */
 function IntegrationSection() {
   const items = [
-    "REST APIs", "Authentication APIs", "Payment APIs where required", "Third-party APIs",
-    "Database Integration", "CRUD Operations", "Dynamic Data", "User Management",
-    "Product Management", "Order Management",
+    "REST APIs",
+    "Authentication APIs",
+    "Payment APIs where required",
+    "Third-party APIs",
+    "Database Integration",
+    "CRUD Operations",
+    "Dynamic Data",
+    "User Management",
+    "Product Management",
+    "Order Management",
   ];
   return (
-    <section className="py-24 md:py-32 bg-[var(--light)]" style={{ background: "var(--light)" }}>
+    <section
+      className="py-24 md:py-32 bg-(--light)"
+      style={{ background: "var(--light)" }}
+    >
       <div className="max-w-7xl mx-auto px-6 md:px-10 grid lg:grid-cols-2 gap-14 items-center">
         <Reveal>
           <Eyebrow>// api &amp; database integration</Eyebrow>
-          <h2 className="font-display text-3xl md:text-4xl font-semibold mt-5 tracking-tight">API &amp; Database Integration</h2>
-          <p className="text-[var(--muted)] mt-4 text-lg leading-relaxed">
-            Connect your website with the tools, services and data your business already uses.
+          <h2 className="font-display text-3xl md:text-4xl font-semibold mt-5 tracking-tight">
+            API &amp; Database Integration
+          </h2>
+          <p className="text-(--muted) mt-4 text-lg leading-relaxed">
+            Connect your website with the tools, services and data your business
+            already uses.
           </p>
           <div className="flex flex-wrap gap-2.5 mt-8">
             {items.map((i) => (
-              <span key={i} className="cwd-chip">{i}</span>
+              <span key={i} className="cwd-chip">
+                {i}
+              </span>
             ))}
           </div>
         </Reveal>
@@ -588,11 +908,16 @@ function IntegrationSection() {
                 <Database size={22} />
               </div>
               <Plug size={20} color="var(--muted)" />
-              <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-white" style={{ background: "var(--accent)" }}>
+              <div
+                className="w-14 h-14 rounded-2xl flex items-center justify-center text-white"
+                style={{ background: "var(--accent)" }}
+              >
                 <Lock size={22} />
               </div>
             </div>
-            <p className="font-mono text-xs text-[var(--muted)]">database ⇄ api ⇄ your website</p>
+            <p className="font-mono text-xs text-(--muted)">
+              database ⇄ api ⇄ your website
+            </p>
           </div>
         </Reveal>
       </div>
@@ -621,8 +946,13 @@ function UseCases() {
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <Reveal className="max-w-2xl">
           <Eyebrow>// use cases</Eyebrow>
-          <h2 className="font-display text-3xl md:text-4xl font-semibold mt-5 tracking-tight">Use Cases</h2>
-          <p className="text-[var(--muted)] mt-4 text-lg">Custom development fits any project shaped around real business requirements.</p>
+          <h2 className="font-display text-3xl md:text-4xl font-semibold mt-5 tracking-tight">
+            Use Cases
+          </h2>
+          <p className="text-(--muted) mt-4 text-lg">
+            Custom development fits any project shaped around real business
+            requirements.
+          </p>
         </Reveal>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mt-12">
           {cases.map((c) => (
@@ -648,15 +978,17 @@ function CustomProjects() {
     {
       id: 1,
       title: "The Vapor Store",
-      description: "High-performance e-commerce platform with age verification, integrated newsletter popups, and SEO optimization.",
-      image: "assets/img/thevapor-img.jfif",
+      description:
+        "High-performance e-commerce platform with age verification, integrated newsletter popups, and SEO optimization.",
+      image: "assets/img/threaper-img.jfif",
       stack: ["PHP", "Bootstrap 5", "JavaScript", "HTML5/CSS3"],
       liveLink: "https://thevapor.co.uk/",
     },
     {
       id: 2,
       title: "Smoknic E-Cigarettes",
-      description: "Custom online vape supply store optimized for fast loading speeds, clean UI layout, and smooth checkout flow.",
+      description:
+        "Custom online vape supply store optimized for fast loading speeds, clean UI layout, and smooth checkout flow.",
       image: "assets/img/smoknic-vape-web-design-190.png",
       stack: ["PHP", "Bootstrap 5", "JavaScript", "HTML5/CSS3"],
       liveLink: "https://www.smoknic.co.uk/",
@@ -664,7 +996,8 @@ function CustomProjects() {
     {
       id: 3,
       title: "iSafe Gadgets",
-      description: "Modern tech accessory web store featuring high-conversion product showcases and responsive design across all devices.",
+      description:
+        "Modern tech accessory web store featuring high-conversion product showcases and responsive design across all devices.",
       image: "assets/img/isafegadgets-img.jfif",
       stack: ["PHP", "Bootstrap 5", "JavaScript", "HTML5/CSS3"],
       liveLink: "https://isafegadgets.co.uk/",
@@ -672,7 +1005,11 @@ function CustomProjects() {
   ];
 
   return (
-    <section id="cwd-projects" className="py-24 md:py-32 bg-[var(--dark)] text-white relative overflow-hidden" style={{ background: "var(--dark)" }}>
+    <section
+      id="cwd-projects"
+      className="py-24 md:py-32 bg-(--dark) text-white relative overflow-hidden"
+      style={{ background: "var(--dark)" }}
+    >
       <div className="absolute inset-0 cwd-grid-noise opacity-20" />
       <div className="relative max-w-7xl mx-auto px-6 md:px-10">
         <Reveal className="max-w-2xl">
@@ -681,7 +1018,8 @@ function CustomProjects() {
             Featured Custom Projects
           </h2>
           <p className="text-slate-300 mt-4 text-lg">
-            Real custom web applications, e-commerce solutions, and tailored web platforms built for speed and conversion.
+            Real custom web applications, e-commerce solutions, and tailored web
+            platforms built for speed and conversion.
           </p>
         </Reveal>
 
@@ -689,7 +1027,6 @@ function CustomProjects() {
           {projects.map((project) => (
             <Reveal key={project.id}>
               <div className="cwd-card-dark rounded-xl overflow-hidden border border-slate-800 bg-slate-900/60 h-full flex flex-col justify-between hover:border-slate-700 transition-all">
-                
                 {/* Image linked directly to website */}
                 <a
                   href={project.liveLink}
@@ -705,7 +1042,7 @@ function CustomProjects() {
                 </a>
 
                 {/* Content Section */}
-                <div className="p-6 flex flex-col flex-grow justify-between">
+                <div className="p-6 flex flex-col grow justify-between">
                   <div>
                     <h3 className="text-xl font-semibold text-white tracking-tight">
                       <a
@@ -746,7 +1083,6 @@ function CustomProjects() {
                     </a>
                   </div>
                 </div>
-
               </div>
             </Reveal>
           ))}
@@ -757,19 +1093,50 @@ function CustomProjects() {
 }
 
 const FAQ_ITEMS = [
-  { q: "What is custom web development?", a: "It's building a website or web application specifically around your business requirements, workflows, and users, rather than adapting a restrictive pre-built template." },
-  { q: "Why should I choose custom development instead of a template?", a: "Custom development gives you complete design flexibility, functionality built for your exact workflow, and a clean codebase that scales effortlessly as your business grows." },
-  { q: "Can you build a website according to my business requirements?", a: "Yes. I start by analyzing your specific business goals, user pathways, and feature requirements, then design and engineer the site around them." },
-  { q: "Can you integrate APIs?", a: "Yes. I integrate REST APIs, authentication services, payment gateways, and third-party tools your business relies on daily." },
-  { q: "Can you connect the website with a database?", a: "Yes, using modern databases such as MongoDB or MySQL, structured specifically for your data management needs." },
-  { q: "Can you build an admin dashboard?", a: "Yes. I build fully responsive, secure admin dashboards for managing users, content, orders, products, and operational analytics." },
-  { q: "Will the website be responsive?", a: "Yes, every custom build follows a mobile-first approach and is thoroughly tested across mobile devices, tablets, laptops, and wide monitors." },
-  { q: "Will the website be SEO-friendly?", a: "Yes. Semantic HTML, structured data, clean URLs, customizable meta tags, and Core Web Vitals performance optimization are built into every project." },
-  { q: "Can you redesign my existing website?", a: "Yes. I can rebuild existing legacy sites into fast, modern, and high-converting custom web applications without losing your established SEO value." },
-  { q: "Do you provide maintenance after development?", a: "Yes, including technical support, regular updates, continuous performance tracking, and security monitoring post-launch." },
+  {
+    q: "What is custom web development?",
+    a: "It's building a website or web application specifically around your business requirements, workflows, and users, rather than adapting a restrictive pre-built template.",
+  },
+  {
+    q: "Why should I choose custom development instead of a template?",
+    a: "Custom development gives you complete design flexibility, functionality built for your exact workflow, and a clean codebase that scales effortlessly as your business grows.",
+  },
+  {
+    q: "Can you build a website according to my business requirements?",
+    a: "Yes. I start by analyzing your specific business goals, user pathways, and feature requirements, then design and engineer the site around them.",
+  },
+  {
+    q: "Can you integrate APIs?",
+    a: "Yes. I integrate REST APIs, authentication services, payment gateways, and third-party tools your business relies on daily.",
+  },
+  {
+    q: "Can you connect the website with a database?",
+    a: "Yes, using modern databases such as MongoDB or MySQL, structured specifically for your data management needs.",
+  },
+  {
+    q: "Can you build an admin dashboard?",
+    a: "Yes. I build fully responsive, secure admin dashboards for managing users, content, orders, products, and operational analytics.",
+  },
+  {
+    q: "Will the website be responsive?",
+    a: "Yes, every custom build follows a mobile-first approach and is thoroughly tested across mobile devices, tablets, laptops, and wide monitors.",
+  },
+  {
+    q: "Will the website be SEO-friendly?",
+    a: "Yes. Semantic HTML, structured data, clean URLs, customizable meta tags, and Core Web Vitals performance optimization are built into every project.",
+  },
+  {
+    q: "Can you redesign my existing website?",
+    a: "Yes. I can rebuild existing legacy sites into fast, modern, and high-converting custom web applications without losing your established SEO value.",
+  },
+  {
+    q: "Do you provide maintenance after development?",
+    a: "Yes, including technical support, regular updates, continuous performance tracking, and security monitoring post-launch.",
+  },
 ];
 
 function FAQAccordion() {
+  // First FAQ open by default
   const [openIndex, setOpenIndex] = useState(0);
 
   const toggleFAQ = (index) => {
@@ -777,62 +1144,69 @@ function FAQAccordion() {
   };
 
   return (
-    <section id="cwd-faq" className="py-20 md:py-28 bg-slate-50/50 border-t border-slate-200/80">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
-        
+    <section
+      id="cwd-faq"
+      className="py-10 sm:py-14 bg-slate-50/60 border-t border-slate-200/80"
+    >
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-xs font-mono font-medium tracking-wide uppercase">
-            <HelpCircle size={14} /> // FAQ
+        <div className="text-center max-w-xl mx-auto">
+          <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-mono font-medium tracking-wide uppercase">
+            <HelpCircle size={13} /> // FAQ
           </div>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-slate-900 mt-4 tracking-tight">
+          <h2 className="font-display text-2xl sm:text-3xl font-bold text-slate-900 mt-2 tracking-tight">
             Frequently Asked Questions
           </h2>
-          <p className="text-slate-600 mt-3 text-base sm:text-lg">
-            Everything you need to know about custom web development, processes, and delivery.
-          </p>
         </div>
 
-        {/* FAQ Grid / Accordion List */}
-        <div className="mt-12 space-y-3 sm:space-y-4">
+        {/* Compact Accordion List */}
+        <div className="mt-6 space-y-2">
           {FAQ_ITEMS.map((item, idx) => {
             const isOpen = openIndex === idx;
 
             return (
               <div
                 key={idx}
-                className={`rounded-xl border transition-all duration-200 overflow-hidden ${
+                className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
                   isOpen
-                    ? "bg-white border-indigo-200 shadow-md shadow-indigo-500/5 ring-1 ring-indigo-500/10"
-                    : "bg-white/80 hover:bg-white border-slate-200 hover:border-slate-300 shadow-sm"
+                    ? "bg-white border-blue-400 shadow-sm ring-1 ring-blue-500/10"
+                    : "bg-white/80 hover:bg-white border-slate-200 hover:border-slate-300"
                 }`}
               >
                 <button
-                  className="w-full flex items-center justify-between gap-4 p-5 sm:p-6 text-left transition-colors"
+                  className="w-full flex items-center justify-between gap-3 px-4 py-3 sm:px-5 sm:py-3.5 text-left transition-colors"
                   onClick={() => toggleFAQ(idx)}
                   aria-expanded={isOpen}
                 >
-                  <span className={`text-base sm:text-lg font-semibold tracking-tight transition-colors ${
-                    isOpen ? "text-indigo-600" : "text-slate-800"
-                  }`}>
+                  <span
+                    className={`text-sm sm:text-base font-semibold tracking-tight transition-colors ${
+                      isOpen ? "text-blue-600" : "text-slate-800"
+                    }`}
+                  >
                     {item.q}
                   </span>
-                  
-                  <div className={`p-1.5 rounded-lg shrink-0 transition-all duration-300 ${
-                    isOpen ? "bg-indigo-50 text-indigo-600 rotate-180" : "bg-slate-100 text-slate-500 group-hover:bg-slate-200"
-                  }`}>
-                    <ChevronDown size={18} />
+
+                  <div
+                    className={`p-1 rounded-full shrink-0 transition-all duration-300 ${
+                      isOpen
+                        ? "bg-blue-50 text-blue-600 rotate-180"
+                        : "bg-slate-100 text-slate-500"
+                    }`}
+                  >
+                    <ChevronDown size={16} />
                   </div>
                 </button>
 
                 {/* Animated Collapsible Body */}
                 <div
-                  className={`grid transition-all duration-300 ease-in-out ${
-                    isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                  className={`grid transition-all duration-200 ease-in-out ${
+                    isOpen
+                      ? "grid-rows-[1fr] opacity-100"
+                      : "grid-rows-[0fr] opacity-0"
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-5 pb-5 sm:px-6 sm:pb-6 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-100/80 pt-4">
+                    <p className="px-4 pb-3.5 sm:px-5 sm:pb-4 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-2.5">
                       {item.a}
                     </p>
                   </div>
@@ -841,7 +1215,6 @@ function FAQAccordion() {
             );
           })}
         </div>
-
       </div>
     </section>
   );
@@ -852,23 +1225,40 @@ function FAQAccordion() {
    ========================================================= */
 function CTA() {
   return (
-    <section id="cwd-cta" className="relative py-28 md:py-36 bg-[var(--dark)] text-white overflow-hidden" style={{ background: "var(--dark)" }}>
+    <section
+      id="cwd-cta"
+      className="relative py-28 md:py-36 bg-(--dark) text-white overflow-hidden"
+      style={{ background: "var(--dark)" }}
+    >
       <div className="absolute inset-0 cwd-grid-noise opacity-30" />
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[38rem] h-[38rem] rounded-full blur-[160px]"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-152 h-152 rounded-full blur-[160px]"
         style={{ background: "rgba(124,58,237,.25)" }}
       />
       <div className="relative max-w-3xl mx-auto px-6 text-center">
         <Reveal>
           <Eyebrow dark>$ ready --to-build</Eyebrow>
-          <h2 className="font-display text-3xl md:text-6xl font-semibold mt-6 tracking-tight">Have a Custom Web Project in Mind?</h2>
+          <h2 className="font-display text-3xl md:text-6xl font-semibold mt-6 tracking-tight">
+            Have a Custom Web Project in Mind?
+          </h2>
           <p className="text-slate-300 mt-5 text-lg">
-            Let's turn your requirements into a fast, modern and scalable web solution built specifically for your business.
+            Let's turn your requirements into a fast, modern and scalable web
+            solution built specifically for your business.
           </p>
-          <div className="flex flex-wrap justify-center gap-4 mt-9"> 
-            <Link to={"/contact"} className="cwd-btn-ghost text-white">
-                Contact Me
-            </Link>           </div>
+          <div className="flex flex-wrap justify-center gap-4 mt-9">
+            <Link to={"/contact"} className="rjs-btn-primary">
+              Start a Project
+            </Link>
+            <Link
+              to="https://wa.me/923326767615"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rjs-btn-ghost text-white flex items-center gap-2"
+            >
+              <FaWhatsapp size={20} />
+              +92 332 6767615
+            </Link>{" "}
+          </div>
         </Reveal>
       </div>
     </section>
@@ -878,7 +1268,7 @@ function CTA() {
 /* =========================================================
    PAGE ROOT
    ========================================================= */
-export default function CustomWebDevelopment() {
+export default function WebDevelopment() {
   return (
     <div className="cwd-root">
       <GlobalStyle />
@@ -896,9 +1286,6 @@ export default function CustomWebDevelopment() {
       <CustomProjects />
       <FAQAccordion />
       <CTA />
-      <footer className="py-10 text-center font-mono text-xs" style={{ background: "var(--dark2)", color: "#94A3B8" }}>
-        /services/web-development/custom-web-development
-      </footer>
     </div>
   );
 }
