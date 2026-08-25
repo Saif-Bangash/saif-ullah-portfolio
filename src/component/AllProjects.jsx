@@ -144,7 +144,7 @@ const AllProjects = () => {
                 providing a seamless shopping experience.
               </p>
               <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mt-2">
-                We redesigned TheVapor’s e-commerce site with modern layouts,
+                We redesigned TheVapor's e-commerce site with modern layouts,
                 fast performance, and intuitive navigation boosting credibility,
                 user engagement, and vape sales across the UK.{" "}
               </p>
