@@ -276,14 +276,18 @@ function CustomHero() {
       style={{ background: "var(--dark)" }}
     >
       <div className="absolute inset-0 cwd-grid-noise opacity-30" />
+      {/* Top Left Glow - Light Gold Accent */}
       <div
-        className="absolute -top-40 -left-40 w-120 h-120 rounded-full blur-[140px]"
-        style={{ background: "rgba(124,58,237,.25)" }}
+        className="absolute top-10 -left-32 w-104 h-104 rounded-full blur-[140px] pointer-events-none"
+        style={{ background: "rgba(267,210,107,.22)" }}
       />
+      
+      {/* Top Right Glow - Soft Gold Accent */}
       <div
-        className="absolute top-16 -right-32 w-120 h-120 rounded-full blur-[140px]"
-        style={{ background: "rgba(247,210,107,.15)" }}
+        className="absolute top-16 -right-32 w-104 h-104 rounded-full blur-[140px] pointer-events-none"
+        style={{ background: "rgba(247,210,107,.22)" }}
       />
+
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-10 grid lg:grid-cols-2 gap-14 items-center">
         <div>
