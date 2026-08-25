@@ -75,6 +75,7 @@ const Navbar = () => {
         WebkitBackdropFilter: "blur(20px)",
         borderBottom: `1px solid ${C.border}`,
         transition: "background 0.4s ease, backdrop-filter 0.4s ease, -webkit-backdrop-filter 0.4s ease",
+        overflow: "hidden",  
       }}
     >
       <style>{`
@@ -97,9 +98,39 @@ const Navbar = () => {
         }
       `}</style>
 
+      {/* ===== Left Side Gradient Overlay ===== */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: 140,
+          height: "100%",
+          background: `radial-gradient(circle at left, ${C.from} 0%, rgba(247,210,107,0.15) 40%, transparent 60%)`,
+          pointerEvents: "none",
+          opacity: 0.6,
+          zIndex: 1,
+        }}
+      />
+
+      {/* ===== Right Side Gradient Overlay ===== */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          right: 0,
+          width: 140,
+          height: "100%",
+          background: `radial-gradient(circle at right, ${C.to} 0%, rgba(217,169,62,0.15) 30%, transparent 70%)`,
+          pointerEvents: "none",
+          opacity: 0.6,
+          zIndex: 1,
+        }}
+      />
+
       <div
         className="max-w-7xl mx-auto flex items-center justify-between px-5 sm:px-8 lg:px-10"
-        style={{ height: 72 }}
+        style={{ height: 72, position: "relative", zIndex: 2 }}
       >
         {/* ===== Logo ===== */}
         <button
@@ -214,7 +245,7 @@ const Navbar = () => {
             justifyContent: "center",
             background: open ? `linear-gradient(120deg, ${C.from}, ${C.to})` : C.surface,
             border: open ? "1px solid transparent" : `1px solid ${C.border}`,
-            color: open ? "#05070B" : C.text,
+            color: open ? "#05070B" : "#8891A5",
             cursor: "pointer",
             transition: "background 0.3s ease, color 0.3s ease, border 0.3s ease",
           }}
@@ -224,7 +255,7 @@ const Navbar = () => {
       </div>
 
       {/* ===== Scroll progress bar ===== */}
-      <div style={{ height: 2, width: "100%", background: "rgba(255,255,255,0.05)" }}>
+      <div style={{ height: 2, width: "100%", background: "rgba(255,255,255,0.05)", position: "relative", zIndex: 2 }}>
         <div
           style={{
             height: "100%",
@@ -248,6 +279,7 @@ const Navbar = () => {
           pointerEvents: open ? "auto" : "none",
           overflowY: "auto",
           transition: "opacity 0.4s ease",
+          zIndex: 100,
         }}
       >
         <button
@@ -267,7 +299,7 @@ const Navbar = () => {
             justifyContent: "center",
             background: C.surface,
             border: `1px solid ${C.border}`,
-            color: C.text,
+            color: "#8891A5",
             cursor: "pointer",
           }}
         >
@@ -298,7 +330,7 @@ const Navbar = () => {
                   textAlign: "center",
                   padding: "14px 20px",
                   borderRadius: 16,
-                  color: isActive ? C.active : C.text,
+                  color: isActive ? C.active : "#8891A5",
                   background: C.surface,
                   border: `1px solid ${C.border}`,
                   cursor: "pointer",
@@ -341,28 +373,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-export function Demo() {
-  const sectionStyle = {
-    minHeight: "100vh",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    color: "#E9EBF2",
-    fontSize: 32,
-    fontWeight: 700,
-    textTransform: "capitalize",
-    letterSpacing: "0.02em",
-    borderBottom: "1px solid rgba(255,255,255,0.06)",
-  };
-  return (
-    <div style={{ background: "#05070B" }}>
-      <Navbar />
-      {NAV_ITEMS.map((id) => (
-        <section key={id} id={id} style={sectionStyle}>
-          {id}
-        </section>
-      ))}
-    </div>
-  );
-}

@@ -334,49 +334,7 @@ function CustomHero() {
   );
 }
 
-/* =========================================================
-   2. WHAT IS CUSTOM WEB DEVELOPMENT
-   ========================================================= */
-function WhatIsCustom() {
-  const provides = [
-    "Custom functionality",
-    "Custom UI/UX",
-    "Business-specific workflows",
-    "API integrations",
-    "Custom dashboards",
-    "Dynamic content",
-    "Scalable architecture",
-    "Performance optimization",
-    "SEO-friendly structure",
-  ];
-  return (
-    <section className="py-24 md:py-28 bg-white border-y border-slate-100">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 grid lg:grid-cols-2 gap-14 items-start">
-        <Reveal>
-          <Eyebrow>// what is custom development</Eyebrow>
-          <h2 className="font-display text-3xl md:text-4xl font-semibold mt-5 tracking-tight">
-            Your business is unique. Your website should be too.
-          </h2>
-          <p className="text-(--muted) mt-4 text-lg leading-relaxed">
-            Custom web development means building a website or web application
-            specifically around your business requirements instead of relying on
-            a one-size-fits-all template.
-          </p>
-        </Reveal>
-        <Reveal>
-          <div className="grid sm:grid-cols-2 gap-3">
-            {provides.map((p) => (
-              <div key={p} className="cwd-card p-4 flex items-center gap-3">
-                <CheckCircle2 size={18} color="var(--primary)" />
-                <span className="text-sm font-medium">{p}</span>
-              </div>
-            ))}
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
+ 
 
 /* =========================================================
    3. WHAT I CAN BUILD
@@ -1281,8 +1239,7 @@ export default function WebDevelopment() {
   return (
     <div className="cwd-root">
       <GlobalStyle />
-      <CustomHero />
-      <WhatIsCustom />
+      <CustomHero /> 
       <CustomServices />
       <CustomFeatures />
       <TechStack />

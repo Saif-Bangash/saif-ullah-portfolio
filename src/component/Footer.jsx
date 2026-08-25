@@ -130,7 +130,7 @@ const Footer = () => {
                 cx="32"
                 cy="32"
                 r="29"
-                fill="#0B1030"
+                fill="#0B1120"
                 stroke="rgba(255,255,255,0.14)"
                 strokeWidth="1"
               />
@@ -139,7 +139,7 @@ const Footer = () => {
                 cy="32"
                 r="29"
                 fill="none"
-                stroke="#38E8FF"
+                stroke="#F7D26B"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeDasharray="182.2"
@@ -147,7 +147,7 @@ const Footer = () => {
                 className="transition-[stroke-dashoffset] duration-150"
               />
             </svg>
-            <FaArrowUp className="relative text-xl text-white transition-transform duration-300 group-hover:-translate-y-1" />
+            <FaArrowUp className="relative text-xl text-[#F7D26B] transition-transform duration-300 group-hover:-translate-y-1" />
           </button>
         </div>
       )}
@@ -161,7 +161,6 @@ const Footer = () => {
             }`}
           />
 
-          {/* WhatsApp Button */}
           <a
             href="https://wa.me/923326767615"
             target="_blank"
@@ -205,15 +204,15 @@ const Footer = () => {
 
               {/* Technologies */}
               <div className="flex flex-wrap gap-2 mt-5">
-                <span className="px-3 py-1 text-xs font-medium rounded-full bg-white/5 border border-white/10 text-[#C9BBFF]">
+                <span className="px-3 py-1 text-xs font-medium rounded-full bg-white/5 border border-[#F7D26B]/30 text-[#FBE3A0]">
                   React JS
                 </span>
 
-                <span className="px-3 py-1 text-xs font-medium rounded-full bg-white/5 border border-white/10 text-cyan-300">
+                <span className="px-3 py-1 text-xs font-medium rounded-full bg-white/5 border border-[#F7D26B]/30 text-[#FBE3A0]">
                   WordPress
                 </span>
 
-                <span className="px-3 py-1 text-xs font-medium rounded-full bg-white/5 border border-white/10 text-[#C9BBFF]">
+                <span className="px-3 py-1 text-xs font-medium rounded-full bg-white/5 border border-[#F7D26B]/30 text-[#FBE3A0]">
                   SEO
                 </span>
               </div>
@@ -230,12 +229,12 @@ const Footer = () => {
                   <li key={item.name}>
                     <Link
                       to={item.path}
-                      className="relative inline-flex items-center gap-2 text-[#8891A5] hover:text-[#C9BBFF] transition-colors duration-300 text-sm sm:text-base group"
+                      className="relative inline-flex items-center gap-2 text-[#8891A5] hover:text-[#FBE3A0] transition-colors duration-300 text-sm sm:text-base group"
                     >
-                      <FaArrowRight className="text-xs text-cyan-300 transition-transform duration-300 group-hover:translate-x-1" />
+                      <FaArrowRight className="text-xs text-[#F7D26B] transition-transform duration-300 group-hover:translate-x-1" />
                       {item.name}
 
-                      <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-linear-to-r from-[#7C5CFC] to-[#22D3EE] group-hover:w-full transition-all duration-300" />
+                      <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-[#F7D26B] group-hover:w-full transition-all duration-300" />
                     </Link>
                   </li>
                 ))}
@@ -253,9 +252,9 @@ const Footer = () => {
                   <li key={index}>
                     <Link
                       to={service.link}
-                      className="group flex items-center gap-3 text-[#8891A5] hover:text-[#C9BBFF] transition-all duration-300"
+                      className="group flex items-center gap-3 text-[#8891A5] hover:text-[#FBE3A0] transition-all duration-300"
                     >
-                      <span className="text-cyan-300 group-hover:scale-110 transition-transform">
+                      <span className="text-[#F7D26B] group-hover:scale-110 transition-transform">
                         {service.icon}
                       </span>
 
@@ -279,9 +278,9 @@ const Footer = () => {
                 {/* Email */}
                 <a
                   href="mailto:saifbangash480@gmail.com"
-                  className="flex items-start gap-3 text-[#8891A5] hover:text-[#C9BBFF] transition-colors duration-300"
+                  className="flex items-start gap-3 text-[#8891A5] hover:text-[#FBE3A0] transition-colors duration-300"
                 >
-                  <FaEnvelope className="mt-1 text-cyan-300 shrink-0" />
+                  <FaEnvelope className="mt-1 text-[#F7D26B] shrink-0" />
 
                   <span className="text-sm sm:text-base break-all">
                     saifbangash480@gmail.com
@@ -291,9 +290,9 @@ const Footer = () => {
                 {/* Phone */}
                 <a
                   href="tel:+923326767615"
-                  className="flex items-center gap-3 text-[#8891A5] hover:text-[#C9BBFF] transition-colors duration-300"
+                  className="flex items-center gap-3 text-[#8891A5] hover:text-[#FBE3A0] transition-colors duration-300"
                 >
-                  <FaPhoneAlt className="text-cyan-300 shrink-0" />
+                  <FaPhoneAlt className="text-[#F7D26B] shrink-0" />
 
                   <span className="text-sm sm:text-base">
                     +92 332 6767615
@@ -302,7 +301,7 @@ const Footer = () => {
 
                 {/* Location */}
                 <div className="flex items-start gap-3 text-[#8891A5]">
-                  <FaMapMarkerAlt className="mt-1 text-cyan-300 shrink-0" />
+                  <FaMapMarkerAlt className="mt-1 text-[#F7D26B] shrink-0" />
 
                   <span className="text-sm sm:text-base">
                     Pakistan
@@ -328,7 +327,7 @@ const Footer = () => {
                       className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl 
                       flex items-center justify-center 
                       transition-all duration-300 shadow-sm border 
-                      hover:-translate-y-1 bg-white/5 border-white/10 text-[#E9EBF2] hover:bg-[#7C5CFC] hover:text-white hover:border-[#7C5CFC]"
+                      hover:-translate-y-1 bg-white/5 border-white/10 text-[#E9EBF2] hover:bg-[#F7D26B] hover:text-[#0B1120] hover:border-[#F7D26B]"
                     >
                       {social.icon}
                     </a>
@@ -354,16 +353,16 @@ const Footer = () => {
             </p>
 
             {/* Skills */}
-            <div className="flex flex-wrap items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-xs text-[#C9BBFF] shadow-lg shadow-black/10 sm:px-5 sm:text-sm">
+            <div className="flex flex-wrap items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-xs text-[#FBE3A0] shadow-lg shadow-black/10 sm:px-5 sm:text-sm">
               <span>Web Development</span>
-              <span className="h-1.5 w-1.5 rounded-full bg-cyan-300" />
+              <span className="h-1.5 w-1.5 rounded-full bg-[#F7D26B]" />
               <span>WordPress</span>
-              <span className="h-1.5 w-1.5 rounded-full bg-cyan-300" />
+              <span className="h-1.5 w-1.5 rounded-full bg-[#F7D26B]" />
               <span>SEO</span>
             </div>
           </div>
         </div>
-      </footer>
+      </footer> 
     </>
   );
 };
