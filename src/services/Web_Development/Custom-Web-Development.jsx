@@ -49,7 +49,9 @@ import {
 const GlobalStyle = () => (
   <style>{`
     .cwd-root{
-      --primary:#7C3AED; --secondary:#2563EB; --accent:#22D3EE;
+      --primary:#7C3AED; --secondary:#2563EB; --accent:#F7D26B;
+      --gold:#F7D26B; --gold-light:#FBE3A0; --gold-dark:#D9A93E;
+      --gold-soft: rgba(247,210,107,.12); --gold-glow: rgba(247,210,107,.35);
       --dark:#0B1120; --dark2:#0F172A; --light:#F8FAFC; --ink:#0F172A; --muted:#64748B;
       font-family: Inter, system-ui, sans-serif;
       color: var(--ink);
@@ -89,20 +91,22 @@ const GlobalStyle = () => (
     @keyframes cwdBlink{ 50%{ opacity:0; } }
 
     .cwd-card{ background:#fff; border:1px solid rgba(15,23,42,.07); border-radius:16px; transition:transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s ease, border-color .3s ease; }
-    .cwd-card:hover{ transform:translateY(-5px); box-shadow:0 22px 44px -20px rgba(124,58,237,.22); border-color:rgba(124,58,237,.25); }
+    .cwd-card:hover{ transform:translateY(-5px); box-shadow:0 22px 44px -20px rgba(247,210,107,.4); border-color:rgba(247,210,107,.5); }
     .cwd-card-dark{ background:linear-gradient(180deg, rgba(148,163,184,.05), rgba(148,163,184,.02)); border:1px solid rgba(148,163,184,.12); border-radius:16px; transition:transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s ease, border-color .3s ease; }
-    .cwd-card-dark:hover{ transform:translateY(-5px); border-color:rgba(34,211,238,.35); box-shadow:0 22px 44px -20px rgba(34,211,238,.18); }
+    .cwd-card-dark:hover{ transform:translateY(-5px); border-color:rgba(247,210,107,.35); box-shadow:0 22px 44px -20px rgba(247,210,107,.18); }
 
-    .cwd-grad-primary{ background:linear-gradient(135deg, var(--primary), var(--secondary)); }
-    .cwd-grad-text{ background:linear-gradient(120deg,#C4B5FD 0%,#93C5FD 45%,#67E8F9 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    /* Updated Gradients with #F7D26B */
+    .cwd-grad-primary{ background:linear-gradient(135deg, #F7D26B, #D9A93E); }
+    .cwd-grad-text{ background:linear-gradient(120deg, #FBE3A0 0%, #F7D26B 45%, #D9A93E 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
 
-    .cwd-btn-primary{ background:linear-gradient(135deg, var(--primary), var(--secondary)); color:#fff; border-radius:12px; padding:.8rem 1.6rem; font-weight:600; display:inline-flex; align-items:center; gap:.5rem; box-shadow:0 12px 28px -10px rgba(124,58,237,.55); transition:transform .2s ease, box-shadow .2s ease; border:none; cursor:pointer; }
-    .cwd-btn-primary:hover{ transform:translateY(-2px); box-shadow:0 16px 32px -10px rgba(124,58,237,.65); }
-    .cwd-btn-ghost{ border:1px solid rgba(148,163,184,.35); border-radius:12px; padding:.8rem 1.6rem; font-weight:600; display:inline-flex; align-items:center; gap:.5rem; transition:all .2s ease; background:transparent; cursor:pointer; }
+    /* Updated Buttons with #F7D26B Gradient */
+    .cwd-btn-primary{ background:linear-gradient(135deg, #F7D26B, #D9A93E); color:#0F172A; border-radius:12px; padding:.8rem 1.6rem; font-weight:600; display:inline-flex; align-items:center; gap:.5rem; box-shadow:0 12px 28px -10px rgba(247,210,107,.45); transition:transform .2s ease, box-shadow .2s ease; border:none; cursor:pointer; }
+    .cwd-btn-primary:hover{ transform:translateY(-2px); box-shadow:0 16px 32px -10px rgba(247,210,107,.6); }
+    .cwd-btn-ghost{ border:1px solid rgba(247,210,107,.5); border-radius:12px; padding:.8rem 1.6rem; font-weight:600; display:inline-flex; align-items:center; gap:.5rem; transition:all .2s ease; background:transparent; cursor:pointer; }
     .cwd-btn-ghost:hover{ border-color:var(--accent); color:var(--accent); }
 
     .cwd-chip{ font-family:"JetBrains Mono",monospace; font-size:.72rem; color:#334155; border:1px solid rgba(15,23,42,.1); background:#fff; border-radius:8px; padding:.38rem .65rem; transition:.2s ease; display:inline-block; }
-    .cwd-chip:hover{ border-color:var(--primary); color:var(--primary); transform:translateY(-2px); }
+    .cwd-chip:hover{ border-color:var(--accent); color:var(--gold-dark); transform:translateY(-2px); }
     .cwd-chip-dark{ font-family:"JetBrains Mono",monospace; font-size:.72rem; color:#CBD5E1; border:1px solid rgba(148,163,184,.18); background:rgba(148,163,184,.05); border-radius:8px; padding:.38rem .65rem; transition:.2s ease; display:inline-block; }
     .cwd-chip-dark:hover{ border-color:var(--accent); color:var(--accent); transform:translateY(-2px); }
 
@@ -114,8 +118,9 @@ const GlobalStyle = () => (
     .cwd-plus{ transition:transform .3s ease; }
     .cwd-plus.open{ transform:rotate(45deg); }
 
-    .rjs-btn-primary{ background:linear-gradient(135deg, var(--primary), var(--secondary)); color:#fff; border-radius:12px; padding:.8rem 1.6rem; font-weight:600; display:inline-flex; align-items:center; gap:.5rem; box-shadow:0 12px 28px -10px rgba(124,58,237,.55); transition:transform .2s ease, box-shadow .2s ease; border:none; cursor:pointer; }
-    .rjs-btn-primary:hover{ transform:translateY(-2px); box-shadow:0 16px 32px -10px rgba(124,58,237,.65); }
+    /* Updated Secondary Button Elements */
+    .rjs-btn-primary{ background:linear-gradient(135deg, #F7D26B, #D9A93E); color:#0F172A; border-radius:12px; padding:.8rem 1.6rem; font-weight:600; display:inline-flex; align-items:center; gap:.5rem; box-shadow:0 12px 28px -10px rgba(247,210,107,.45); transition:transform .2s ease, box-shadow .2s ease; border:none; cursor:pointer; }
+    .rjs-btn-primary:hover{ transform:translateY(-2px); box-shadow:0 16px 32px -10px rgba(247,210,107,.6); }
  
     .rjs-btn-ghost{ border:1px solid var(--accent); border-radius:12px; padding:.8rem 1.6rem; font-weight:600; display:inline-flex; align-items:center; gap:.5rem; transition:all .2s ease; background:transparent; cursor:pointer; }
     .rjs-btn-ghost:hover{ border-color:var(--accent); color:var(--accent); }
@@ -277,7 +282,7 @@ function CustomHero() {
       />
       <div
         className="absolute top-16 -right-32 w-120 h-120 rounded-full blur-[140px]"
-        style={{ background: "rgba(34,211,238,.15)" }}
+        style={{ background: "rgba(247,210,107,.15)" }}
       />
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-10 grid lg:grid-cols-2 gap-14 items-center">
@@ -718,7 +723,7 @@ function CustomComparison() {
           <Reveal>
             <div
               className="cwd-card-dark p-8 h-full"
-              style={{ borderColor: "rgba(34,211,238,.35)" }}
+              style={{ borderColor: "rgba(247,210,107,.35)" }}
             >
               <p className="font-mono text-xs text-(--accent) mb-5">
                 CUSTOM DEVELOPMENT
@@ -1169,7 +1174,7 @@ function FAQAccordion() {
                 key={idx}
                 className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
                   isOpen
-                    ? "bg-white border-blue-400 shadow-sm ring-1 ring-blue-500/10"
+                    ? "bg-white border-[#F7D26B] shadow-sm ring-1 ring-blue-500/10"
                     : "bg-white/80 hover:bg-white border-slate-200 hover:border-slate-300"
                 }`}
               >
@@ -1180,7 +1185,7 @@ function FAQAccordion() {
                 >
                   <span
                     className={`text-sm sm:text-base font-semibold tracking-tight transition-colors ${
-                      isOpen ? "text-blue-600" : "text-slate-800"
+                      isOpen ? "text-[#F7D26B]" : "text-slate-800"
                     }`}
                   >
                     {item.q}
@@ -1189,7 +1194,7 @@ function FAQAccordion() {
                   <div
                     className={`p-1 rounded-full shrink-0 transition-all duration-300 ${
                       isOpen
-                        ? "bg-blue-50 text-blue-600 rotate-180"
+                        ? "bg-blue-50 text-[#F7D26B] rotate-180"
                         : "bg-slate-100 text-slate-500"
                     }`}
                   >

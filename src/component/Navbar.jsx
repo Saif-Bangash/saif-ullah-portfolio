@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
- 
+
 const NAV_ITEMS = ["home", "about", "resume", "projects", "contact"];
 const NAV_PATHS = {
   home: "/",
@@ -14,13 +14,12 @@ const NAV_PATHS = {
 
 const C = {
   bg: "#05070B",
-  surface: "rgba(255,255,255,0.045)",
+  surface: "rgba(247, 210, 107, 0.25)",
   border: "rgba(255,255,255,0.09)",
-  text: "#E9EBF2",
   muted: "#8891A5",
-  active: "#C9BBFF",
-  from: "#7C5CFC",
-  to: "#22D3EE",
+  active: "#F7D26B",
+  from: "#F7D26B",
+  to: "#D9A93E",
 };
 
 const Navbar = () => {
@@ -80,13 +79,13 @@ const Navbar = () => {
     >
       <style>{`
         @keyframes pulseDot {
-          0%   { box-shadow: 0 0 0 0 rgba(52,211,153,0.35); }
-          70%  { box-shadow: 0 0 0 6px rgba(52,211,153,0); }
-          100% { box-shadow: 0 0 0 0 rgba(52,211,153,0); }
+          0%   { box-shadow: 0 0 0 0 rgba(247,210,107,0.4); }
+          70%  { box-shadow: 0 0 0 6px rgba(247,210,107,0); }
+          100% { box-shadow: 0 0 0 0 rgba(247,210,107,0); }
         }
         .sb-pulse { animation: pulseDot 2.2s ease-out infinite; }
         .sb-navbtn:focus-visible, .sb-icon-btn:focus-visible {
-          outline: 2px solid ${C.to};
+          outline: 2px solid ${C.from};
           outline-offset: 2px;
         }
         .sb-mobile-item:active {
@@ -136,7 +135,7 @@ const Navbar = () => {
               width: pill.width,
               height: "calc(100% - 8px)",
               borderRadius: 999,
-              background: "rgba(255,255,255,0.075)",
+              background: "rgba(247,210,107,0.12)",
               opacity: pill.opacity,
               transition: "left 0.3s cubic-bezier(.4,0,.2,1), width 0.3s cubic-bezier(.4,0,.2,1), opacity 0.2s ease",
             }}
@@ -175,7 +174,7 @@ const Navbar = () => {
           <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 11.5, color: C.muted, letterSpacing: "0.04em" }}>
             <span
               className="sb-pulse"
-              style={{ width: 7, height: 7, borderRadius: "50%", background: "#34D399", display: "inline-block" }}
+              style={{ width: 7, height: 7, borderRadius: "50%", background: "#F7D26B", display: "inline-block" }}
             />
             Available for work
           </div>
@@ -191,7 +190,7 @@ const Navbar = () => {
               background: `linear-gradient(120deg, ${C.from}, ${C.to})`,
               border: "none",
               cursor: "pointer",
-              boxShadow: "0 8px 22px -8px rgba(124,92,252,0.55)",
+              boxShadow: "0 8px 22px -8px rgba(247,210,107,0.45)",
               transition: "transform 0.25s ease, box-shadow 0.25s ease",
             }}
             onMouseEnter={(e) => (e.currentTarget.style.transform = "translateY(-2px)")}
@@ -330,7 +329,7 @@ const Navbar = () => {
               background: `linear-gradient(120deg, ${C.from}, ${C.to})`,
               border: "none",
               cursor: "pointer",
-              boxShadow: "0 8px 22px -8px rgba(124,92,252,0.55)",
+              boxShadow: "0 8px 22px -8px rgba(247,210,107,0.45)",
             }}
           >
             Let's talk
@@ -343,7 +342,6 @@ const Navbar = () => {
 
 export default Navbar;
 
- 
 export function Demo() {
   const sectionStyle = {
     minHeight: "100vh",

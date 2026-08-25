@@ -18,7 +18,8 @@ import { FaWhatsapp } from "react-icons/fa";
 const GlobalStyle = () => (
   <style>{`
     .rjs-root{
-      --primary:#7C3AED; --secondary:#2563EB; --accent:#22D3EE;
+      --primary:#F7D26B; --secondary:#D9A93E; --accent:#F7D26B;
+      --gold:#F7D26B; --gold-light:#FBE3A0; --gold-dark:#D9A93E;
       --dark:#0B1120; --dark2:#0F172A; --light:#F8FAFC; --ink:#0F172A; --muted:#64748B;
       font-family: Inter, system-ui, sans-serif;
       color: var(--ink);
@@ -37,10 +38,10 @@ const GlobalStyle = () => (
     .rjs-eyebrow{
       display:inline-flex; align-items:center; gap:.5rem;
       font-family:"JetBrains Mono", monospace; font-size:.72rem; letter-spacing:.02em;
-      color:var(--primary); background:rgba(124,58,237,.08);
-      border:1px solid rgba(124,58,237,.22); border-radius:999px; padding:.35rem .8rem .35rem .6rem;
+      color:var(--gold-dark); background:rgba(247,210,107,.12);
+      border:1px solid rgba(247,210,107,.3); border-radius:999px; padding:.35rem .8rem .35rem .6rem;
     }
-    .rjs-eyebrow.on-dark{ color:#C4B5FD; background:rgba(196,181,253,.08); border-color:rgba(196,181,253,.22); }
+    .rjs-eyebrow.on-dark{ color:#FBE3A0; background:rgba(247,210,107,.1); border-color:rgba(247,210,107,.25); }
     .rjs-dot{ width:6px; height:6px; border-radius:999px; background:var(--accent); box-shadow:0 0 8px var(--accent); }
 
     .rjs-editor{
@@ -58,20 +59,20 @@ const GlobalStyle = () => (
     @keyframes rjsBlink{ 50%{ opacity:0; } }
 
     .rjs-card{ background:#fff; border:1px solid rgba(15,23,42,.07); border-radius:16px; transition:transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s ease, border-color .3s ease; }
-    .rjs-card:hover{ transform:translateY(-5px); box-shadow:0 22px 44px -20px rgba(124,58,237,.22); border-color:rgba(124,58,237,.25); }
+    .rjs-card:hover{ transform:translateY(-5px); box-shadow:0 22px 44px -20px rgba(247,210,107,.4); border-color:rgba(247,210,107,.5); }
     .rjs-card-dark{ background:linear-gradient(180deg, rgba(148,163,184,.05), rgba(148,163,184,.02)); border:1px solid rgba(148,163,184,.12); border-radius:16px; transition:transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s ease, border-color .3s ease; }
-    .rjs-card-dark:hover{ transform:translateY(-5px); border-color:rgba(34,211,238,.35); box-shadow:0 22px 44px -20px rgba(34,211,238,.18); }
+    .rjs-card-dark:hover{ transform:translateY(-5px); border-color:rgba(247,210,107,.35); box-shadow:0 22px 44px -20px rgba(247,210,107,.18); }
 
-    .rjs-grad-primary{ background:linear-gradient(135deg, var(--primary), var(--secondary)); }
-    .rjs-grad-text{ background:linear-gradient(120deg,#C4B5FD 0%,#93C5FD 45%,#67E8F9 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .rjs-grad-primary{ background:linear-gradient(135deg, #F7D26B, #D9A93E); }
+    .rjs-grad-text{ background:linear-gradient(120deg, #FBE3A0 0%, #F7D26B 45%, #D9A93E 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
 
-    .rjs-btn-primary{ background:linear-gradient(135deg, var(--primary), var(--secondary)); color:#fff; border-radius:12px; padding:.8rem 1.6rem; font-weight:600; display:inline-flex; align-items:center; gap:.5rem; box-shadow:0 12px 28px -10px rgba(124,58,237,.55); transition:transform .2s ease, box-shadow .2s ease; border:none; cursor:pointer; }
-    .rjs-btn-primary:hover{ transform:translateY(-2px); box-shadow:0 16px 32px -10px rgba(124,58,237,.65); }
-    .rjs-btn-ghost{ border:1px solid var(--accent); border-radius:12px; padding:.8rem 1.6rem; font-weight:600; display:inline-flex; align-items:center; gap:.5rem; transition:all .2s ease; background:transparent; cursor:pointer; }
-    .rjs-btn-ghost:hover{ border-color:var(--accent); color:var(--accent); }
+    .rjs-btn-primary{ background:linear-gradient(135deg, #F7D26B, #D9A93E); color:#0F172A; border-radius:12px; padding:.8rem 1.6rem; font-weight:600; display:inline-flex; align-items:center; gap:.5rem; box-shadow:0 12px 28px -10px rgba(247,210,107,.45); transition:transform .2s ease, box-shadow .2s ease; border:none; cursor:pointer; }
+    .rjs-btn-primary:hover{ transform:translateY(-2px); box-shadow:0 16px 32px -10px rgba(247,210,107,.6); }
+    .rjs-btn-ghost{ border:1px solid rgba(247,210,107,.6); color:#F7D26B; border-radius:12px; padding:.8rem 1.6rem; font-weight:600; display:inline-flex; align-items:center; gap:.5rem; transition:all .2s ease; background:transparent; cursor:pointer; }
+    .rjs-btn-ghost:hover{ border-color:var(--accent); color:var(--gold-dark); background:rgba(247,210,107,.1); }
 
     .rjs-chip{ font-family:"JetBrains Mono",monospace; font-size:.72rem; color:#334155; border:1px solid rgba(15,23,42,.1); background:#fff; border-radius:8px; padding:.38rem .65rem; transition:.2s ease; display:inline-block; }
-    .rjs-chip:hover{ border-color:var(--primary); color:var(--primary); transform:translateY(-2px); }
+    .rjs-chip:hover{ border-color:var(--accent); color:var(--gold-dark); transform:translateY(-2px); }
     .rjs-chip-dark{ font-family:"JetBrains Mono",monospace; font-size:.72rem; color:#CBD5E1; border:1px solid rgba(148,163,184,.18); background:rgba(148,163,184,.05); border-radius:8px; padding:.38rem .65rem; transition:.2s ease; display:inline-block; }
     .rjs-chip-dark:hover{ border-color:var(--accent); color:var(--accent); transform:translateY(-2px); }
 
@@ -205,8 +206,8 @@ function ReactHero() {
   return (
     <section className="relative text-white overflow-hidden pt-28 pb-20 md:pt-36 md:pb-28" style={{ background: "var(--dark)" }}>
       <div className="absolute inset-0 rjs-grid-noise opacity-30" />
-      <div className="absolute -top-40 -left-40 w-[30rem] h-[30rem] rounded-full blur-[140px]" style={{ background: "rgba(124,58,237,.25)" }} />
-      <div className="absolute top-16 -right-32 w-[26rem] h-[26rem] rounded-full blur-[140px]" style={{ background: "rgba(34,211,238,.15)" }} />
+      <div className="absolute -top-40 -left-40 w-120 h-120 rounded-full blur-[140px]" style={{ background: "rgba(124,58,237,.25)" }} />
+      <div className="absolute top-16 -right-32 w-104 h-104 rounded-full blur-[140px]" style={{ background: "rgba(34,211,238,.15)" }} />
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-10 grid lg:grid-cols-2 gap-14 items-center">
         <div>
@@ -254,7 +255,7 @@ function WhatIsReact() {
           <h2 className="font-display text-3xl md:text-4xl font-semibold mt-5 tracking-tight">
             Build Interactive Web Experiences With React.js
           </h2>
-          <p className="text-[var(--muted)] mt-4 text-lg leading-relaxed">
+          <p className="text-(--muted) mt-4 text-lg leading-relaxed">
             React.js is a modern JavaScript library for building dynamic and interactive user interfaces. I use React.js to create reusable, maintainable and scalable web applications tailored to project requirements.
           </p>
         </Reveal>
@@ -293,7 +294,7 @@ function ReactServices() {
         <Reveal className="max-w-2xl">
           <Eyebrow>// react.js services</Eyebrow>
           <h2 className="font-display text-3xl md:text-4xl font-semibold mt-5 tracking-tight">React.js Services</h2>
-          <p className="text-[var(--muted)] mt-4 text-lg">From a single landing page to a full dashboard — built with the same component discipline.</p>
+          <p className="text-(--muted) mt-4 text-lg">From a single landing page to a full dashboard — built with the same component discipline.</p>
         </Reveal>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-14">
           {services.map((s) => (
@@ -303,7 +304,7 @@ function ReactServices() {
                   <s.icon size={20} />
                 </div>
                 <h3 className="font-display font-semibold text-lg mt-5">{s.title}</h3>
-                <p className="text-[var(--muted)] text-sm mt-2 leading-relaxed">{s.desc}</p>
+                <p className="text-(--muted) text-sm mt-2 leading-relaxed">{s.desc}</p>
               </div>
             </Reveal>
           ))}
@@ -362,7 +363,7 @@ function ReactArchitecture() {
         <Reveal>
           <Eyebrow>// architecture</Eyebrow>
           <h2 className="font-display text-3xl md:text-4xl font-semibold mt-5 tracking-tight">Scalable React Architecture</h2>
-          <p className="text-[var(--muted)] mt-4 text-lg leading-relaxed">Every project is organized so a new feature — or a new developer — can be added without untangling the rest of the app.</p>
+          <p className="text-(--muted) mt-4 text-lg leading-relaxed">Every project is organized so a new feature — or a new developer — can be added without untangling the rest of the app.</p>
           <div className="flex flex-wrap gap-2.5 mt-8">
             {practices.map((p) => (
               <span key={p} className="rjs-chip">{p}</span>
@@ -403,7 +404,7 @@ function StateManagement() {
         <Reveal className="max-w-2xl">
           <Eyebrow>// state management</Eyebrow>
           <h2 className="font-display text-3xl md:text-4xl font-semibold mt-5 tracking-tight">Smart State Management</h2>
-          <p className="text-[var(--muted)] mt-4 text-lg leading-relaxed">
+          <p className="text-(--muted) mt-4 text-lg leading-relaxed">
             I choose the appropriate state management approach according to the complexity and requirements of each application.
           </p>
         </Reveal>
@@ -435,7 +436,7 @@ function ApiIntegration() {
         <Reveal>
           <Eyebrow>// api integration</Eyebrow>
           <h2 className="font-display text-3xl md:text-4xl font-semibold mt-5 tracking-tight">Connect Your React Application With Powerful APIs</h2>
-          <p className="text-[var(--muted)] mt-4 text-lg leading-relaxed">
+          <p className="text-(--muted) mt-4 text-lg leading-relaxed">
             I integrate React applications with REST APIs and external services to create dynamic, data-driven experiences.
           </p>
           <div className="flex flex-wrap gap-2.5 mt-8">
@@ -515,7 +516,7 @@ function ResponsiveSection() {
         <Reveal>
           <Eyebrow>// responsive development</Eyebrow>
           <h2 className="font-display text-3xl md:text-4xl font-semibold mt-5 tracking-tight">Responsive on Every Screen</h2>
-          <p className="text-[var(--muted)] mt-4 text-lg max-w-xl mx-auto">
+          <p className="text-(--muted) mt-4 text-lg max-w-xl mx-auto">
             Every React application is developed and tested to provide a consistent experience across mobile, tablet and desktop devices.
           </p>
         </Reveal>
@@ -761,7 +762,7 @@ function DevelopmentProcess() {
         <Reveal className="max-w-2xl">
           <Eyebrow>// development process</Eyebrow>
           <h2 className="font-display text-3xl md:text-4xl font-semibold mt-5 tracking-tight">Development Process</h2>
-          <p className="text-[var(--muted)] mt-4 text-lg">The same seven steps, run in order, on every React engagement.</p>
+          <p className="text-(--muted) mt-4 text-lg">The same seven steps, run in order, on every React engagement.</p>
         </Reveal>
         <div className="mt-14">
           {steps.map((s, idx) => (
@@ -772,7 +773,7 @@ function DevelopmentProcess() {
                   <s.icon size={20} className="mt-1 shrink-0" color="var(--secondary)" />
                   <div>
                     <h3 className="font-display font-semibold text-lg">{s.title}</h3>
-                    <p className="text-[var(--muted)] text-sm mt-1 max-w-xl">{s.desc}</p>
+                    <p className="text-(--muted) text-sm mt-1 max-w-xl">{s.desc}</p>
                   </div>
                 </div>
               </div>
@@ -805,12 +806,12 @@ function ReactProjects() {
           {placeholders.map((p) => (
             <Reveal key={p}>
               <div
-                className="rjs-card-dark p-7 h-full flex flex-col items-center text-center justify-center gap-3 min-h-[280px]"
+                className="rjs-card-dark p-7 h-full flex flex-col items-center text-center justify-center gap-3 min-h-70"
                 style={{ borderStyle: "dashed" }}
               >
                 <Code2 size={26} color="#475569" />
                 <p className="font-mono text-sm text-slate-500">project slot {p}</p>
-                <p className="text-slate-500 text-xs max-w-[220px]">
+                <p className="text-slate-500 text-xs max-w-55">
                   Add project name, screenshot, description, stack and key features here.
                 </p>
                 <div className="flex gap-4 mt-3 font-mono text-xs text-slate-600">
@@ -904,7 +905,7 @@ function FAQ() {
                 <div
                   className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
                     isOpen
-                      ? "bg-white border-blue-400 shadow-sm ring-1 ring-blue-500/10"
+                      ? "bg-white border-[#F7D26B] shadow-sm ring-1 ring-blue-500/10"
                       : "bg-white/80 hover:bg-white border-slate-200 hover:border-slate-300"
                   }`}
                 >
@@ -914,13 +915,13 @@ function FAQ() {
                     aria-expanded={isOpen}
                   >
                     <span className={`text-sm sm:text-base font-semibold tracking-tight transition-colors ${
-                      isOpen ? "text-blue-600" : "text-slate-800"
+                      isOpen ? "text-[#F7D26B]" : "text-slate-800"
                     }`}>
                       {item.q}
                     </span>
                     
                     <div className={`p-1 rounded-full shrink-0 transition-all duration-300 ${
-                      isOpen ? "bg-blue-50 text-blue-600 rotate-180" : "bg-slate-100 text-slate-500"
+                      isOpen ? "bg-blue-50 text-[#F7D26B] rotate-180" : "bg-slate-100 text-slate-500"
                     }`}>
                       <ChevronDown size={16} />
                     </div>
@@ -957,7 +958,7 @@ function CTA() {
     <section id="rjs-cta" className="relative py-28 md:py-36 text-white overflow-hidden" style={{ background: "var(--dark)" }}>
       <div className="absolute inset-0 rjs-grid-noise opacity-30" />
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[38rem] h-[38rem] rounded-full blur-[160px]"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-152 h-152 rounded-full blur-[160px]"
         style={{ background: "rgba(124,58,237,.25)" }}
       />
       <div className="relative max-w-3xl mx-auto px-6 text-center">
