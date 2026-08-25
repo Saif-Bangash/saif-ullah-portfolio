@@ -9,9 +9,9 @@ import Project from "./component/Project";
 import ContactSection from "./component/ContactSection";
 import Footer from "./component/Footer";
 import { Route, Routes, useLocation } from "react-router-dom";
-import WebDevelopment from "./services/Web_Development/Custom-web-development";
-import ReactDevelopment from "./services/Web_Development/React-Development";
-  
+import WebDevelopment from "./services/Web_Development/Custom-web-development.jsx";
+import ReactDevelopment from "./services/Web_Development/React-Development.jsx";
+
 function ScrollToTop() {
   const { pathname } = useLocation();
 

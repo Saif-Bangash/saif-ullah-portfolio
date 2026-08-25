@@ -271,7 +271,7 @@ function ReactHero() {
       {/* Top Right Glow - Soft Gold Accent */}
       <div
         className="absolute top-16 -right-32 w-104 h-104 rounded-full blur-[140px] pointer-events-none"
-        style={{ background: "rgba(247,210,107,.22)" }}
+        style={{ background: "rgba(247,210,112,.22)" }}
       />
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-10 grid lg:grid-cols-2 gap-14 items-center">
