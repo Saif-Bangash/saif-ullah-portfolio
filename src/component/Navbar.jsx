@@ -3,11 +3,11 @@ import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const NAV_ITEMS = ["home", "about", "resume", "projects", "contact"];
+const NAV_ITEMS = ["home", "about", "services", "projects", "contact"];
 const NAV_PATHS = {
   home: "/",
   about: "/about",
-  resume: "/resume",
+  resume: "/services",
   projects: "/projects",
   contact: "/contact",
 };

@@ -135,14 +135,14 @@ const ContactSection = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-[#5C4DFF] dark:text-purple-400 font-bold uppercase tracking-[0.2em] text-xs md:text-sm"
+            className="text-[#D9A93E] dark:text-[#D9A93E] font-bold uppercase tracking-[0.2em] text-xs md:text-sm"
           >
             Get In Touch
           </motion.span>
 
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mt-4 leading-tight">
             Let's Talk About{" "}
-            <span className="text-[#5C4DFF] dark:text-purple-400 font-serif italic">
+            <span className="text-[#D9A93E] dark:text-[#D9A93E] font-serif italic">
               Projects
             </span>
           </h2>
@@ -150,9 +150,9 @@ const ContactSection = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-12 items-start">
           <div className="lg:col-span-1 space-y-4 md:space-y-6">
-            <div className="bg-white dark:bg-white/5 p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-sm border border-gray-100 dark:border-white/10 group hover:border-[#5C4DFF]/50 transition-all">
+            <div className="bg-white dark:bg-white/5 p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-sm border border-gray-100 dark:border-white/10 group hover:border-[#D9A93E]/50 transition-all">
               <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl shrink-0 flex items-center justify-center bg-gray-50 dark:bg-white/5 text-[#5C4DFF] dark:text-purple-400 text-base md:text-xl group-hover:bg-[#5C4DFF] group-hover:text-white transition-all">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl shrink-0 flex items-center justify-center bg-gray-50 dark:bg-white/5 text-[#D9A93E] dark:text-[#D9A93E] text-base md:text-xl group-hover:bg-[#D9A93E] group-hover:text-white transition-all">
                   <FaPhoneAlt />
                 </div>
                 <div className="flex-1 min-w-0">
@@ -161,7 +161,7 @@ const ContactSection = () => {
                   </p>
                   <a
                     href="tel:+923326767615"
-                    className="text-gray-800 dark:text-gray-200 font-semibold text-sm sm:text-base md:text-sm hover:text-[#5C4DFF] dark:hover:text-purple-400 break-all transition-colors block"
+                    className="text-gray-800 dark:text-gray-200 font-semibold text-sm sm:text-base md:text-sm hover:text-[#D9A93E] dark:hover:text-[#D9A93E] break-all transition-colors block"
                   >
                     +92 332 6767 615
                   </a>
@@ -171,26 +171,26 @@ const ContactSection = () => {
 
             <div
               onClick={() => setIsModalOpen(true)}
-              className="bg-white dark:bg-white/5 p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-sm border border-gray-100 dark:border-white/10 group hover:border-[#5C4DFF]/50 transition-all cursor-pointer"
+              className="bg-white dark:bg-white/5 p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-sm border border-gray-100 dark:border-white/10 group hover:border-[#D9A93E]/50 transition-all cursor-pointer"
             >
               <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl shrink-0 flex items-center justify-center bg-gray-50 dark:bg-white/5 text-[#5C4DFF] dark:text-purple-400 text-base md:text-xl group-hover:bg-[#5C4DFF] group-hover:text-white transition-all">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl shrink-0 flex items-center justify-center bg-gray-50 dark:bg-white/5 text-[#D9A93E] dark:text-[#D9A93E] text-base md:text-xl group-hover:bg-[#D9A93E] group-hover:text-white transition-all">
                   <FaEnvelope />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-gray-400 text-[10px] md:text-xs font-medium uppercase tracking-wider">
                     Email
                   </p>
-                  <span className="text-gray-800 dark:text-gray-200 font-semibold text-sm sm:text-base md:text-sm group-hover:text-[#5C4DFF] dark:group-hover:text-purple-400 break-all transition-colors block">
+                  <span className="text-gray-800 dark:text-gray-200 font-semibold text-sm sm:text-base md:text-sm group-hover:text-[#D9A93E] dark:group-hover:text-[#D9A93E] break-all transition-colors block">
                     {MY_EMAIL}
                   </span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white dark:bg-white/5 p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-sm border border-gray-100 dark:border-white/10 group hover:border-[#5C4DFF]/50 transition-all">
+            <div className="bg-white dark:bg-white/5 p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-sm border border-gray-100 dark:border-white/10 group hover:border-[#D9A93E]/50 transition-all">
               <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl shrink-0 flex items-center justify-center bg-gray-50 dark:bg-white/5 text-[#5C4DFF] dark:text-purple-400 text-base md:text-xl group-hover:bg-[#5C4DFF] group-hover:text-white transition-all">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl shrink-0 flex items-center justify-center bg-gray-50 dark:bg-white/5 text-[#D9A93E] dark:text-[#D9A93E] text-base md:text-xl group-hover:bg-[#D9A93E] group-hover:text-white transition-all">
                   <FaMapMarkerAlt />
                 </div>
                 <div className="flex-1 min-w-0">
@@ -209,7 +209,7 @@ const ContactSection = () => {
             <form
               ref={formRef}
               onSubmit={handleSubmit}
-              className="bg-white dark:bg-white/5 p-5 sm:p-8 md:p-10 rounded-3xl sm:rounded-4xl md:rounded-[2.5rem] shadow-xl shadow-purple-100/20 dark:shadow-none border border-gray-50 dark:border-white/10 space-y-4 sm:space-y-6"
+              className="bg-white dark:bg-white/5 p-5 sm:p-8 md:p-10 rounded-3xl sm:rounded-4xl md:rounded-[2.5rem] shadow-xl dark:shadow-none border border-gray-50 dark:border-white/10 space-y-4 sm:space-y-6"
             >
               {statusMessage.text && (
                 <div
@@ -235,7 +235,7 @@ const ContactSection = () => {
                     onChange={handleChange}
                     required
                     placeholder="Your Name"
-                    className="w-full px-4 sm:px-5 py-3.5 sm:py-4 bg-gray-50 dark:bg-white/5 dark:text-white border-none rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#5C4DFF] outline-none transition-all placeholder:text-gray-400 text-sm sm:text-base"
+                    className="w-full px-4 sm:px-5 py-3.5 sm:py-4 bg-gray-50 dark:bg-white/5 dark:text-white border-none rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#D9A93E] outline-none transition-all placeholder:text-gray-400 text-sm sm:text-base"
                   />
                 </div>
 
@@ -250,7 +250,7 @@ const ContactSection = () => {
                     onChange={handleChange}
                     required
                     placeholder="example@mail.com"
-                    className="w-full px-4 sm:px-5 py-3.5 sm:py-4 bg-gray-50 dark:bg-white/5 dark:text-white border-none rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#5C4DFF] outline-none transition-all placeholder:text-gray-400 text-sm sm:text-base"
+                    className="w-full px-4 sm:px-5 py-3.5 sm:py-4 bg-gray-50 dark:bg-white/5 dark:text-white border-none rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#D9A93E] outline-none transition-all placeholder:text-gray-400 text-sm sm:text-base"
                   />
                 </div>
               </div>
@@ -266,14 +266,14 @@ const ContactSection = () => {
                   onChange={handleChange}
                   required
                   placeholder="Write your message here..."
-                  className="w-full px-4 sm:px-5 py-3.5 sm:py-4 bg-gray-50 dark:bg-white/5 dark:text-white border-none rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#5C4DFF] outline-none transition-all resize-none placeholder:text-gray-400 text-sm sm:text-base"
+                  className="w-full px-4 sm:px-5 py-3.5 sm:py-4 bg-gray-50 dark:bg-white/5 dark:text-white border-none rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#D9A93E] outline-none transition-all resize-none placeholder:text-gray-400 text-sm sm:text-base"
                 ></textarea>
               </div>
 
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full md:w-auto bg-[#5C4DFF] hover:bg-[#4A3DDF] text-white font-bold px-8 sm:px-10 py-3.5 sm:py-4 md:py-5 rounded-xl sm:rounded-2xl flex items-center justify-center gap-3 transition-all hover:shadow-lg active:scale-95 disabled:opacity-50 text-sm sm:text-base"
+                className="w-full md:w-auto bg-[#D9A93E] hover:bg-[#c29432] text-white font-bold px-8 sm:px-10 py-3.5 sm:py-4 md:py-5 rounded-xl sm:rounded-2xl flex items-center justify-center gap-3 transition-all hover:shadow-lg active:scale-95 disabled:opacity-50 text-sm sm:text-base"
               >
                 {loading ? "Sending..." : "Send Message"}
                 <FaPaperPlane className="text-xs sm:text-sm" />
@@ -358,7 +358,7 @@ const ContactSection = () => {
                       onChange={handleModalChange}
                       required
                       placeholder="example@mail.com"
-                      className="w-full px-3.5 py-2.5 bg-gray-50 dark:bg-white/5 dark:text-white rounded-xl text-xs outline-none focus:ring-2 focus:ring-[#5C4DFF] border border-gray-200 dark:border-white/10 transition-all"
+                      className="w-full px-3.5 py-2.5 bg-gray-50 dark:bg-white/5 dark:text-white rounded-xl text-xs outline-none focus:ring-2 focus:ring-[#D9A93E] border border-gray-200 dark:border-white/10 transition-all"
                     />
                   </div>
 
@@ -373,7 +373,7 @@ const ContactSection = () => {
                       onChange={handleModalChange}
                       required
                       placeholder="Your Name"
-                      className="w-full px-3.5 py-2.5 bg-gray-50 dark:bg-white/5 dark:text-white rounded-xl text-xs outline-none focus:ring-2 focus:ring-[#5C4DFF] border border-gray-200 dark:border-white/10 transition-all"
+                      className="w-full px-3.5 py-2.5 bg-gray-50 dark:bg-white/5 dark:text-white rounded-xl text-xs outline-none focus:ring-2 focus:ring-[#D9A93E] border border-gray-200 dark:border-white/10 transition-all"
                     />
                   </div>
 
@@ -388,14 +388,14 @@ const ContactSection = () => {
                       onChange={handleModalChange}
                       required
                       placeholder="Write your message here..."
-                      className="w-full px-3.5 py-2.5 bg-gray-50 dark:bg-white/5 dark:text-white rounded-xl text-xs outline-none focus:ring-2 focus:ring-[#5C4DFF] resize-none border border-gray-200 dark:border-white/10 transition-all"
+                      className="w-full px-3.5 py-2.5 bg-gray-50 dark:bg-white/5 dark:text-white rounded-xl text-xs outline-none focus:ring-2 focus:ring-[#D9A93E] resize-none border border-gray-200 dark:border-white/10 transition-all"
                     ></textarea>
                   </div>
 
                   <button
                     type="submit"
                     disabled={modalLoading}
-                    className="w-full bg-[#5C4DFF] hover:bg-[#4A3DDF] text-white font-semibold py-3 rounded-xl flex items-center justify-center gap-2 transition-all active:scale-95 disabled:opacity-50 text-xs shadow-md"
+                    className="w-full bg-[#D9A93E] hover:bg-[#c29432] text-white font-semibold py-3 rounded-xl flex items-center justify-center gap-2 transition-all active:scale-95 disabled:opacity-50 text-xs shadow-md"
                   >
                     {modalLoading ? "Sending..." : "Send Email"}
                     <FaPaperPlane className="text-[10px]" />

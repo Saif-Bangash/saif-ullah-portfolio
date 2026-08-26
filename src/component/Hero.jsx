@@ -379,7 +379,7 @@ const HowWeWork = () => {
 
       <div className="max-w-5xl mx-auto relative">
         {/* connecting line */}
-        <div className="hidden md:block absolute left-6 top-6 bottom-6 w-px bg-gradient-to-b from-[#F7D26B] via-[#D9A93E]/40 to-transparent" />
+        <div className="hidden md:block absolute left-6 top-6 bottom-6 w-px bg-linear-to-brom-[#F7D26B] via-[#D9A93E]/40 to-transparent" />
 
         <div className="flex flex-col gap-8 md:gap-10">
           {steps.map((step, idx) => (

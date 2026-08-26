@@ -4,7 +4,6 @@ import About from "./component/About";
 import Hero from "./component/Hero";
 import Navbar from "./component/Navbar";
 import ResumeSection from "./component/ResumeSection";
-import Skills from "./component/Skills";
 import Project from "./component/Project";
 import ContactSection from "./component/ContactSection";
 import Footer from "./component/Footer";
@@ -30,7 +29,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Hero />} />
         <Route path="/about" element={<About />} />
-        <Route path="/skills" element={<Skills />} />
         <Route path="/resume" element={<ResumeSection />} />
         <Route path="/projects" element={<Project />} />
         <Route path="/contact" element={<ContactSection />} />
