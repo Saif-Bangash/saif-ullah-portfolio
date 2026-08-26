@@ -94,7 +94,7 @@ const Footer = () => {
     },
     {
       icon: <FaGithub />,
-      link: "https://github.com/Saif-Bangash/",
+      link: "https://github.com/Saifullahbangash01/",
       label: "GitHub",
     },
     {
@@ -234,7 +234,6 @@ const Footer = () => {
                       <FaArrowRight className="text-xs text-[#F7D26B] transition-transform duration-300 group-hover:translate-x-1" />
                       {item.name}
 
-                      <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-[#F7D26B] group-hover:w-full transition-all duration-300" />
                     </Link>
                   </li>
                 ))}

@@ -41,7 +41,12 @@ import {
   MonitorSmartphone,
   Workflow,
   Sparkles,
+  
 } from "lucide-react";
+import { faqData } from "../../data/projects";
+import FAQs from "../../component/FAQs";
+import CTA from "../../component/CTA";
+ 
 
 /* =========================================================
    DESIGN TOKENS — same system as the main Web Development page
@@ -70,11 +75,11 @@ const GlobalStyle = () => (
     .cwd-eyebrow{
       display:inline-flex; align-items:center; gap:.5rem;
       font-family:"JetBrains Mono", monospace; font-size:.72rem; letter-spacing:.02em;
-      color:var(--primary); background:rgba(124,58,237,.08);
+      color:var(--dark); background: #f1e1af;
       border:1px solid rgba(124,58,237,.22); border-radius:999px; padding:.35rem .8rem .35rem .6rem;
     }
     .cwd-eyebrow.on-dark{ color:#C4B5FD; background:rgba(196,181,253,.08); border-color:rgba(196,181,253,.22); }
-    .cwd-dot{ width:6px; height:6px; border-radius:999px; background:var(--accent); box-shadow:0 0 8px var(--accent); }
+    .cwd-dot{ width:6px; height:6px; border-radius:999px; background:var(--dark); box-shadow:0 0 8px var(--accent); }
 
     .cwd-editor{
       background:#0D1424; border:1px solid rgba(148,163,184,.14); border-radius:14px; overflow:hidden;
@@ -291,10 +296,10 @@ function CustomHero() {
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-10 grid lg:grid-cols-2 gap-14 items-center">
         <div>
-          <p className="font-mono text-xs text-slate-500 mb-3">
+          <p className="font-mono text-xs text-slate-200 mb-3">
             web development / custom web development
           </p>
-          <Eyebrow dark>custom web development</Eyebrow>
+          <Eyebrow  >custom web development</Eyebrow>
           <h1 className="font-display text-[2.1rem] leading-[1.12] sm:text-4xl md:text-[2.9rem] font-semibold mt-6 tracking-tight">
             Custom Web Development Built{" "}
             <span className="cwd-grad-text">Around Your Business</span>
@@ -657,7 +662,7 @@ function CustomComparison() {
       <div className="absolute inset-0 cwd-grid-noise opacity-20" />
       <div className="relative max-w-6xl mx-auto px-6 md:px-10">
         <Reveal className="text-center max-w-2xl mx-auto">
-          <Eyebrow dark>// why custom development</Eyebrow>
+          <Eyebrow>// why custom development</Eyebrow>
           <h2 className="font-display text-3xl md:text-4xl font-semibold mt-5 tracking-tight">
             Built for Your Requirements, Not Someone Else's.
           </h2>
@@ -783,7 +788,7 @@ function ResponsiveSection() {
       <div className="absolute inset-0 cwd-grid-noise opacity-20" />
       <div className="relative max-w-5xl mx-auto px-6 md:px-10 text-center">
         <Reveal>
-          <Eyebrow dark>// responsive development</Eyebrow>
+          <Eyebrow >// responsive development</Eyebrow>
           <h2 className="font-display text-3xl md:text-4xl font-semibold mt-5 tracking-tight">
             Perfectly Responsive on Every Screen
           </h2>
@@ -980,7 +985,7 @@ function CustomProjects() {
       <div className="absolute inset-0 cwd-grid-noise opacity-20" />
       <div className="relative max-w-7xl mx-auto px-6 md:px-10">
         <Reveal className="max-w-2xl">
-          <Eyebrow dark>// featured custom projects</Eyebrow>
+          <Eyebrow >// featured custom projects</Eyebrow>
           <h2 className="font-display text-3xl md:text-4xl font-semibold mt-5 tracking-tight">
             Featured Custom Projects
           </h2>
@@ -1058,179 +1063,7 @@ function CustomProjects() {
     </section>
   );
 }
-
-const FAQ_ITEMS = [
-  {
-    q: "What is custom web development?",
-    a: "It's building a website or web application specifically around your business requirements, workflows, and users, rather than adapting a restrictive pre-built template.",
-  },
-  {
-    q: "Why should I choose custom development instead of a template?",
-    a: "Custom development gives you complete design flexibility, functionality built for your exact workflow, and a clean codebase that scales effortlessly as your business grows.",
-  },
-  {
-    q: "Can you build a website according to my business requirements?",
-    a: "Yes. I start by analyzing your specific business goals, user pathways, and feature requirements, then design and engineer the site around them.",
-  },
-  {
-    q: "Can you integrate APIs?",
-    a: "Yes. I integrate REST APIs, authentication services, payment gateways, and third-party tools your business relies on daily.",
-  },
-  {
-    q: "Can you connect the website with a database?",
-    a: "Yes, using modern databases such as MongoDB or MySQL, structured specifically for your data management needs.",
-  },
-  {
-    q: "Can you build an admin dashboard?",
-    a: "Yes. I build fully responsive, secure admin dashboards for managing users, content, orders, products, and operational analytics.",
-  },
-  {
-    q: "Will the website be responsive?",
-    a: "Yes, every custom build follows a mobile-first approach and is thoroughly tested across mobile devices, tablets, laptops, and wide monitors.",
-  },
-  {
-    q: "Will the website be SEO-friendly?",
-    a: "Yes. Semantic HTML, structured data, clean URLs, customizable meta tags, and Core Web Vitals performance optimization are built into every project.",
-  },
-  {
-    q: "Can you redesign my existing website?",
-    a: "Yes. I can rebuild existing legacy sites into fast, modern, and high-converting custom web applications without losing your established SEO value.",
-  },
-  {
-    q: "Do you provide maintenance after development?",
-    a: "Yes, including technical support, regular updates, continuous performance tracking, and security monitoring post-launch.",
-  },
-];
-
-function FAQAccordion() {
-  // First FAQ open by default
-  const [openIndex, setOpenIndex] = useState(0);
-
-  const toggleFAQ = (index) => {
-    setOpenIndex(openIndex === index ? -1 : index);
-  };
-
-  return (
-    <section
-      id="cwd-faq"
-      className="py-10 sm:py-14 bg-slate-50/60 border-t border-slate-200/80"
-    >
-      <div className="max-w-5xl mx-auto px-4 sm:px-6">
-        {/* Section Header */}
-        <div className="text-center max-w-xl mx-auto">
-          <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-mono font-medium tracking-wide uppercase">
-            <HelpCircle size={13} /> // FAQ
-          </div>
-          <h2 className="font-display text-2xl sm:text-3xl font-bold text-slate-900 mt-2 tracking-tight">
-            Frequently Asked Questions
-          </h2>
-        </div>
-
-        {/* Compact Accordion List */}
-        <div className="mt-6 space-y-2">
-          {FAQ_ITEMS.map((item, idx) => {
-            const isOpen = openIndex === idx;
-
-            return (
-              <div
-                key={idx}
-                className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
-                  isOpen
-                    ? "bg-white border-[#F7D26B] shadow-sm ring-1 ring-blue-500/10"
-                    : "bg-white/80 hover:bg-white border-slate-200 hover:border-slate-300"
-                }`}
-              >
-                <button
-                  className="w-full flex items-center justify-between gap-3 px-4 py-3 sm:px-5 sm:py-3.5 text-left transition-colors"
-                  onClick={() => toggleFAQ(idx)}
-                  aria-expanded={isOpen}
-                >
-                  <span
-                    className={`text-sm sm:text-base font-semibold tracking-tight transition-colors ${
-                      isOpen ? "text-[#F7D26B]" : "text-slate-800"
-                    }`}
-                  >
-                    {item.q}
-                  </span>
-
-                  <div
-                    className={`p-1 rounded-full shrink-0 transition-all duration-300 ${
-                      isOpen
-                        ? "bg-blue-50 text-[#F7D26B] rotate-180"
-                        : "bg-slate-100 text-slate-500"
-                    }`}
-                  >
-                    <ChevronDown size={16} />
-                  </div>
-                </button>
-
-                {/* Animated Collapsible Body */}
-                <div
-                  className={`grid transition-all duration-200 ease-in-out ${
-                    isOpen
-                      ? "grid-rows-[1fr] opacity-100"
-                      : "grid-rows-[0fr] opacity-0"
-                  }`}
-                >
-                  <div className="overflow-hidden">
-                    <p className="px-4 pb-3.5 sm:px-5 sm:pb-4 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-2.5">
-                      {item.a}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* =========================================================
-   14. FINAL CTA
-   ========================================================= */
-function CTA() {
-  return (
-    <section
-      id="cwd-cta"
-      className="relative py-28 md:py-36 bg-(--dark) text-white overflow-hidden"
-      style={{ background: "var(--dark)" }}
-    >
-      <div className="absolute inset-0 cwd-grid-noise opacity-30" />
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-152 h-152 rounded-full blur-[160px]"
-        style={{ background: "rgba(124,58,237,.25)" }}
-      />
-      <div className="relative max-w-3xl mx-auto px-6 text-center">
-        <Reveal>
-          <Eyebrow dark>$ ready --to-build</Eyebrow>
-          <h2 className="font-display text-3xl md:text-6xl font-semibold mt-6 tracking-tight">
-            Have a Custom Web Project in Mind?
-          </h2>
-          <p className="text-slate-300 mt-5 text-lg">
-            Let's turn your requirements into a fast, modern and scalable web
-            solution built specifically for your business.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 mt-9">
-            <Link to={"/contact"} className="rjs-btn-primary">
-              Start a Project
-            </Link>
-            <Link
-              to="https://wa.me/923326767615"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rjs-btn-ghost text-white flex items-center gap-2"
-            >
-              <FaWhatsapp size={20} />
-              +92 332 6767615
-            </Link>{" "}
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
+ 
 
 /* =========================================================
    PAGE ROOT
@@ -1250,8 +1083,14 @@ export default function WebDevelopment() {
       <IntegrationSection />
       <UseCases />
       <CustomProjects />
-      <FAQAccordion />
-      <CTA />
+       
+        <FAQs 
+        data={faqData} 
+        title="Frequently Asked Questions" 
+        eyebrow="// Got Questions?" 
+      />
+
+    <CTA />
     </div>
   );
 }

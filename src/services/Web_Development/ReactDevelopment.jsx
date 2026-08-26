@@ -43,6 +43,9 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { FaWhatsapp } from "react-icons/fa";
+import FAQs from "../../component/FAQs";
+import { FAQ_ITEMS } from "../../data/projects";
+import CTA from "../../component/CTA";
 
 /* =========================================================
    DESIGN TOKENS — shared portfolio system
@@ -70,11 +73,11 @@ const GlobalStyle = () => (
     .rjs-eyebrow{
       display:inline-flex; align-items:center; gap:.5rem;
       font-family:"JetBrains Mono", monospace; font-size:.72rem; letter-spacing:.02em;
-      color:var(--gold-dark); background:rgba(247,210,107,.12);
+      color:var(--dark); background:rgba(247,210,107,.12);
       border:1px solid rgba(247,210,107,.3); border-radius:999px; padding:.35rem .8rem .35rem .6rem;
     }
     .rjs-eyebrow.on-dark{ color:#FBE3A0; background:rgba(247,210,107,.1); border-color:rgba(247,210,107,.25); }
-    .rjs-dot{ width:6px; height:6px; border-radius:999px; background:var(--accent); box-shadow:0 0 8px var(--accent); }
+    .rjs-dot{ width:6px; height:6px; border-radius:999px; background:var(--dark); box-shadow:0 0 8px var(--accent); }
 
     .rjs-editor{
       background:#0D1424; border:1px solid rgba(148,163,184,.14); border-radius:14px; overflow:hidden;
@@ -1279,183 +1282,8 @@ function WhyChooseMe() {
     </section>
   );
 }
-
-/* =========================================================
-   18. FAQ
-   ========================================================= */
-const FAQ_ITEMS = [
-  {
-    q: "What type of React.js applications do you build?",
-    a: "Business websites, e-commerce interfaces, admin dashboards, SaaS interfaces, landing pages and custom API-driven applications.",
-  },
-  {
-    q: "Can you convert an existing website into React.js?",
-    a: "Yes, existing websites can be rebuilt as modern React.js applications while keeping their content and branding.",
-  },
-  {
-    q: "Can you integrate REST APIs?",
-    a: "Yes, including CRUD APIs, authentication APIs and third-party services, using Fetch or Axios.",
-  },
-  {
-    q: "Do you build React e-commerce websites?",
-    a: "Yes, including product listings, cart functionality, search, filtering and checkout interfaces.",
-  },
-  {
-    q: "Can you create React admin dashboards?",
-    a: "Yes, with data tables, charts, filters, pagination and CRUD functionality.",
-  },
-  {
-    q: "Do you use Redux Toolkit?",
-    a: "Yes, for applications where global state is complex enough to benefit from it — otherwise Context API or local state is used.",
-  },
-  {
-    q: "Will my React website be responsive?",
-    a: "Yes, every React build is developed mobile-first and tested across mobile, tablet, laptop and desktop.",
-  },
-  {
-    q: "Can you optimize React application performance?",
-    a: "Yes, including code splitting, memoization, lazy loading and Core Web Vitals improvements.",
-  },
-  {
-    q: "Can you build authentication and protected routes?",
-    a: "Yes, including login/registration flows, protected routes and role-based access.",
-  },
-  {
-    q: "Do you provide React website maintenance?",
-    a: "Yes, including bug fixes, dependency updates, feature additions and performance improvements after launch.",
-  },
-];
-
-function FAQ() {
-  // Set to 0 so the first item stays open by default
-  const [openIndex, setOpenIndex] = useState(0);
-
-  const toggleFAQ = (index) => {
-    setOpenIndex(openIndex === index ? -1 : index);
-  };
-
-  return (
-    <section
-      id="rjs-faq"
-      className="py-10 sm:py-14 bg-slate-50/60 border-t border-slate-200/80"
-    >
-      <div className="max-w-5xl mx-auto px-4 sm:px-6">
-        {/* Header */}
-        <Reveal className="text-center max-w-xl mx-auto">
-          <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-mono font-medium tracking-wide uppercase">
-            <Code2 size={13} /> // React.js FAQ
-          </div>
-          <h2 className="font-display text-2xl sm:text-3xl font-bold text-slate-900 mt-2 tracking-tight">
-            Frequently Asked Questions
-          </h2>
-        </Reveal>
-
-        {/* Accordion List */}
-        <div className="mt-6 space-y-2">
-          {FAQ_ITEMS.map((item, idx) => {
-            const isOpen = openIndex === idx;
-
-            return (
-              <Reveal key={idx}>
-                <div
-                  className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
-                    isOpen
-                      ? "bg-white border-[#F7D26B] shadow-sm ring-1 ring-blue-500/10"
-                      : "bg-white/80 hover:bg-white border-slate-200 hover:border-slate-300"
-                  }`}
-                >
-                  <button
-                    className="w-full flex items-center justify-between gap-3 px-4 py-3 sm:px-5 sm:py-3.5 text-left transition-colors"
-                    onClick={() => toggleFAQ(idx)}
-                    aria-expanded={isOpen}
-                  >
-                    <span
-                      className={`text-sm sm:text-base font-semibold tracking-tight transition-colors ${
-                        isOpen ? "text-[#F7D26B]" : "text-slate-800"
-                      }`}
-                    >
-                      {item.q}
-                    </span>
-
-                    <div
-                      className={`p-1 rounded-full shrink-0 transition-all duration-300 ${
-                        isOpen
-                          ? "bg-blue-50 text-[#F7D26B] rotate-180"
-                          : "bg-slate-100 text-slate-500"
-                      }`}
-                    >
-                      <ChevronDown size={16} />
-                    </div>
-                  </button>
-
-                  {/* Body Content */}
-                  <div
-                    className={`grid transition-all duration-200 ease-in-out ${
-                      isOpen
-                        ? "grid-rows-[1fr] opacity-100"
-                        : "grid-rows-[0fr] opacity-0"
-                    }`}
-                  >
-                    <div className="overflow-hidden">
-                      <p className="px-4 pb-3.5 sm:px-5 sm:pb-4 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-2.5">
-                        {item.a}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* =========================================================
-   19. FINAL CTA
-   ========================================================= */
-function CTA() {
-  return (
-    <section
-      id="rjs-cta"
-      className="relative py-28 md:py-36 text-white overflow-hidden"
-      style={{ background: "var(--dark)" }}
-    >
-      <div className="absolute inset-0 rjs-grid-noise opacity-30" />
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-152 h-152 rounded-full blur-[160px]"
-        style={{ background: "rgba(124,58,237,.25)" }}
-      />
-      <div className="relative max-w-3xl mx-auto px-6 text-center">
-        <Reveal>
-          <Eyebrow dark>$ ready --to-build</Eyebrow>
-          <h2 className="font-display text-3xl md:text-5xl font-semibold mt-6 tracking-tight">
-            Have a React.js Project in Mind?
-          </h2>
-          <p className="text-slate-300 mt-5 text-lg">
-            Let's build a modern, responsive and high-performance React.js
-            application designed around your business requirements.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 mt-9">
-            <Link to={"/contact"} className="rjs-btn-primary">
-              Start a Project
-            </Link>
-            <Link
-              to="https://wa.me/923326767615"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rjs-btn-ghost text-white flex items-center gap-2"
-            >
-              <FaWhatsapp size={20} />
-              +92 332 6767615
-            </Link>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
+ 
+ 
 
 /* =========================================================
    PAGE ROOT
@@ -1480,8 +1308,14 @@ export default function ReactDevelopment() {
       <DevelopmentProcess />
       <ReactProjects />
       <WhyChooseMe />
-      <FAQ />
+     <FAQs 
+        data={FAQ_ITEMS} 
+        title="Frequently Asked Questions" 
+        eyebrow="// Got Questions?" 
+      />
+
       <CTA />
+     
     </div>
   );
 }
