@@ -17,22 +17,22 @@ const SERVICE_ITEMS = [
   {
     path: "/custom-web-development",
     label: "Web Development",
-    Icon: Globe2,
+    icon: Globe2,
   },
   {
     path: "/react-development",
     label: "React JS",
-    Icon: Atom,
+    icon: Atom,
   },
   {
     path: "/wordpress",
     label: "WordPress",
-    Icon: Layers,
+    icon: Layers,
   },
   {
     path: "/seo",
     label: "SEO Optimization",
-    Icon: TrendingUp,
+    icon: TrendingUp,
   },
 ];
 
@@ -235,7 +235,7 @@ const Navbar = () => {
           />
         </button>
 
-        {/* ===== Desktop nav — sliding pill ===== */}
+        {/* ===== Desktop Nav ===== */}
         <div
           className="desktop-nav-container hidden md:flex items-center"
           onMouseLeave={() => {
@@ -314,7 +314,7 @@ const Navbar = () => {
               >
                 {button}
 
-                {/* ===== Dropdown wrapper ===== */}
+                {/* ===== Dropdown Wrapper ===== */}
                 <div
                   onMouseEnter={openServices}
                   onMouseLeave={scheduleCloseServices}
@@ -331,7 +331,6 @@ const Navbar = () => {
                     transition: "opacity 0.25s ease, transform 0.25s cubic-bezier(.4,0,.2,1), visibility 0.25s",
                   }}
                 >
-                  {/* Little caret */}
                   <div
                     style={{
                       position: "absolute",
@@ -362,7 +361,7 @@ const Navbar = () => {
                     }}
                   >
                     <div style={{ padding: "8px 8px 6px" }}>
-                      {SERVICE_ITEMS.map(({ path, label }, i) => (
+                      {SERVICE_ITEMS.map(({ path, label, icon: ItemIcon }, i) => (
                         <button
                           key={path}
                           onClick={() => goToService(path)}
@@ -395,7 +394,7 @@ const Navbar = () => {
                               color: C.active,
                             }}
                           >
-                            <Icon size={16} />
+                            <ItemIcon size={16} />
                           </span>
                           <span
                             style={{
@@ -420,7 +419,7 @@ const Navbar = () => {
                             width: "100%",
                             display: "flex",
                             alignItems: "center",
-                            justifyContent: "between",
+                            justifyContent: "space-between",
                             gap: 8,
                             padding: "10px 12px",
                             borderRadius: 12,
@@ -485,7 +484,7 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* ===== Mobile toggle ===== */}
+        {/* ===== Mobile Toggle ===== */}
         <button
           className="flex md:hidden sb-icon-btn"
           onClick={() => setOpen(!open)}
@@ -508,7 +507,7 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* ===== Scroll progress bar ===== */}
+      {/* ===== Progress Bar ===== */}
       <div style={{ height: 2, width: "100%", background: "rgba(255,255,255,0.05)", position: "relative", zIndex: 2 }}>
         <div
           style={{
@@ -520,7 +519,7 @@ const Navbar = () => {
         />
       </div>
 
-      {/* ===== Mobile menu ===== */}
+      {/* ===== Mobile Menu ===== */}
       <div
         className="md:hidden"
         style={{
@@ -599,7 +598,7 @@ const Navbar = () => {
           })}
 
           <div style={{ width: "100%", maxWidth: 300, display: "flex", flexDirection: "column", gap: 8, marginTop: -4 }}>
-            {SERVICE_ITEMS.map(({ path, label }) => (
+            {SERVICE_ITEMS.map(({ path, label, icon: ItemIcon }) => (
               <button
                 key={path}
                 onClick={() => goToService(path)}
@@ -619,7 +618,7 @@ const Navbar = () => {
                   cursor: "pointer",
                 }}
               >
-                <Icon size={15} color={C.active} />
+                <ItemIcon size={15} color={C.active} />
                 {label}
               </button>
             ))}
