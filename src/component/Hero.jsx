@@ -97,7 +97,7 @@ const HeroSection = () => {
           className="flex flex-row items-center justify-center lg:justify-start gap-3 mt-4 sm:mt-6 w-full sm:w-auto"
         >
           <a
-            href="#projects"
+            href="/projects"
             className="flex-1 sm:flex-none px-4 sm:px-8 py-3 sm:py-4 bg-[#F7D26B] text-[#1A1300] text-center text-xs sm:text-base font-bold rounded-xl md:rounded-2xl hover:bg-[#D9A93E] hover:shadow-lg transition-all active:scale-95 whitespace-nowrap"
           >
             View My Work
