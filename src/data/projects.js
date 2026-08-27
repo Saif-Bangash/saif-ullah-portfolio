@@ -142,4 +142,72 @@ const FAQ_ITEMS = [
   },
 ];
 
-export { FAQ_ITEMS, faqData, homeFaqData };
+// 1. Projects Data Array (Reusable Data Source)
+const projectsData = [
+  {
+    id: 1,
+    badge: "Smoknic.co.uk",
+    title: "eCommerce Website Design for Smoknic Ltd",
+    descriptions: [
+      "Smoknic, a growing name in the vape industry, required a stylish and functional website to effectively present their product lineup, spotlight deals, and provide a smooth online shopping experience.",
+      "We built a clean, mobile-optimized platform with eye-catching visuals, user-friendly navigation, and sales-driven design — aimed at boosting brand credibility, engaging customers, and increasing conversions.",
+    ],
+    techStack: ["Bootstrap 5", "CSS", "JavaScript"],
+    liveUrl: "https://www.smoknic.co.uk/",
+    imageUrl:
+      "https://www.webcomforts.com/mtill-uploads/files/smoknic-vape-web-design-190.webp",
+  },
+  {
+    id: 2,
+    badge: "TheVapor.co.uk",
+    title: "eCommerce Website Design for TheVapor",
+    descriptions: [
+      "TheVapor, a UK vape store, needed a strong online presence to showcase its vaping products, accessories, and e-liquids while providing a seamless shopping experience.",
+      "We redesigned TheVapor’s e-commerce site with modern layouts, fast performance, and intuitive navigation boosting credibility, user engagement, and vape sales across the UK.",
+    ],
+    techStack: ["Bootstrap 5", "CSS", "JavaScript"],
+    liveUrl: "https://www.thevapor.co.uk/",
+    imageUrl:
+      "https://www.webcomforts.com/mtill-uploads/files/vape-store-seo-272.webp",
+  },
+  {
+    id: 3,
+    badge: "Epoxy Res-iT.co.uk",
+    title: "eCommerce Website Design for Epoxy Res-iT",
+    descriptions: [
+      "We designed and developed a clean, search-optimized eCommerce website for Epoxy Res-iT, a growing brand in the Arts & Crafts Supplies market, specialising in high-quality epoxy resin products.",
+      "The website features intuitive navigation, clear product presentation, and a fully responsive design. Every element is tailored to showcase Epoxy Res-iT's arts and crafts supplies effectively, build customer trust, and deliver a smooth, conversion-focused shopping experience across all devices.",
+    ],
+    techStack: ["Bootstrap 5", "CSS", "JavaScript"],
+    liveUrl: "https://www.epoxyres-it.co.uk/",
+    imageUrl:
+      "https://www.webcomforts.com/mtill-uploads/files/epoxy-res-it-293.webp",
+  },
+  {
+    id: 4,
+    badge: "isafegadgets.co.uk",
+    title: "Business Website Design for iSafe Gadgets Tech Shop",
+    descriptions: [
+      "iSafe Gadgets Tech Shop, a Walton-on-Thames based repair store, needed a modern website to showcase their phone, tablet, laptop and gaming device repair services along with their premium tech accessories.",
+      "We built a fast, easy-to-navigate site with an online repair booking flow, service pages, and an accessories showcase — helping the shop build trust, attract local customers, and grow bookings.",
+    ],
+    techStack: ["Bootstrap 5", "CSS", "JavaScript"],
+    liveUrl: "https://isafegadgets.co.uk/",
+    imageUrl: "assets/img/isafegadgets-img.jfif",
+  },
+  {
+    id: 5,
+    badge: "Finroute.co.uk",
+    title: "Study Abroad & Immigration Website for Finroute",
+    descriptions: [
+      "We designed and developed a modern, conversion-focused website for Finroute, a trusted UK study and immigration consultancy helping students navigate study abroad, PTE/IELTS test preparation, and English learning journeys.",
+      "The website features a clean hero section, service highlights (Study Abroad, Test Centers, Learn English), destination showcases, and a fully responsive layout — built to build trust and drive free consultation sign-ups across all devices.",
+    ],
+    techStack: ["Bootstrap 5", "CSS", "JavaScript"],
+    liveUrl: "https://finroute.co.uk/",
+    imageUrl:
+      "https://www.webcomforts.com/mtill-uploads/files/corporate-web-design-268.webp",
+  },
+];
+
+export { FAQ_ITEMS, faqData, homeFaqData, projectsData };
