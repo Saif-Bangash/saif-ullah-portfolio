@@ -9,6 +9,7 @@ import {
   FaTimes,
 } from "react-icons/fa";
 
+// EmailJS Credentials Configuration
 const SERVICE_ID = "service_ane2vpf";
 const TEMPLATE_ID = "template_x9ss713";
 const PUBLIC_KEY = "M3TsBOqJVXV_77jVU";
@@ -40,24 +41,20 @@ const ContactSection = () => {
     message: "",
   });
 
+  // Initialize EmailJS
   useEffect(() => {
     emailjs.init(PUBLIC_KEY);
   }, []);
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleModalChange = (e) => {
-    setModalFormData({
-      ...modalFormData,
-      [e.target.name]: e.target.value,
-    });
+    setModalFormData({ ...modalFormData, [e.target.name]: e.target.value });
   };
 
+  // Main Form Submission Function
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -78,17 +75,20 @@ const ContactSection = () => {
           text: "Message successfully sent! I will respond shortly.",
         });
         setFormData({ name: "", email: "", message: "" });
+        setTimeout(() => setStatusMessage({ type: "", text: "" }), 5000);
       },
       (error) => {
         setLoading(false);
         setStatusMessage({
           type: "error",
-          text: `Failed: ${error?.text || "Check console for details"}`,
+          text: `Failed to send. Please try again later.`,
         });
-      }
+        console.error("EmailJS Error:", error);
+      },
     );
   };
 
+  // Modal Form Submission Function
   const handleModalSubmit = (e) => {
     e.preventDefault();
     setModalLoading(true);
@@ -109,6 +109,7 @@ const ContactSection = () => {
           text: "Email successfully sent! I will respond shortly.",
         });
         setModalFormData({ name: "", email: "", message: "" });
+
         setTimeout(() => {
           setIsModalOpen(false);
           setModalStatusMessage({ type: "", text: "" });
@@ -118,295 +119,322 @@ const ContactSection = () => {
         setModalLoading(false);
         setModalStatusMessage({
           type: "error",
-          text: `Failed: ${error?.text || "Check console for details"}`,
+          text: `Failed to send email. Please try again.`,
         });
-      }
+        console.error("EmailJS Modal Error:", error);
+      },
     );
   };
 
   return (
-    <section
-      id="contact"
-      className="py-10 lg:py-25 bg-gray-50 dark:bg-[#0a0118] transition-colors duration-500"
-    >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
-        <div className="text-center mb-12 md:mb-16">
+    <div className="bg-white dark:bg-[#0a0118] transition-colors duration-500 min-h-screen">
+      {/* 1. Contact Hero Section */}
+      <section className="relative pt-24 pb-16 md:pt-25 md:pb-16 border-b border-gray-100 dark:border-white/10 overflow-hidden">
+        {/* Glow Background Effect */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-100 h-100 bg-[#D9A93E]/10 blur-[100px] rounded-full pointer-events-none"></div>
+
+        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 relative z-10 text-center">
           <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-[#D9A93E] dark:text-[#D9A93E] font-bold uppercase tracking-[0.2em] text-xs md:text-sm"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-[#D9A93E] font-bold uppercase tracking-[0.3em] text-xs md:text-sm inline-block"
           >
             Get In Touch
           </motion.span>
 
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mt-4 leading-tight">
-            Let's Talk About{" "}
-            <span className="text-[#D9A93E] dark:text-[#D9A93E] font-serif italic">
-              Projects
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mt-4 leading-tight"
+          >
+            Let’s Build Something <br className="hidden md:block" />
+            <span className="font-serif italic text-[#D9A93E]">
+              Great Together
             </span>
-          </h2>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="max-w-xl mx-auto mt-6 text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed"
+          >
+            Have a project in mind? Whether you need a modern Web Development
+            solution, a custom WordPress website, or an SEO strategy to grow
+            your online visibility, I'd love to hear about your goals and help
+            turn your ideas into results.
+          </motion.p>
         </div>
+      </section>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-12 items-start">
-          <div className="lg:col-span-1 space-y-4 md:space-y-6">
-            <div className="bg-white dark:bg-white/5 p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-sm border border-gray-100 dark:border-white/10 group hover:border-[#D9A93E]/50 transition-all">
-              <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl shrink-0 flex items-center justify-center bg-gray-50 dark:bg-white/5 text-[#D9A93E] dark:text-[#D9A93E] text-base md:text-xl group-hover:bg-[#D9A93E] group-hover:text-white transition-all">
-                  <FaPhoneAlt />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-gray-400 text-[10px] md:text-xs font-medium uppercase tracking-wider">
-                    Call Me
-                  </p>
-                  <a
-                    href="tel:+923326767615"
-                    className="text-gray-800 dark:text-gray-200 font-semibold text-sm sm:text-base md:text-sm hover:text-[#D9A93E] dark:hover:text-[#D9A93E] break-all transition-colors block"
-                  >
-                    +92 332 6767 615
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div
-              onClick={() => setIsModalOpen(true)}
-              className="bg-white dark:bg-white/5 p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-sm border border-gray-100 dark:border-white/10 group hover:border-[#D9A93E]/50 transition-all cursor-pointer"
-            >
-              <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl shrink-0 flex items-center justify-center bg-gray-50 dark:bg-white/5 text-[#D9A93E] dark:text-[#D9A93E] text-base md:text-xl group-hover:bg-[#D9A93E] group-hover:text-white transition-all">
-                  <FaEnvelope />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-gray-400 text-[10px] md:text-xs font-medium uppercase tracking-wider">
-                    Email
-                  </p>
-                  <span className="text-gray-800 dark:text-gray-200 font-semibold text-sm sm:text-base md:text-sm group-hover:text-[#D9A93E] dark:group-hover:text-[#D9A93E] break-all transition-colors block">
-                    {MY_EMAIL}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white dark:bg-white/5 p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-sm border border-gray-100 dark:border-white/10 group hover:border-[#D9A93E]/50 transition-all">
-              <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl shrink-0 flex items-center justify-center bg-gray-50 dark:bg-white/5 text-[#D9A93E] dark:text-[#D9A93E] text-base md:text-xl group-hover:bg-[#D9A93E] group-hover:text-white transition-all">
-                  <FaMapMarkerAlt />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-gray-400 text-[10px] md:text-xs font-medium uppercase tracking-wider">
-                    Location
-                  </p>
-                  <p className="text-gray-800 dark:text-gray-200 font-semibold text-sm sm:text-base md:text-sm truncate">
-                    Islamabad, Pakistan
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="lg:col-span-2 w-full">
-            <form
-              ref={formRef}
-              onSubmit={handleSubmit}
-              className="bg-white dark:bg-white/5 p-5 sm:p-8 md:p-10 rounded-3xl sm:rounded-4xl md:rounded-[2.5rem] shadow-xl dark:shadow-none border border-gray-50 dark:border-white/10 space-y-4 sm:space-y-6"
-            >
-              {statusMessage.text && (
-                <div
-                  className={`p-3.5 sm:p-4 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-medium ${
-                    statusMessage.type === "success"
-                      ? "bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-300 border border-green-200 dark:border-green-800"
-                      : "bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-300 border border-red-200 dark:border-red-800"
-                  }`}
-                >
-                  {statusMessage.text}
-                </div>
-              )}
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                <div className="space-y-1.5 sm:space-y-2">
-                  <label className="text-xs md:text-sm font-bold text-gray-700 dark:text-gray-300 ml-1 sm:ml-2">
-                    Full Name
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    placeholder="Your Name"
-                    className="w-full px-4 sm:px-5 py-3.5 sm:py-4 bg-gray-50 dark:bg-white/5 dark:text-white border-none rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#D9A93E] outline-none transition-all placeholder:text-gray-400 text-sm sm:text-base"
-                  />
-                </div>
-
-                <div className="space-y-1.5 sm:space-y-2">
-                  <label className="text-xs md:text-sm font-bold text-gray-700 dark:text-gray-300 ml-1 sm:ml-2">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    placeholder="example@mail.com"
-                    className="w-full px-4 sm:px-5 py-3.5 sm:py-4 bg-gray-50 dark:bg-white/5 dark:text-white border-none rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#D9A93E] outline-none transition-all placeholder:text-gray-400 text-sm sm:text-base"
-                  />
+      {/* 2. Contact Information & Form Section */} 
+      <section
+        id="contact"
+        className="w-full bg-[#F9FAFB] dark:bg-[#0a0118] py-16 md:py-12 transition-colors duration-500"
+      >
+        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 md:gap-16 items-start">
+            {/* Left Side: Contact Info Cards */}
+            <div className="lg:col-span-1 space-y-4 md:space-y-6">
+              {/* Phone Card */}
+              <div className="bg-white dark:bg-white/5 p-6 rounded-2xl md:rounded-3xl border border-gray-100 dark:border-white/10 group hover:border-[#D9A93E]/40 hover:shadow-lg transition-all duration-300">
+                <div className="flex items-center gap-5">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-gray-50 dark:bg-black/20 text-[#D9A93E] text-xl group-hover:bg-[#D9A93E] group-hover:text-white transition-all shadow-sm">
+                    <FaPhoneAlt />
+                  </div>
+                  <div>
+                    <p className="text-gray-400 text-xs font-semibold uppercase tracking-wider mb-1">
+                      Call Me
+                    </p>
+                    <a
+                      href="tel:+923326767615"
+                      className="text-gray-900 dark:text-white font-bold text-sm sm:text-base hover:text-[#D9A93E] transition-colors"
+                    >
+                      +92 332 6767 615
+                    </a>
+                  </div>
                 </div>
               </div>
 
-              <div className="space-y-1.5 sm:space-y-2">
-                <label className="text-xs md:text-sm font-bold text-gray-700 dark:text-gray-300 ml-1 sm:ml-2">
-                  Message
-                </label>
-                <textarea
-                  rows="4"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  placeholder="Write your message here..."
-                  className="w-full px-4 sm:px-5 py-3.5 sm:py-4 bg-gray-50 dark:bg-white/5 dark:text-white border-none rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#D9A93E] outline-none transition-all resize-none placeholder:text-gray-400 text-sm sm:text-base"
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                disabled={loading}
-                className="w-full md:w-auto bg-[#D9A93E] hover:bg-[#c29432] text-white font-bold px-8 sm:px-10 py-3.5 sm:py-4 md:py-5 rounded-xl sm:rounded-2xl flex items-center justify-center gap-3 transition-all hover:shadow-lg active:scale-95 disabled:opacity-50 text-sm sm:text-base"
+              {/* Email Card (Triggers Modal) */}
+              <div
+                onClick={() => setIsModalOpen(true)}
+                className="bg-white dark:bg-white/5 p-6 rounded-2xl md:rounded-3xl border border-gray-100 dark:border-white/10 group hover:border-[#D9A93E]/40 hover:shadow-lg transition-all duration-300 cursor-pointer relative overflow-hidden"
               >
-                {loading ? "Sending..." : "Send Message"}
-                <FaPaperPlane className="text-xs sm:text-sm" />
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-
-      <AnimatePresence>
-        {isModalOpen && (
-          <div className="fixed inset-0 z-50 overflow-y-auto">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsModalOpen(false)}
-              className="fixed inset-0 bg-black/75 backdrop-blur-sm"
-            />
-
-            <div className="flex min-h-full items-center justify-center p-4 text-center">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: 10 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: 10 }}
-                className="relative w-full max-w-md bg-white dark:bg-[#12072B] p-6 rounded-3xl border border-gray-100 dark:border-white/10 shadow-2xl text-left z-10 my-8"
-              >
-                <button
-                  onClick={() => setIsModalOpen(false)}
-                  className="absolute top-5 right-5 w-8 h-8 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-all"
-                  aria-label="Close modal"
-                >
-                  <FaTimes className="text-sm" />
-                </button>
-
-                <div className="mb-5 pr-6">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                    Send Direct Email
-                  </h3>
-                  <p className="text-gray-500 dark:text-gray-400 text-xs mt-1">
-                    Send a quick email to get in touch.
-                  </p>
+                <div className="absolute inset-0 bg-[#D9A93E]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="flex items-center gap-5 relative z-10">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-gray-50 dark:bg-black/20 text-[#D9A93E] text-xl group-hover:bg-[#D9A93E] group-hover:text-white transition-all shadow-sm">
+                    <FaEnvelope />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-gray-400 text-xs font-semibold uppercase tracking-wider mb-1">
+                      Email Me (Click)
+                    </p>
+                    <span className="text-gray-900 dark:text-white font-bold text-sm sm:text-base truncate block group-hover:text-[#D9A93E] transition-colors">
+                      {MY_EMAIL}
+                    </span>
+                  </div>
                 </div>
+              </div>
 
-                {modalStatusMessage.text && (
-                  <div
-                    className={`p-3 rounded-xl text-xs font-medium mb-4 ${
-                      modalStatusMessage.type === "success"
-                        ? "bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-300 border border-green-200 dark:border-green-800"
-                        : "bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-300 border border-red-200 dark:border-red-800"
-                    }`}
-                  >
-                    {modalStatusMessage.text}
+              {/* Location Card */}
+              <div className="bg-white dark:bg-white/5 p-6 rounded-2xl md:rounded-3xl border border-gray-100 dark:border-white/10 group hover:border-[#D9A93E]/40 hover:shadow-lg transition-all duration-300">
+                <div className="flex items-center gap-5">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-gray-50 dark:bg-black/20 text-[#D9A93E] text-xl group-hover:bg-[#D9A93E] group-hover:text-white transition-all shadow-sm">
+                    <FaMapMarkerAlt />
                   </div>
-                )}
-
-                <form
-                  ref={modalFormRef}
-                  onSubmit={handleModalSubmit}
-                  className="space-y-4"
-                >
                   <div>
-                    <label className="text-xs font-semibold text-gray-700 dark:text-gray-300 block mb-1.5">
-                      To Email
-                    </label>
-                    <input
-                      type="email"
-                      value={MY_EMAIL}
-                      readOnly
-                      className="w-full px-3.5 py-2.5 bg-gray-100 dark:bg-white/10 text-gray-500 dark:text-gray-400 rounded-xl text-xs border border-transparent outline-none cursor-not-allowed font-medium"
-                    />
+                    <p className="text-gray-400 text-xs font-semibold uppercase tracking-wider mb-1">
+                      Based In
+                    </p>
+                    <p className="text-gray-900 dark:text-white font-bold text-sm sm:text-base">
+                      Islamabad, Pakistan
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Side: Main Contact Form */}
+            <div className="lg:col-span-2 w-full">
+              <div className="bg-white dark:bg-[#12072B] p-8 sm:p-10 rounded-4xl shadow-xl border border-gray-100 dark:border-white/10">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                   Contact Form
+                </h3>
+
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+                  {/* Form Status Message Alert */}
+                  {statusMessage.text && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className={`p-4 rounded-xl text-sm font-medium flex items-center gap-3 ${
+                        statusMessage.type === "success"
+                          ? "bg-green-50 text-green-700 border border-green-200 dark:bg-green-500/10 dark:border-green-500/30 dark:text-green-400"
+                          : "bg-red-50 text-red-700 border border-red-200 dark:bg-red-500/10 dark:border-red-500/30 dark:text-red-400"
+                      }`}
+                    >
+                      {statusMessage.text}
+                    </motion.div>
+                  )}
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+                        Your Name *
+                      </label>
+                      <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                        placeholder="your name"
+                        className="w-full px-5 py-4 bg-gray-50 dark:bg-white/5 border border-transparent dark:border-white/10 rounded-xl focus:border-[#D9A93E] focus:ring-1 focus:ring-[#D9A93E] outline-none transition-all dark:text-white"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+                        Email Address *
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                        placeholder="your@email.com"
+                        className="w-full px-5 py-4 bg-gray-50 dark:bg-white/5 border border-transparent dark:border-white/10 rounded-xl focus:border-[#D9A93E] focus:ring-1 focus:ring-[#D9A93E] outline-none transition-all dark:text-white"
+                      />
+                    </div>
                   </div>
 
-                  <div>
-                    <label className="text-xs font-semibold text-gray-700 dark:text-gray-300 block mb-1.5">
-                      Your Email (From)
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={modalFormData.email}
-                      onChange={handleModalChange}
-                      required
-                      placeholder="example@mail.com"
-                      className="w-full px-3.5 py-2.5 bg-gray-50 dark:bg-white/5 dark:text-white rounded-xl text-xs outline-none focus:ring-2 focus:ring-[#D9A93E] border border-gray-200 dark:border-white/10 transition-all"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="text-xs font-semibold text-gray-700 dark:text-gray-300 block mb-1.5">
-                      Your Name
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={modalFormData.name}
-                      onChange={handleModalChange}
-                      required
-                      placeholder="Your Name"
-                      className="w-full px-3.5 py-2.5 bg-gray-50 dark:bg-white/5 dark:text-white rounded-xl text-xs outline-none focus:ring-2 focus:ring-[#D9A93E] border border-gray-200 dark:border-white/10 transition-all"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="text-xs font-semibold text-gray-700 dark:text-gray-300 block mb-1.5">
-                      Message
+                  <div className="space-y-2">
+                    <label className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+                      Message *
                     </label>
                     <textarea
-                      rows="3"
+                      rows="5"
                       name="message"
-                      value={modalFormData.message}
-                      onChange={handleModalChange}
+                      value={formData.message}
+                      onChange={handleChange}
                       required
-                      placeholder="Write your message here..."
-                      className="w-full px-3.5 py-2.5 bg-gray-50 dark:bg-white/5 dark:text-white rounded-xl text-xs outline-none focus:ring-2 focus:ring-[#D9A93E] resize-none border border-gray-200 dark:border-white/10 transition-all"
+                      placeholder="Tell me about your project....."
+                      className="w-full px-5 py-4 bg-gray-50 dark:bg-white/5 border border-transparent dark:border-white/10 rounded-xl focus:border-[#D9A93E] focus:ring-1 focus:ring-[#D9A93E] outline-none transition-all resize-none dark:text-white"
                     ></textarea>
                   </div>
 
                   <button
                     type="submit"
-                    disabled={modalLoading}
-                    className="w-full bg-[#D9A93E] hover:bg-[#c29432] text-white font-semibold py-3 rounded-xl flex items-center justify-center gap-2 transition-all active:scale-95 disabled:opacity-50 text-xs shadow-md"
+                    disabled={loading}
+                    className="w-full sm:w-auto bg-[#D9A93E] hover:bg-[#c29432] text-white font-bold px-10 py-4 rounded-xl flex items-center justify-center gap-3 transition-all hover:shadow-lg hover:shadow-[#D9A93E]/30 active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed"
                   >
-                    {modalLoading ? "Sending..." : "Send Email"}
-                    <FaPaperPlane className="text-[10px]" />
+                    {loading ? "Sending Message..." : "Submit Message"}
+                    {!loading && <FaPaperPlane className="text-sm" />}
                   </button>
                 </form>
-              </motion.div>
+              </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Modal Form (Opens when Email Card is clicked) */}
+      <AnimatePresence>
+        {isModalOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            {/* Modal Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsModalOpen(false)}
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm"
+            />
+
+            {/* Modal Content Box */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative w-full max-w-md bg-white dark:bg-[#12072B] p-8 rounded-4xl shadow-2xl z-10 border border-gray-100 dark:border-white/10"
+            >
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="absolute top-6 right-6 w-8 h-8 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-500 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-500/20 transition-all"
+              >
+                <FaTimes />
+              </button>
+
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                  Quick Email
+                </h3>
+                <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">
+                  Send a direct email to {MY_EMAIL}
+                </p>
+              </div>
+
+              {/* Modal Status Message */}
+              {modalStatusMessage.text && (
+                <div
+                  className={`p-3 rounded-xl text-sm font-medium mb-5 ${
+                    modalStatusMessage.type === "success"
+                      ? "bg-green-50 text-green-700"
+                      : "bg-red-50 text-red-700"
+                  }`}
+                >
+                  {modalStatusMessage.text}
+                </div>
+              )}
+
+              <form
+                ref={modalFormRef}
+                onSubmit={handleModalSubmit}
+                className="space-y-4"
+              >
+                <div>
+                  <label className="text-xs font-semibold text-gray-700 dark:text-gray-300 block mb-1">
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={modalFormData.name}
+                    onChange={handleModalChange}
+                    required
+                    placeholder="Your Name"
+                    className="w-full px-4 py-3 bg-gray-50 dark:bg-white/5 rounded-xl text-sm border border-transparent dark:border-white/10 outline-none focus:border-[#D9A93E] transition-all dark:text-white"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-xs font-semibold text-gray-700 dark:text-gray-300 block mb-1">
+                    Your Email
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={modalFormData.email}
+                    onChange={handleModalChange}
+                    required
+                    placeholder="your@email.com"
+                    className="w-full px-4 py-3 bg-gray-50 dark:bg-white/5 rounded-xl text-sm border border-transparent dark:border-white/10 outline-none focus:border-[#D9A93E] transition-all dark:text-white"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-xs font-semibold text-gray-700 dark:text-gray-300 block mb-1">
+                    Message
+                  </label>
+                  <textarea
+                    rows="3"
+                    name="message"
+                    value={modalFormData.message}
+                    onChange={handleModalChange}
+                    required
+                    placeholder="Tell me about your project...."
+                    className="w-full px-4 py-3 bg-gray-50 dark:bg-white/5 rounded-xl text-sm border border-transparent dark:border-white/10 outline-none focus:border-[#D9A93E] resize-none transition-all dark:text-white"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={modalLoading}
+                  className="w-full bg-[#D9A93E] hover:bg-[#c29432] text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-all shadow-md mt-2 disabled:opacity-70"
+                >
+                  {modalLoading ? "Sending..." : "Send Project Inquiry"}
+                  {!modalLoading && <FaPaperPlane className="text-xs" />}
+                </button>
+              </form>
+            </motion.div>
           </div>
         )}
       </AnimatePresence>
-    </section>
+    </div>
   );
 };
 
