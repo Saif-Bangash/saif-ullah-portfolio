@@ -46,7 +46,7 @@ const ProjectCard = ({ project }) => {
           {project.techStack.map((tech, idx) => (
             <span
               key={idx}
-              className="text-[11px] font-mono px-2 py-1 bg-gray-50 dark:bg-white/5 text-gray-600 dark:text-gray-300 rounded border border-gray-100 dark:border-white/5"
+              className="text-[11px] font-mono px-1 py-1 bg-gray-50 dark:bg-white/5 text-gray-600 dark:text-gray-300 rounded border border-gray-100 dark:border-white/5"
             >
               {tech}
             </span>
