@@ -361,7 +361,7 @@ const Navbar = () => {
                     }}
                   >
                     <div style={{ padding: "8px 8px 6px" }}>
-                      {SERVICE_ITEMS.map(({ path, label }, i) => (
+                      {SERVICE_ITEMS.map(({ path, label, icon: ItemIcon }, i) => (
                         <button
                           key={path}
                           onClick={() => goToService(path)}
@@ -598,7 +598,7 @@ const Navbar = () => {
           })}
 
           <div style={{ width: "100%", maxWidth: 300, display: "flex", flexDirection: "column", gap: 8, marginTop: -4 }}>
-            {SERVICE_ITEMS.map(({ path, label }) => (
+            {SERVICE_ITEMS.map(({ path, label, icon: ItemIcon }) => (
               <button
                 key={path}
                 onClick={() => goToService(path)}
