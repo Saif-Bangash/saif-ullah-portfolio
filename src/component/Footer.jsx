@@ -68,12 +68,12 @@ const Footer = () => {
     {
       icon: <FaWordpress />,
       title: "WordPress Development",
-      link: "/projects",
+      link: "/wordpress-development",
     },
     {
       icon: <FaSearch />,
       title: "SEO Optimization",
-      link: "/projects",
+      link: "/seo-services",
     },
   ];
 

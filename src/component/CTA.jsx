@@ -26,7 +26,7 @@ const CTA = ({
       className="relative w-full bg-[#F7D26B] px-4 sm:px-6 md:px-12 py-10 md:py-14 overflow-hidden"
     >
       {/* soft depth so the flat gold isn't too harsh */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-black/5 pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-b from-white/10 via-transparent to-black/5 pointer-events-none" />
 
       <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center text-center gap-3">
         {/* Subtitle Eyebrow */}

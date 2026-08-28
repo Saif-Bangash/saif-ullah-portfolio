@@ -25,12 +25,12 @@ const SERVICE_ITEMS = [
     icon: Atom,
   },
   {
-    path: "/wordpress",
+    path: "/wordpress-development",
     label: "WordPress",
     icon: Layers,
   },
   {
-    path: "/seo",
+    path: "/seo-services",
     label: "SEO Optimization",
     icon: TrendingUp,
   },
@@ -361,7 +361,7 @@ const Navbar = () => {
                     }}
                   >
                     <div style={{ padding: "8px 8px 6px" }}>
-                      {SERVICE_ITEMS.map(({ path, label, icon: ItemIcon }, i) => (
+                      {SERVICE_ITEMS.map(({ path, label }, i) => (
                         <button
                           key={path}
                           onClick={() => goToService(path)}
@@ -598,7 +598,7 @@ const Navbar = () => {
           })}
 
           <div style={{ width: "100%", maxWidth: 300, display: "flex", flexDirection: "column", gap: 8, marginTop: -4 }}>
-            {SERVICE_ITEMS.map(({ path, label, icon: ItemIcon }) => (
+            {SERVICE_ITEMS.map(({ path, label }) => (
               <button
                 key={path}
                 onClick={() => goToService(path)}

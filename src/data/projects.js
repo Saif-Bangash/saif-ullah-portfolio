@@ -210,4 +210,72 @@ const projectsData = [
   },
 ];
 
-export { FAQ_ITEMS, faqData, homeFaqData, projectsData };
+
+const WP_FAQ = [
+  {
+    q: "Can you convert Figma, XD, or HTML designs into WordPress?",
+    a: "Yes, absolutely! I can convert Figma, Adobe XD, Photoshop, or custom HTML templates into pixel-perfect, fully responsive, and mobile-friendly WordPress websites using Elementor Pro or Custom PHP Themes."
+  },
+  {
+    q: "Can you optimize my existing WordPress website for better speed?",
+    a: "Yes! I optimize site performance to achieve 90+ Core Web Vitals scores on Google PageSpeed Insights and GTmetrix using database cleanup, image optimization, caching setup, CSS/JS minification, and CDN integration."
+  },
+  {
+    q: "Do you work with both Elementor Pro and Gutenberg?",
+    a: "Yes, I design easy-to-edit custom layouts using Elementor Pro, and I also build ultra-fast, lightweight websites using the Gutenberg block editor and ACF (Advanced Custom Fields)."
+  },
+  {
+    q: "What WooCommerce and eCommerce services do you provide?",
+    a: "I handle end-to-end WooCommerce setups, including product management, custom checkout page design, and seamless integration with payment gateways like Stripe, PayPal, and local bank transfers."
+  },
+  {
+    q: "Can you handle On-Page SEO for my WordPress website?",
+    a: "Yes, I perform complete On-Page SEO setup using Yoast SEO or Rank Math. This includes meta title/description optimization, XML sitemaps, schema markup, and Search Console indexing."
+  },
+  {
+    q: "Can you fix WordPress bugs, layout issues, or critical errors?",
+    a: "Definitely. I troubleshoot and resolve PHP errors, Critical Site Errors, plugin conflicts, database issues, broken layouts, and security vulnerabilities or malware."
+  },
+  {
+    q: "Will I be able to update content on my site after launch?",
+    a: "Yes! I structure every site with an intuitive layout so you can easily update text, change images, and upload new products without needing any coding knowledge."
+  }
+];
+
+/* =========================================================
+   5. SEO FAQS DATA
+   ========================================================= */
+const SEO_FAQ = [
+  {
+    q: "How long does it take to see results from SEO?",
+    a: "SEO is a long-term investment. Initial technical improvements and indexing changes reflect within 2 to 4 weeks, while noticeable organic keyword growth typically takes 3 to 6 months depending on competition.",
+    question: "How long does it take to see results from SEO?",
+    answer: "SEO is a long-term investment. Initial technical improvements and indexing changes reflect within 2 to 4 weeks, while noticeable organic keyword growth typically takes 3 to 6 months depending on competition."
+  },
+  {
+    q: "Do you use Yoast SEO or Rank Math for WordPress?",
+    a: "I work fluently with both plugins. I configure advanced XML sitemaps, meta templates, Open Graph social tags, and schema markup based on your site's specific setup.",
+    question: "Do you use Yoast SEO or Rank Math for WordPress?",
+    answer: "I work fluently with both plugins. I configure advanced XML sitemaps, meta templates, Open Graph social tags, and schema markup based on your site's specific setup."
+  },
+  {
+    q: "Will website speed optimization help my SEO rankings?",
+    a: "Yes! Google considers page speed and Core Web Vitals critical ranking factors. Faster loading sites lower bounce rates and improve overall search engine rankings.",
+    question: "Will website speed optimization help my SEO rankings?",
+    answer: "Yes! Google considers page speed and Core Web Vitals critical ranking factors. Faster loading sites lower bounce rates and improve overall search engine rankings."
+  },
+  {
+    q: "Can you fix Google Search Console indexing and coverage errors?",
+    a: "Yes. I diagnose and resolve indexing issues, redirect loops, canonical tag conflicts, missing sitemaps, and 404 page errors in Google Search Console.",
+    question: "Can you fix Google Search Console indexing and coverage errors?",
+    answer: "Yes. I diagnose and resolve indexing issues, redirect loops, canonical tag conflicts, missing sitemaps, and 404 page errors in Google Search Console."
+  },
+  {
+    q: "Do you offer Local SEO for regional businesses?",
+    a: "Yes, including Google Business Profile setup, local keyword targeting, localized schema data, and NAP consistency fixes.",
+    question: "Do you offer Local SEO for regional businesses?",
+    answer: "Yes, including Google Business Profile setup, local keyword targeting, localized schema data, and NAP consistency fixes."
+  }
+];
+
+export { FAQ_ITEMS, faqData, homeFaqData, projectsData, WP_FAQ, SEO_FAQ };

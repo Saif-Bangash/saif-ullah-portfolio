@@ -2,14 +2,16 @@ import { useEffect } from "react";
 import "./App.css";
 import About from "./component/About";
 import Hero from "./component/Hero";
-import Navbar from "./component/Navbar";
-import ResumeSection from "./component/ResumeSection";
+import Navbar from "./component/Navbar"; 
 import Project from "./component/Project";
 import ContactSection from "./component/ContactSection";
 import Footer from "./component/Footer";
 import { Route, Routes, useLocation } from "react-router-dom"; 
 import WebDevelopment from "./services/Web_Development/WebDevelopment";
 import ReactDevelopment from "./services/Web_Development/ReactDevelopment";
+import WordPressService from "./services/Web_Development/WordPressService";
+import SEOService from "./services/Web_Development/SEOService";
+import ServicesPage from "./component/ServicesPage";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -28,12 +30,14 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Hero />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/resume" element={<ResumeSection />} />
+        <Route path="/about" element={<About />} /> 
+        <Route path="/services" element={<ServicesPage />} />
         <Route path="/projects" element={<Project />} />
         <Route path="/contact" element={<ContactSection />} />
         <Route path="/custom-web-development" element={<WebDevelopment />} />
         <Route path="/react-development" element={<ReactDevelopment />} />
+        <Route path="/wordpress-development" element={<WordPressService />} />
+        <Route path="/seo-services" element={<SEOService />} />
       </Routes>
       <Footer />
     </>
