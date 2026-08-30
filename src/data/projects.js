@@ -394,7 +394,7 @@ const techStack = [
 // 1. Stats Data
 const stats = [
   { label: "Years Experience", value: "1+", icon: Briefcase },
-  { label: "Projects Completed", value: "20+", icon: Code2 },
+  { label: "Projects Completed", value: "10+", icon: Code2 },
   { label: "Performance Score", value: "98%", icon: Zap },
   { label: "Client Satisfaction", value: "100%", icon: Award },
 ];
