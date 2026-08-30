@@ -1,6 +1,15 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 import { useState, useEffect, useRef, useLayoutEffect } from "react";
-import { Menu, X, Globe2, Atom, Layers, TrendingUp, ChevronDown, ArrowRight } from "lucide-react";
+import {
+  Menu,
+  X,
+  Globe2,
+  Atom,
+  Layers,
+  TrendingUp,
+  ChevronDown,
+  ArrowRight,
+} from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const NAV_ITEMS = ["home", "about", "services", "projects", "contact"];
@@ -14,7 +23,7 @@ const NAV_PATHS = {
 };
 
 const SERVICE_ITEMS = [
-   {
+  {
     path: "/custom-web-development",
     label: "Custom Web Development",
     icon: Globe2,
@@ -141,7 +150,8 @@ const Navbar = () => {
         backdropFilter: "blur(20px)",
         WebkitBackdropFilter: "blur(20px)",
         borderBottom: `1px solid ${C.border}`,
-        transition: "background 0.4s ease, backdrop-filter 0.4s ease, -webkit-backdrop-filter 0.4s ease",
+        transition:
+          "background 0.4s ease, backdrop-filter 0.4s ease, -webkit-backdrop-filter 0.4s ease",
         overflow: "visible",
       }}
     >
@@ -219,14 +229,20 @@ const Navbar = () => {
 
       <div
         className="max-w-7xl mx-auto flex items-center justify-between px-5 sm:px-8 lg:px-10"
-        style={{ height: 72, position: "relative", zIndex: 2 }}
+        style={{ height: 72, position: "relative" }}
       >
         {/* ===== Logo ===== */}
         <button
           onClick={() => go("home")}
           aria-label="Go to homepage"
           className="sb-icon-btn w-28 sm:w-32 md:w-36 shrink-0"
-          style={{ display: "flex", alignItems: "center", background: "none", border: "none", cursor: "pointer" }}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+          }}
         >
           <img
             src="/assets/logo/logo (2).png"
@@ -259,18 +275,22 @@ const Navbar = () => {
               borderRadius: 999,
               background: "rgba(247,210,107,0.12)",
               opacity: pill.opacity,
-              transition: "left 0.3s cubic-bezier(.4,0,.2,1), width 0.3s cubic-bezier(.4,0,.2,1), opacity 0.2s ease",
+              transition:
+                "left 0.3s cubic-bezier(.4,0,.2,1), width 0.3s cubic-bezier(.4,0,.2,1), opacity 0.2s ease",
             }}
           />
           {NAV_ITEMS.map((item) => {
-            const isActive = active === item || (servicesOpen && item === "services");
+            const isActive =
+              active === item || (servicesOpen && item === "services");
             const isServices = item === "services";
 
             const button = (
               <button
                 key={item}
                 ref={(el) => (itemRefs.current[item] = el)}
-                onMouseEnter={() => (isServices ? openServices() : handleItemHover(item))}
+                onMouseEnter={() =>
+                  isServices ? openServices() : handleItemHover(item)
+                }
                 onClick={() => go(item)}
                 className="sb-navbtn"
                 style={{
@@ -296,7 +316,9 @@ const Navbar = () => {
                     size={13}
                     style={{
                       transition: "transform 0.25s ease",
-                      transform: servicesOpen ? "rotate(180deg)" : "rotate(0deg)",
+                      transform: servicesOpen
+                        ? "rotate(180deg)"
+                        : "rotate(0deg)",
                     }}
                   />
                 )}
@@ -328,7 +350,8 @@ const Navbar = () => {
                     opacity: servicesOpen ? 1 : 0,
                     visibility: servicesOpen ? "visible" : "hidden",
                     pointerEvents: servicesOpen ? "auto" : "none",
-                    transition: "opacity 0.25s ease, transform 0.25s cubic-bezier(.4,0,.2,1), visibility 0.25s",
+                    transition:
+                      "opacity 0.25s ease, transform 0.25s cubic-bezier(.4,0,.2,1), visibility 0.25s",
                   }}
                 >
                   <div
@@ -361,57 +384,65 @@ const Navbar = () => {
                     }}
                   >
                     <div style={{ padding: "8px 8px 6px" }}>
-                      {SERVICE_ITEMS.map(({ path, label, icon: ItemIcon }, i) => (
-                        <button
-                          key={path}
-                          onClick={() => goToService(path)}
-                          className="sb-navbtn sb-service-row"
-                          style={{
-                            width: "100%",
-                            display: "flex",
-                            alignItems: "center",
-                            gap: 12,
-                            padding: "10px 12px",
-                            borderRadius: 12,
-                            background: "transparent",
-                            border: "1px solid transparent",
-                            textAlign: "left",
-                            cursor: "pointer",
-                            animationDelay: `${i * 45}ms`,
-                          }}
-                        >
-                          <span
-                            className="sb-service-icon"
+                      {SERVICE_ITEMS.map(
+                        ({ path, label, icon: ItemIcon }, i) => (
+                          <button
+                            key={path}
+                            onClick={() => goToService(path)}
+                            className="sb-navbtn sb-service-row"
                             style={{
-                              width: 32,
-                              height: 32,
-                              flexShrink: 0,
-                              borderRadius: 10,
+                              width: "100%",
                               display: "flex",
                               alignItems: "center",
-                              justifyContent: "center",
-                              background: "rgba(247,210,107,0.12)",
-                              color: C.active,
+                              gap: 12,
+                              padding: "10px 12px",
+                              borderRadius: 12,
+                              background: "transparent",
+                              border: "1px solid transparent",
+                              textAlign: "left",
+                              cursor: "pointer",
+                              animationDelay: `${i * 45}ms`,
                             }}
                           >
-                            <ItemIcon size={16} />
-                          </span>
-                          <span
-                            style={{
-                              fontSize: 13,
-                              fontWeight: 600,
-                              letterSpacing: "0.02em",
-                              textTransform: "none",
-                              color: "#F5F6FA",
-                            }}
-                          >
-                            {label}
-                          </span>
-                        </button>
-                      ))}
+                            <span
+                              className="sb-service-icon"
+                              style={{
+                                width: 32,
+                                height: 32,
+                                flexShrink: 0,
+                                borderRadius: 10,
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                background: "rgba(247,210,107,0.12)",
+                                color: C.active,
+                              }}
+                            >
+                              <ItemIcon size={16} />
+                            </span>
+                            <span
+                              style={{
+                                fontSize: 13,
+                                fontWeight: 600,
+                                letterSpacing: "0.02em",
+                                textTransform: "none",
+                                color: "#F5F6FA",
+                              }}
+                            >
+                              {label}
+                            </span>
+                          </button>
+                        ),
+                      )}
 
                       {/* ===== View All Services Button ===== */}
-                      <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", marginTop: 6, paddingTop: 6 }}>
+                      <div
+                        style={{
+                          borderTop: "1px solid rgba(255,255,255,0.08)",
+                          marginTop: 6,
+                          paddingTop: 6,
+                        }}
+                      >
                         <button
                           onClick={() => go("services")}
                           className="sb-navbtn sb-service-row"
@@ -455,10 +486,25 @@ const Navbar = () => {
 
         {/* ===== Status + CTA ===== */}
         <div className="hidden md:flex items-center gap-5">
-          <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 11.5, color: C.muted, letterSpacing: "0.04em" }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 8,
+              fontSize: 11.5,
+              color: C.muted,
+              letterSpacing: "0.04em",
+            }}
+          >
             <span
               className="sb-pulse"
-              style={{ width: 7, height: 7, borderRadius: "50%", background: "#F7D26B", display: "inline-block" }}
+              style={{
+                width: 7,
+                height: 7,
+                borderRadius: "50%",
+                background: "#F7D26B",
+                display: "inline-block",
+              }}
             />
             Available for work
           </div>
@@ -477,8 +523,12 @@ const Navbar = () => {
               boxShadow: "0 8px 22px -8px rgba(247,210,107,0.45)",
               transition: "transform 0.25s ease, box-shadow 0.25s ease",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.transform = "translateY(-2px)")}
-            onMouseLeave={(e) => (e.currentTarget.style.transform = "translateY(0)")}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.transform = "translateY(-2px)")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.transform = "translateY(0)")
+            }
           >
             Let's talk
           </button>
@@ -496,11 +546,14 @@ const Navbar = () => {
             borderRadius: 12,
             alignItems: "center",
             justifyContent: "center",
-            background: open ? `linear-gradient(120deg, ${C.from}, ${C.to})` : C.surface,
+            background: open
+              ? `linear-gradient(120deg, ${C.from}, ${C.to})`
+              : C.surface,
             border: open ? "1px solid transparent" : `1px solid ${C.border}`,
             color: open ? "#05070B" : "#8891A5",
             cursor: "pointer",
-            transition: "background 0.3s ease, color 0.3s ease, border 0.3s ease",
+            transition:
+              "background 0.3s ease, color 0.3s ease, border 0.3s ease",
           }}
         >
           {open ? <X size={20} /> : <Menu size={20} />}
@@ -508,7 +561,15 @@ const Navbar = () => {
       </div>
 
       {/* ===== Progress Bar ===== */}
-      <div style={{ height: 2, width: "100%", background: "rgba(255,255,255,0.05)", position: "relative", zIndex: 2 }}>
+      <div
+        style={{
+          height: 2,
+          width: "100%",
+          background: "rgba(255,255,255,0.05)",
+          position: "relative",
+          zIndex: 2,
+        }}
+      >
         <div
           style={{
             height: "100%",
@@ -533,6 +594,7 @@ const Navbar = () => {
           overflowY: "auto",
           transition: "opacity 0.4s ease",
           zIndex: 100,
+          
         }}
       >
         <button
@@ -559,70 +621,180 @@ const Navbar = () => {
           <X size={20} />
         </button>
 
-        <div style={{ minHeight: "100dvh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 14, padding: "90px 24px 40px" }}>
+        <div
+          style={{
+            minHeight: "100dvh",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "start",
+            justifyContent: "center",
+            gap: 14,
+            padding: "10px 20px",
+          }}
+        >
           <img
             src="/assets/logo/logo (2).png"
             alt="Saifullah Bangash"
-            style={{ width: 128, height: "auto", marginBottom: 10, objectFit: "contain" }}
+            style={{
+              width: 128,
+              height: "auto",
+              marginBottom: 10,
+              objectFit: "contain",
+            }}
           />
 
           {NAV_ITEMS.map((item, i) => {
-            const isActive = active === item;
+            const isActive =
+              active === item || (item === "services" && servicesOpen);
+
+            const isServices = item === "services";
+
             return (
-              <button
+              <div
                 key={item}
-                onClick={() => go(item)}
-                className="sb-navbtn sb-mobile-item"
                 style={{
                   width: "100%",
                   maxWidth: 300,
-                  fontSize: 18,
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.08em",
-                  textAlign: "center",
-                  padding: "14px 20px",
-                  borderRadius: 16,
-                  color: isActive ? C.active : "#8891A5",
-                  background: C.surface,
-                  border: `1px solid ${C.border}`,
-                  cursor: "pointer",
-                  opacity: open ? 1 : 0,
-                  transform: open ? "translateY(0)" : "translateY(14px)",
-                  transition: `opacity 0.4s ease ${i * 0.05}s, transform 0.4s ease ${i * 0.05}s, background 0.2s ease, color 0.2s ease, border 0.2s ease`,
                 }}
               >
-                {item}
-              </button>
+                {/* ===== Main Menu Item ===== */}
+                <button
+                  onClick={() => {
+                    if (isServices) {
+                      setServicesOpen((prev) => !prev);
+                    } else {
+                      go(item);
+                    }
+                  }}
+                  className="sb-navbtn sb-mobile-item"
+                  style={{
+                    width: "100%",
+                    fontSize: 18,
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.08em",
+                    textAlign: "center",
+                    padding: "14px 20px",
+                    color: isActive ? C.active : "#8891A5",
+                    cursor: "pointer",
+                    opacity: open ? 1 : 0,
+                    transform: open ? "translateY(0)" : "translateY(14px)",
+                    transition: `opacity 0.4s ease ${i * 0.05}s,
+            transform 0.4s ease ${i * 0.05}s,
+            color 0.2s ease`,
+                    background: "transparent",
+                    border: "none",
+
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: 8,
+                  }}
+                >
+                  {item}
+
+                  {/* Services Arrow */}
+                  {isServices && (
+                    <ChevronDown
+                      size={18}
+                      style={{
+                        transition: "transform 0.3s ease",
+                        transform: servicesOpen
+                          ? "rotate(180deg)"
+                          : "rotate(0deg)",
+                      }}
+                    />
+                  )}
+                </button>
+
+                {/* ===== Services Accordion ===== */}
+                {isServices && (
+                  <div
+                    style={{
+                      display: "grid",
+                      gridTemplateRows: servicesOpen ? "1fr" : "0fr",
+                      transition: "grid-template-rows 0.35s ease",
+                    }}
+                  >
+                    <div
+                      style={{
+                        overflow: "hidden",
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: 8,
+                        padding: servicesOpen ? "4px 0 8px" : "0",
+                      }}
+                    >
+                      {SERVICE_ITEMS.map(({ path, label, icon: ItemIcon }) => (
+                        <button
+                          key={path}
+                          onClick={() => goToService(path)}
+                          className="sb-mobile-item"
+                          style={{
+                            width: "100%",
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 10,
+                            padding: "11px 16px",
+                            borderRadius: 12,
+                            fontSize: 13,
+                            fontWeight: 600,
+                            letterSpacing: "0.03em",
+                            color: C.muted, 
+                            border: `1px solid ${C.border}`,
+                            cursor: "pointer",
+                            textAlign: "left",
+
+                            opacity: servicesOpen ? 1 : 0,
+
+                            transform: servicesOpen
+                              ? "translateY(0)"
+                              : "translateY(-6px)",
+
+                            transition:
+                              "opacity 0.25s ease, transform 0.25s ease",
+                          }}
+                        >
+
+                          <span>{label}</span>
+                        </button>
+                      ))}
+
+                      {/* View All Services */}
+                      <button
+                        onClick={() => go("services")}
+                        className="sb-mobile-item"
+                        style={{
+                          width: "100%",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                          padding: "11px 16px",
+                          marginTop: 2,
+                          borderRadius: 12,
+                          fontSize: 13,
+                          fontWeight: 700,
+                          color: C.active,
+                          background: "rgba(247,210,107,0.08)",
+                          border: "1px solid rgba(247,210,107,0.2)",
+                          cursor: "pointer",
+                          textAlign: "left",
+
+                          opacity: servicesOpen ? 1 : 0,
+
+                          transition: "opacity 0.25s ease",
+                        }}
+                      >
+                        <span>View All Services</span>
+
+                        <ArrowRight size={15} color={C.active} />
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
             );
           })}
-
-          <div style={{ width: "100%", maxWidth: 300, display: "flex", flexDirection: "column", gap: 8, marginTop: -4 }}>
-            {SERVICE_ITEMS.map(({ path, label, icon: ItemIcon }) => (
-              <button
-                key={path}
-                onClick={() => goToService(path)}
-                className="sb-mobile-item"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 10,
-                  padding: "10px 16px",
-                  borderRadius: 12,
-                  fontSize: 13,
-                  fontWeight: 600,
-                  letterSpacing: "0.03em",
-                  color: C.muted,
-                  background: "rgba(255,255,255,0.03)",
-                  border: `1px solid ${C.border}`,
-                  cursor: "pointer",
-                }}
-              >
-                <ItemIcon size={15} color={C.active} />
-                {label}
-              </button>
-            ))}
-          </div>
 
           <button
             onClick={() => go("contact")}
