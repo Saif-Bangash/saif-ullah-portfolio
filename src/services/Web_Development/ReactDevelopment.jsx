@@ -934,64 +934,7 @@ function AuthenticationSection() {
   );
 }
 
-/* =========================================================
-   12. SEO-FRIENDLY REACT DEVELOPMENT
-   ========================================================= */
-function ReactSEO() {
-  const items = [
-    "Semantic HTML",
-    "SEO-Friendly Structure",
-    "Meta Titles",
-    "Meta Descriptions",
-    "Heading Structure",
-    "Image Alt Attributes",
-    "Clean URLs",
-    "Open Graph",
-    "Structured Data where appropriate",
-    "Responsive Design",
-    "Core Web Vitals",
-    "Performance Optimization",
-  ];
-  return (
-    <section className="py-24 md:py-32" style={{ background: "var(--light)" }}>
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
-        <Reveal className="max-w-2xl">
-          <Eyebrow>// seo</Eyebrow>
-          <h2 className="font-display text-3xl md:text-4xl font-semibold mt-5 tracking-tight">
-            React Development With SEO &amp; Performance in Mind
-          </h2>
-        </Reveal>
-        <div className="flex flex-wrap gap-2.5 mt-10">
-          {items.map((i) => (
-            <Reveal key={i} className="inline-block">
-              <span className="rjs-chip flex items-center gap-1.5">
-                <Search size={12} color="var(--secondary)" /> {i}
-              </span>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-function Search(props) {
-  // lightweight inline icon fallback (kept local to avoid an extra top-level import clash)
-  return (
-    <svg
-      width={props.size || 14}
-      height={props.size || 14}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke={props.color || "currentColor"}
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <circle cx="11" cy="11" r="8" />
-      <line x1="21" y1="21" x2="16.65" y2="16.65" />
-    </svg>
-  );
-}
+ 
 
 /* =========================================================
    13. REACT TECHNOLOGY STACK
@@ -1302,7 +1245,6 @@ export default function ReactDevelopment() {
       <ResponsiveSection />
       <ReactUIUX />
       <AuthenticationSection />
-      <ReactSEO />
       <TechStack />
       <ProjectTypes />
       <DevelopmentProcess />

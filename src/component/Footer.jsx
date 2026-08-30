@@ -204,7 +204,7 @@ const Footer = () => {
               {/* Technologies */}
               <div className="flex flex-wrap gap-2 mt-5">
                 <span className="px-3 py-1 text-xs font-medium rounded-full bg-white/5 border border-[#F7D26B]/30 text-[#FBE3A0]">
-                  React JS
+                 Web Development
                 </span>
 
                 <span className="px-3 py-1 text-xs font-medium rounded-full bg-white/5 border border-[#F7D26B]/30 text-[#FBE3A0]">
@@ -351,13 +351,7 @@ const Footer = () => {
             </p>
 
             {/* Skills */}
-            <div className="flex flex-wrap items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-xs text-[#FBE3A0] shadow-lg shadow-black/10 sm:px-5 sm:text-sm">
-              <span>Web Development</span>
-              <span className="h-1.5 w-1.5 rounded-full bg-[#F7D26B]" />
-              <span>WordPress</span>
-              <span className="h-1.5 w-1.5 rounded-full bg-[#F7D26B]" />
-              <span>SEO</span>
-            </div>
+             
           </div>
         </div>
       </footer> 

@@ -19,6 +19,22 @@ import {
   Target,
   ChevronRight,
 } from "lucide-react";
+import {
+  journey,
+  philosophy,
+  services,
+  stats,
+  skillCategories,
+  differentiators,
+  processSteps,
+  whyWorkWithMe,
+  personalDetails,
+  education,
+} from "../data/projects";
+
+import { Link } from "react-router-dom";
+
+
 import CTA from "./CTA";
 
 // Shared Motion Variants
@@ -36,262 +52,8 @@ const staggerContainer = {
 };
 
 const About = () => {
-  // 1. Stats Data
-  const stats = [
-    { label: "Years Experience", value: "1+", icon: <Briefcase size={22} /> },
-    { label: "Projects Completed", value: "20+", icon: <Code2 size={22} /> },
-    { label: "Performance Score", value: "98%", icon: <Zap size={22} /> },
-    { label: "Client Satisfaction", value: "100%", icon: <Award size={22} /> },
-  ];
-
-  // 2. Journey Data
-  const journey = [
-    {
-      step: "01",
-      title: "Foundation",
-      desc: "Built a strong foundation in Computer Science and web technologies, developing an understanding of programming, websites, and digital systems.",
-    },
-    {
-      step: "02",
-      title: "Web Development",
-      desc: "Focused on modern frontend development and started building responsive interfaces using HTML, CSS, JavaScript, and React.js.",
-    },
-    {
-      step: "03",
-      title: "WordPress Development",
-      desc: "Expanded into WordPress development, creating professional business websites, Elementor-based layouts, and WooCommerce solutions.",
-    },
-    {
-      step: "04",
-      title: "SEO & Performance",
-      desc: "Developed a strong interest in SEO and website performance, focusing on technical structure, on-page optimization, Core Web Vitals, and user experience.",
-    },
-    {
-      step: "05",
-      title: "Professional Growth",
-      desc: "Today, I combine development, WordPress, and SEO to create complete digital experiences that help businesses establish and grow their online presence.",
-    },
-  ];
-
-  // 3. What I Do Cards
-  const services = [
-    {
-      title: "React.js Development",
-      desc: "Build modern, responsive, and interactive frontend applications using React.js, reusable components, and modern development practices.",
-      icon: <Code2 className="text-[#D9A93E]" size={28} />,
-    },
-    {
-      title: "WordPress Development",
-      desc: "Create professional, responsive, and easy-to-manage WordPress websites using WordPress, Elementor, and WooCommerce.",
-      icon: <Layers className="text-[#D9A93E]" size={28} />,
-    },
-    {
-      title: "SEO Optimization",
-      desc: "Improve website visibility and technical foundations through on-page SEO, technical SEO, content structure, and performance optimization.",
-      icon: <Search className="text-[#D9A93E]" size={28} />,
-    },
-    {
-      title: "Website Optimization",
-      desc: "Improve website speed, responsiveness, Core Web Vitals, and overall user experience for higher engagement.",
-      icon: <Gauge className="text-[#D9A93E]" size={28} />,
-    },
-  ];
-
-  // 4. Development Philosophy
-  const philosophy = [
-    {
-      title: "Clean Code",
-      desc: "I focus on structured, readable, and maintainable code that is easier to understand and improve.",
-      icon: <Code2 size={24} className="text-[#D9A93E]" />,
-    },
-    {
-      title: "User Experience",
-      desc: "Every website should be simple to navigate, responsive, and enjoyable to use across different devices.",
-      icon: <User size={24} className="text-[#D9A93E]" />,
-    },
-    {
-      title: "Performance",
-      desc: "I pay attention to loading speed, rendering performance, image optimization, and Core Web Vitals.",
-      icon: <Zap size={24} className="text-[#D9A93E]" />,
-    },
-    {
-      title: "Business Goals",
-      desc: "Technology should support the business. I build websites with the project's goals, audience, and conversion needs in mind.",
-      icon: <Target size={24} className="text-[#D9A93E]" />,
-    },
-  ];
-
-  // 5. Categorized Skills
-  const skillCategories = [
-    {
-      category: "Frontend Development",
-      skills: [
-        "React.js",
-        "JavaScript",
-        "HTML5",
-        "CSS3",
-        "Tailwind CSS",
-        "Bootstrap",
-        "Responsive Design",
-        "REST APIs",
-      ],
-    },
-    {
-      category: "WordPress Ecosystem",
-      skills: [
-        "WordPress",
-        "Elementor",
-        "Elementor Pro",
-        "WooCommerce",
-        "Theme Customization",
-        "Website Customization",
-        "WordPress Performance",
-      ],
-    },
-    {
-      category: "SEO & Performance",
-      skills: [
-        "On-Page SEO",
-        "Technical SEO",
-        "SEO-Friendly Structure",
-        "Meta Optimization",
-        "Internal Linking",
-        "Image Optimization",
-        "Core Web Vitals",
-        "Google Search Console",
-        "Google Analytics",
-      ],
-    },
-    {
-      category: "Developer Tools",
-      skills: ["Git", "GitHub", "VS Code", "Postman", "Vercel", "cPanel"],
-    },
-  ];
-
-  // 6. Value Differentiators
-  const differentiators = [
-    {
-      title: "Design + Development",
-      desc: "Combining modern visual design with clean frontend development.",
-    },
-    {
-      title: "Development + SEO",
-      desc: "Building websites with SEO-friendly technical foundations from the beginning.",
-    },
-    {
-      title: "Performance + UX",
-      desc: "Balancing visual quality with fast loading and smooth user experiences.",
-    },
-    {
-      title: "Business + Technology",
-      desc: "Understanding the business objective behind the website instead of treating every project the same.",
-    },
-  ];
-
-  // 7. Working Process Steps
-  const processSteps = [
-    {
-      num: "01",
-      title: "Understand",
-      desc: "Understand the project, business goals, audience, and requirements.",
-    },
-    {
-      num: "02",
-      title: "Plan",
-      desc: "Define website structure, functionality, content requirements, and development approach.",
-    },
-    {
-      num: "03",
-      title: "Build",
-      desc: "Develop the website using appropriate technologies and reusable components.",
-    },
-    {
-      num: "04",
-      title: "Optimize",
-      desc: "Improve responsiveness, performance, SEO structure, and overall user experience.",
-    },
-    {
-      num: "05",
-      title: "Test",
-      desc: "Test functionality, responsiveness, forms, navigation, and browser compatibility.",
-    },
-    {
-      num: "06",
-      title: "Deliver",
-      desc: "Prepare the final website for deployment and provide the required support.",
-    },
-  ];
-
-  // 8. Why Work With Me Checklist
-  const whyWorkWithMe = [
-    "Clear Communication",
-    "Professional Development",
-    "Responsive Design",
-    "Clean & Maintainable Code",
-    "SEO-Friendly Websites",
-    "Performance Optimization",
-    "Business-Focused Solutions",
-    "Modern Technologies",
-    "Attention to Detail",
-    "Long-Term Website Support",
-  ];
-
-  // 9. Personal Details
-  const personalDetails = [
-    { label: "Role", value: "Web Developer & SEO Specialist" },
-    { label: "Specialization", value: "React.js, WordPress & SEO" },
-    { label: "Experience", value: "1+ Years Professional" },
-    { label: "Location", value: "Pakistan" },
-    { label: "Availability", value: "Available for Remote Work" },
-  ];
-
-  // 10. Education Data
-  const education = [
-    {
-      degree: "Bachelor of Science in Computer Science (BSCS)",
-      institution: "Islamia College University of Peshawar",
-      type: "University Degree",
-    },
-    {
-      degree: "FSc / Faculty of Science",
-      institution: "Paradise College Sarozai Hangu",
-      type: "Higher Secondary Education",
-    },
-  ];
-
-  // 11. Current Focus Area Cards
-  const focusAreas = [
-    { name: "React.js", icon: <Code2 className="text-[#D9A93E]" size={20} /> },
-    { name: "WordPress", icon: <Layers className="text-[#D9A93E]" size={20} /> },
-    { name: "SEO Optimization", icon: <Search className="text-[#D9A93E]" size={20} /> },
-    { name: "Core Web Vitals", icon: <Gauge className="text-[#D9A93E]" size={20} /> },
-    { name: "UI/UX Principles", icon: <Compass className="text-[#D9A93E]" size={20} /> },
-    { name: "Modern Web Stack", icon: <Sparkles className="text-[#D9A93E]" size={20} /> },
-  ];
-
-  // 12. Tech Stack Badge List
-  const techStack = [
-    { name: "React.js", category: "Frontend" },
-    { name: "JavaScript", category: "Language" },
-    { name: "HTML5", category: "Structure" },
-    { name: "CSS3", category: "Styling" },
-    { name: "Tailwind CSS", category: "Styling" },
-    { name: "Bootstrap", category: "Styling" },
-    { name: "WordPress", category: "CMS" },
-    { name: "Elementor", category: "Page Builder" },
-    { name: "WooCommerce", category: "E-Commerce" },
-    { name: "SEO", category: "Growth" },
-    { name: "Google Analytics", category: "Analytics" },
-    { name: "Google Search Console", category: "Webmaster" },
-    { name: "Git", category: "Version Control" },
-    { name: "GitHub", category: "Code Host" },
-    { name: "Postman", category: "API Testing" },
-    { name: "Vercel", category: "Deployment" },
-  ];
-
   return (
     <div className="w-full bg-[#F8FAFC] text-[#0B1120] font-sans overflow-hidden selection:bg-[#D9A93E]/30 selection:text-[#0B1120]">
-      
       {/* Hidden SEO H1 tag */}
       <h1 className="sr-only">
         About Saif Ullah Bangash — Web Developer &amp; SEO Specialist
@@ -315,7 +77,6 @@ const About = () => {
 
         <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            
             {/* Left Column Text Content */}
             <motion.div
               className="lg:col-span-7 flex flex-col items-start"
@@ -345,33 +106,40 @@ const About = () => {
                 variants={fadeInUp}
                 className="text-gray-600 text-base sm:text-lg leading-relaxed mb-4 max-w-2xl font-normal"
               >
-                I&apos;m Saif Ullah Bangash, a Web Developer specializing in React.js, WordPress and SEO. I create modern, responsive and performance-focused websites that help businesses build a stronger digital presence.
+                I&apos;m Saif Ullah Bangash, a Web Developer specializing in
+                React.js, WordPress and SEO. I create modern, responsive and
+                performance-focused websites that help businesses build a
+                stronger digital presence.
               </motion.p>
 
               <motion.p
                 variants={fadeInUp}
                 className="text-gray-500 text-sm sm:text-base leading-relaxed mb-8 max-w-2xl"
               >
-                My approach combines clean development, user-focused design, responsive experiences and SEO best practices to create websites that are not only visually professional but also built with performance and growth in mind.
+                My approach combines clean development, user-focused design,
+                responsive experiences and SEO best practices to create websites
+                that are not only visually professional but also built with
+                performance and growth in mind.
               </motion.p>
 
               <motion.div
                 variants={fadeInUp}
                 className="flex flex-wrap items-center gap-4"
               >
-                <a
-                  href="#contact"
+                <Link to="/contact"
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[#D9A93E] hover:bg-[#c49733] text-[#0B1120] font-bold text-sm transition-all duration-300 shadow-md active:scale-95"
                 >
                   Let&apos;s Work Together
                   <ArrowRight size={18} />
-                </a>
-                <a
-                  href="#projects"
+                </Link>
+
+                <Link
+                  to="/projects"
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-white hover:bg-gray-100 text-[#0B1120] font-bold text-sm border border-gray-200 transition-all duration-300"
                 >
                   View My Projects
-                </a>
+                </Link>
+
               </motion.div>
             </motion.div>
 
@@ -383,7 +151,7 @@ const About = () => {
               transition={{ duration: 0.7, delay: 0.2 }}
             >
               <div className="relative mx-auto max-w-md lg:max-w-none">
-                <div 
+                <div
                   className="absolute -inset-1.5 rounded-3xl bg-[#D9A93E]/30 opacity-60 blur-lg pointer-events-none"
                   aria-hidden="true"
                 />
@@ -393,7 +161,7 @@ const About = () => {
                     alt="Saif Ullah Bangash - Web Developer, React.js and WordPress Specialist"
                     className="w-full h-auto max-h-120 object-cover object-top transition-transform duration-700 group-hover:scale-105"
                   />
-                  
+
                   {/* Badge */}
                   <div className="absolute bottom-0 inset-x-0 bg-linear-to-t from-[#0B1120] via-[#0B1120]/80 to-transparent p-6 text-white">
                     <div className="flex items-center justify-between">
@@ -412,13 +180,10 @@ const About = () => {
                   </div>
                 </div>
               </div>
-
             </motion.div>
-
           </div>
         </div>
       </section>
-
 
       {/* ==================================================================== */}
       {/* 10. ACCURATE PROFESSIONAL STATS                                     */}
@@ -426,28 +191,36 @@ const About = () => {
       <section className="py-16 bg-[#0B1120] text-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((st, i) => (
-              <motion.div
-                key={st.label}
-                className="p-6 rounded-2xl bg-[#D9A93E]/10 border border-[#D9A93E]/30 text-center flex flex-col items-center justify-center gap-2"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-              >
-                <div className="text-[#D9A93E]">{st.icon}</div>
-                <h4 className="text-3xl sm:text-4xl font-black text-white">
-                  {st.value}
-                </h4>
-                <p className="text-gray-400 text-xs sm:text-sm font-semibold uppercase tracking-wider">
-                  {st.label}
-                </p>
-              </motion.div>
-            ))}
+            {stats.map((st, i) => {
+              const Icon = st.icon;
+
+              return (
+                <motion.div
+                  key={st.label}
+                  className="p-6 rounded-2xl bg-[#D9A93E]/10 border border-[#D9A93E]/30 text-center flex flex-col items-center justify-center gap-2"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                >
+                  <div className="text-[#D9A93E]">
+                    <Icon size={22} />
+                  </div>
+
+                  <h4 className="text-3xl sm:text-4xl font-black text-white">
+                    {st.value}
+                  </h4>
+
+                  <p className="text-gray-400 text-xs sm:text-sm font-semibold uppercase tracking-wider">
+                    {st.label}
+                  </p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
-      
+
       {/* ==================================================================== */}
       {/* 2. PERSONAL INTRODUCTION ("WHO I AM")                                */}
       {/* ==================================================================== */}
@@ -462,7 +235,7 @@ const About = () => {
           >
             {/* Gold Accent Left Line */}
             <div className="absolute top-0 left-0 w-2 h-full bg-[#D9A93E]" />
-            
+
             <div className="flex items-center gap-3 mb-6">
               <span className="p-2.5 rounded-xl bg-[#D9A93E]/10 text-[#D9A93E]">
                 <User size={22} />
@@ -474,10 +247,19 @@ const About = () => {
 
             <div className="space-y-4 text-gray-600 text-base sm:text-lg leading-relaxed">
               <p>
-                I&apos;m a passionate Web Developer focused on building modern and practical digital solutions. My core expertise includes React.js for interactive frontend experiences, WordPress for flexible and business-focused websites, and SEO for improving website visibility and performance.
+                I&apos;m a passionate Web Developer focused on building modern
+                and practical digital solutions. My core expertise includes
+                React.js for interactive frontend experiences, WordPress for
+                flexible and business-focused websites, and SEO for improving
+                website visibility and performance.
               </p>
               <p>
-                I enjoy turning ideas and business requirements into clean, responsive and user-friendly websites. Whether it&apos;s a professional business website, an e-commerce store, a landing page or a custom frontend application, I focus on creating solutions that are reliable, maintainable and aligned with the project&apos;s goals.
+                I enjoy turning ideas and business requirements into clean,
+                responsive and user-friendly websites. Whether it&apos;s a
+                professional business website, an e-commerce store, a landing
+                page or a custom frontend application, I focus on creating
+                solutions that are reliable, maintainable and aligned with the
+                project&apos;s goals.
               </p>
             </div>
           </motion.div>
@@ -489,7 +271,6 @@ const About = () => {
       {/* ==================================================================== */}
       <section className="py-20 bg-white border-b border-gray-200">
         <div className="max-w-5xl mx-auto px-6 lg:px-12">
-          
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-[#D9A93E] text-xs font-mono font-bold tracking-widest uppercase bg-[#D9A93E]/10 px-3 py-1 rounded-full border border-[#D9A93E]/20">
               GROWTH &amp; EVOLUTION
@@ -511,7 +292,9 @@ const About = () => {
               >
                 {/* Timeline Dot */}
                 <div className="absolute -left-4.25 top-0.5 w-8 h-8 rounded-full bg-white border-2 border-[#D9A93E] group-hover:bg-[#D9A93E] transition-colors duration-300 flex items-center justify-center text-[#D9A93E] group-hover:text-[#0B1120] shadow-sm">
-                  <span className="text-xs font-mono font-bold">{item.step}</span>
+                  <span className="text-xs font-mono font-bold">
+                    {item.step}
+                  </span>
                 </div>
 
                 <span className="hidden sm:block absolute -left-32 top-1 text-xs font-mono font-semibold text-gray-400 uppercase tracking-wider text-right w-24">
@@ -529,7 +312,6 @@ const About = () => {
               </motion.div>
             ))}
           </div>
-
         </div>
       </section>
 
@@ -538,7 +320,6 @@ const About = () => {
       {/* ==================================================================== */}
       <section className="py-20 bg-[#F8FAFC] border-b border-gray-200/60">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-[#D9A93E] text-xs font-mono font-bold tracking-widest uppercase bg-[#D9A93E]/10 px-3 py-1 rounded-full border border-[#D9A93E]/20">
               SERVICES &amp; EXPERTISE
@@ -549,97 +330,116 @@ const About = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((srv, i) => (
-              <motion.div
-                key={srv.title}
-                className="relative bg-white p-8 rounded-2xl border border-gray-200/80 flex flex-col justify-between group hover:-translate-y-1.5 hover:shadow-xl hover:border-[#D9A93E]/50 transition-all duration-300 overflow-hidden"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={{
-                  hidden: { opacity: 0, y: 25 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: { delay: i * 0.1, duration: 0.5 },
-                  },
-                }}
-              >
-                <div>
-                  <div className="p-3.5 rounded-xl bg-[#D9A93E]/10 border border-[#D9A93E]/20 w-fit mb-6 group-hover:scale-110 transition-transform duration-300">
-                    {srv.icon}
+            {services.map((srv, i) => {
+              const Icon = srv.icon;
+
+              return (
+                <motion.div
+                  key={srv.title}
+                  className="relative bg-white p-8 rounded-2xl border border-gray-200/80 flex flex-col justify-between group hover:-translate-y-1.5 hover:shadow-xl hover:border-[#D9A93E]/50 transition-all duration-300 overflow-hidden"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={{
+                    hidden: { opacity: 0, y: 25 },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      transition: { delay: i * 0.1, duration: 0.5 },
+                    },
+                  }}
+                >
+                  <div>
+                    <div className="p-3.5 rounded-xl bg-[#D9A93E]/10 border border-[#D9A93E]/20 w-fit mb-6 group-hover:scale-110 transition-transform duration-300">
+                      <Icon className="text-[#D9A93E]" size={28} />
+                    </div>
+
+                    <h4 className="text-xl font-bold text-[#0B1120] mb-3">
+                      {srv.title}
+                    </h4>
+
+                    <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                      {srv.desc}
+                    </p>
                   </div>
-                  <h4 className="text-xl font-bold text-[#0B1120] mb-3">
-                    {srv.title}
-                  </h4>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                    {srv.desc}
-                  </p>
-                </div>
 
-                <div className="pt-4 border-t border-gray-100 flex items-center justify-between text-xs font-bold text-[#D9A93E]">
-                  <span>Explore capability</span>
-                  <ChevronRight size={16} className="transform group-hover:translate-x-1 transition-transform" />
-                </div>
-              </motion.div>
-            ))}
+                  <div className="pt-4 border-t border-gray-100 flex items-center justify-between text-xs font-bold text-[#D9A93E]">
+                    <span>Explore capability</span>
+
+                    <ChevronRight
+                      size={16}
+                      className="transform group-hover:translate-x-1 transition-transform"
+                    />
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
-
         </div>
       </section>
 
-      {/* ==================================================================== */}
-      {/* 5. MY DEVELOPMENT PHILOSOPHY                                         */}
-      {/* ==================================================================== */}
-      <section className="py-20 bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-[#D9A93E] text-xs font-mono font-bold tracking-widest uppercase bg-[#D9A93E]/10 px-3 py-1 rounded-full border border-[#D9A93E]/20">
-              CORE VALUES
-            </span>
-            <h3 className="text-3xl sm:text-4xl font-extrabold text-[#0B1120] mt-3">
-              How I Approach Development
-            </h3>
-          </div>
+{/* ==================================================================== */}
+{/* 5. MY DEVELOPMENT PHILOSOPHY                                         */}
+{/* ==================================================================== */}
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {philosophy.map((item, index) => (
-              <motion.div
-                key={item.title}
-                className="p-8 rounded-2xl bg-[#F8FAFC] border border-gray-200/70 hover:bg-white hover:border-[#D9A93E]/40 hover:shadow-lg transition-all duration-300"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: { delay: index * 0.1, duration: 0.5 },
-                  },
-                }}
-              >
-                <div className="mb-4">{item.icon}</div>
-                <h4 className="text-lg font-bold text-[#0B1120] mb-2">
-                  {item.title}
-                </h4>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {item.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+<section className="py-20 bg-white border-b border-gray-200">
+  <div className="max-w-7xl mx-auto px-6 lg:px-12">
+    <div className="text-center max-w-2xl mx-auto mb-16">
+      <span className="text-[#D9A93E] text-xs font-mono font-bold tracking-widest uppercase bg-[#D9A93E]/10 px-3 py-1 rounded-full border border-[#D9A93E]/20">
+        CORE VALUES
+      </span>
 
-        </div>
-      </section>
+      <h3 className="text-3xl sm:text-4xl font-extrabold text-[#0B1120] mt-3">
+        How I Approach Development
+      </h3>
+    </div>
+
+    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {philosophy.map((item, index) => {
+        const Icon = item.icon;
+
+        return (
+          <motion.div
+            key={item.title}
+            className="p-8 rounded-2xl bg-[#F8FAFC] border border-gray-200/70 hover:bg-white hover:border-[#D9A93E]/40 hover:shadow-lg transition-all duration-300"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: {
+                  delay: index * 0.1,
+                  duration: 0.5,
+                },
+              },
+            }}
+          >
+            <div className="mb-4">
+              <Icon size={24} className="text-[#D9A93E]" />
+            </div>
+
+            <h4 className="text-lg font-bold text-[#0B1120] mb-2">
+              {item.title}
+            </h4>
+
+            <p className="text-gray-600 text-sm leading-relaxed">
+              {item.desc}
+            </p>
+          </motion.div>
+        );
+      })}
+    </div>
+  </div>
+</section>
 
       {/* ==================================================================== */}
       {/* 6. MY CORE EXPERTISE (SKILLS BADGES)                                 */}
       {/* ==================================================================== */}
       <section className="py-20 bg-[#F8FAFC] border-b border-gray-200/60">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-[#D9A93E] text-xs font-mono font-bold tracking-widest uppercase bg-[#D9A93E]/10 px-3 py-1 rounded-full border border-[#D9A93E]/20">
               TECHNICAL STACK
@@ -679,7 +479,6 @@ const About = () => {
               </motion.div>
             ))}
           </div>
-
         </div>
       </section>
 
@@ -688,9 +487,7 @@ const About = () => {
       {/* ==================================================================== */}
       <section className="py-20 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          
           <div className="grid lg:grid-cols-12 gap-12 items-center">
-            
             <motion.div
               className="lg:col-span-5"
               initial="hidden"
@@ -705,7 +502,9 @@ const About = () => {
                 More Than Just Building Websites
               </h3>
               <p className="text-gray-600 text-base leading-relaxed mb-6">
-                I don&apos;t focus only on how a website looks. I also consider how it performs, how users interact with it and how search engines understand its structure.
+                I don&apos;t focus only on how a website looks. I also consider
+                how it performs, how users interact with it and how search
+                engines understand its structure.
               </p>
               <div className="p-4 rounded-xl bg-[#D9A93E]/10 border border-[#D9A93E]/30 text-[#0B1120] text-sm font-bold">
                 Building holistic web applications that grow businesses.
@@ -741,9 +540,7 @@ const About = () => {
                 </motion.div>
               ))}
             </div>
-
           </div>
-
         </div>
       </section>
 
@@ -752,7 +549,6 @@ const About = () => {
       {/* ==================================================================== */}
       <section className="py-20 bg-[#F8FAFC] border-b border-gray-200/60">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-[#D9A93E] text-xs font-mono font-bold tracking-widest uppercase bg-[#D9A93E]/10 px-3 py-1 rounded-full border border-[#D9A93E]/20">
               METHODOLOGY
@@ -791,7 +587,6 @@ const About = () => {
               </motion.div>
             ))}
           </div>
-
         </div>
       </section>
 
@@ -800,7 +595,6 @@ const About = () => {
       {/* ==================================================================== */}
       <section className="py-20 bg-white border-b border-gray-200">
         <div className="max-w-5xl mx-auto px-6 lg:px-12">
-          
           <div className="text-center max-w-2xl mx-auto mb-14">
             <h3 className="text-3xl sm:text-4xl font-extrabold text-[#0B1120]">
               Why Work With Me?
@@ -831,18 +625,14 @@ const About = () => {
               </motion.div>
             ))}
           </div>
-
         </div>
       </section>
-
-
 
       {/* ==================================================================== */}
       {/* 11 & 12. PERSONAL DETAILS & EDUCATION                                */}
       {/* ==================================================================== */}
       <section className="py-20 bg-[#F8FAFC] border-b border-gray-200/60">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-12 gap-10">
-          
           {/* Personal Information Card */}
           <motion.div
             className="lg:col-span-5 bg-white p-8 rounded-3xl border border-gray-200/80 shadow-xs flex flex-col justify-between"
@@ -919,74 +709,11 @@ const About = () => {
               ))}
             </div>
           </motion.div>
-
         </div>
       </section>
 
-      {/* ==================================================================== */}
-      {/* 13 & 14. CURRENT FOCUS & TECH STACK VISUALS                         */}
-      {/* ==================================================================== */}
-      <section className="py-20 bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          
-          {/* Current Focus */}
-          <div className="mb-20">
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <span className="text-[#D9A93E] text-xs font-mono font-bold tracking-widest uppercase bg-[#D9A93E]/10 px-3 py-1 rounded-full border border-[#D9A93E]/20">
-                CONTINUOUS LEARNING
-              </span>
-              <h3 className="text-3xl font-extrabold text-[#0B1120] mt-3 mb-4">
-                What I&apos;m Focused On
-              </h3>
-              <p className="text-gray-600 text-base">
-                Currently, my focus is on improving my expertise in modern frontend development, React.js, WordPress development, SEO and website performance.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-              {focusAreas.map((f) => (
-                <div
-                  key={f.name}
-                  className="p-4 rounded-xl bg-[#F8FAFC] border border-gray-200/70 text-center flex flex-col items-center justify-center gap-2.5 hover:border-[#D9A93E]/50 hover:bg-white transition-all duration-300"
-                >
-                  {f.icon}
-                  <span className="text-xs font-bold text-[#0B1120]">{f.name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Technology Stack Grid */}
-          <div>
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <h4 className="text-2xl font-bold text-[#0B1120]">
-                Technology Stack
-              </h4>
-            </div>
-
-            <div className="flex flex-wrap justify-center gap-3">
-              {techStack.map((tech) => (
-                <div
-                  key={tech.name}
-                  className="px-4 py-2.5 rounded-xl bg-[#F8FAFC] border border-gray-200 text-gray-800 text-xs sm:text-sm font-semibold flex items-center gap-2 hover:bg-white hover:border-[#D9A93E]/50 hover:shadow-sm transition-all duration-200"
-                  title={`${tech.name} (${tech.category})`}
-                  aria-label={`${tech.name} - ${tech.category}`}
-                >
-                  <span className="w-2 h-2 rounded-full bg-[#D9A93E]" />
-                  <span>{tech.name}</span>
-                  <span className="text-[10px] text-gray-400 font-mono">
-                    [{tech.category}]
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-{/* call to action component */}
-     <CTA />
+      {/* call to action component */}
+      <CTA />
     </div>
   );
 };

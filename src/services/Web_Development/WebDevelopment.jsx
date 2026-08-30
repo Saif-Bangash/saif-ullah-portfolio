@@ -609,7 +609,7 @@ function DevelopmentProcess() {
               >
                 <span
                   className="font-display text-2xl font-semibold w-14 shrink-0"
-                  style={{ color: "var(--primary)" }}
+                  style={{ color: "var(--dark)" }}
                 >
                   {s.n}
                 </span>
@@ -617,7 +617,7 @@ function DevelopmentProcess() {
                   <s.icon
                     size={20}
                     className="mt-1 shrink-0"
-                    color="var(--secondary)"
+                    color="var(--gold)"
                   />
                   <div>
                     <h3 className="font-display font-semibold text-lg">
@@ -757,7 +757,7 @@ function PerformanceSection() {
               <span className="cwd-chip flex flex-col items-start gap-2">
                 <CircleGauge
                   size={14}
-                  color="var(--secondary)"
+                  color="var(--gold)"
                   className="mb-1"
                 />
                 <span>{i}</span>
@@ -930,7 +930,7 @@ function UseCases() {
           {cases.map((c) => (
             <Reveal key={c.label}>
               <div className="cwd-card p-5 flex flex-col items-center text-center gap-3 h-full">
-                <c.icon size={20} color="var(--primary)" />
+                <c.icon size={20} color="var(--gold)" />
                 <span className="text-sm font-medium">{c.label}</span>
               </div>
             </Reveal>
@@ -952,7 +952,7 @@ function CustomProjects() {
       title: "The Vapor Store",
       description:
         "High-performance e-commerce platform with age verification, integrated newsletter popups, and SEO optimization.",
-      image: "assets/img/threaper-img.jfif",
+      image: "assets/img/vapes-img.jfif",
       stack: ["PHP", "Bootstrap 5", "JavaScript", "HTML5/CSS3"],
       liveLink: "https://thevapor.co.uk/",
     },
@@ -1049,7 +1049,7 @@ function CustomProjects() {
                       href={project.liveLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-indigo-400 hover:text-indigo-300 transition-colors"
+                      className="flex items-center gap-1.5 text-[var(--gold)]"
                     >
                       <ExternalLink size={14} /> Live Demo
                     </a>

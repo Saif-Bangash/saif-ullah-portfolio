@@ -14,19 +14,19 @@ const NAV_PATHS = {
 };
 
 const SERVICE_ITEMS = [
-  {
+   {
     path: "/custom-web-development",
-    label: "Web Development",
+    label: "Custom Web Development",
     icon: Globe2,
   },
   {
     path: "/react-development",
-    label: "React JS",
+    label: "React JS Development",
     icon: Atom,
   },
   {
     path: "/wordpress-development",
-    label: "WordPress",
+    label: "WordPress Development",
     icon: Layers,
   },
   {

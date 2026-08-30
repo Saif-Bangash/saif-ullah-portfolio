@@ -23,8 +23,10 @@ import {
 
 import { SiGoogleanalytics } from "react-icons/si";
 import FAQs from "./FAQs";
-import { homeFaqData } from "../data/projects";
+import { homeFaqData, techStack } from "../data/projects";
 import CTA from "./CTA";
+import { Link } from "react-router-dom";
+import TechTicker from "./TechTicker";
 
 /* ------------------------------------------------------------------ */
 /*  Shared small pieces                                                */
@@ -96,33 +98,45 @@ const HeroSection = () => {
           transition={{ delay: 0.6 }}
           className="flex flex-row items-center justify-center lg:justify-start gap-3 mt-4 sm:mt-6 w-full sm:w-auto"
         >
-          <a
-            href="/projects"
+          <Link
+            to="/projects"
             className="flex-1 sm:flex-none px-4 sm:px-8 py-3 sm:py-4 bg-[#F7D26B] text-[#1A1300] text-center text-xs sm:text-base font-bold rounded-xl md:rounded-2xl hover:bg-[#D9A93E] hover:shadow-lg transition-all active:scale-95 whitespace-nowrap"
           >
             View My Work
-          </a>
+          </Link>
 
-          <a
-            href="https://drive.google.com/file/d/1IP2cLNP53LkG7PBknRqfYXOB4iswCav9/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            download="My Resume.pdf"
+          <Link
+            to="/resume"
             className="flex-1 sm:flex-none px-4 sm:px-8 py-3 sm:py-4 border-2 border-gray-100 dark:border-white/10 text-[#2F4066] dark:text-white text-center text-xs sm:text-base font-bold rounded-xl md:rounded-2xl hover:bg-gray-50 dark:hover:bg-white/5 transition-all whitespace-nowrap"
           >
             View CV
-          </a>
+          </Link>
         </Motion.div>
 
         {/* Tech Stack Mini Icons */}
         <div className="flex flex-wrap gap-4 sm:gap-6 mt-4 sm:mt-6 text-gray-400 dark:text-gray-500 text-xl sm:text-2xl justify-center lg:justify-start">
           <FaHtml5 title="HTML5" className="text-[#E34F26] transition-colors" />
-          <FaCss3Alt title="CSS3" className="text-[#1572B6] transition-colors" />
-          <FaJs title="JavaScript" className="text-[#F7DF1E] transition-colors" />
-          <FaBootstrap title="Bootstrap" className="text-[#7952B3] transition-colors" />
+          <FaCss3Alt
+            title="CSS3"
+            className="text-[#1572B6] transition-colors"
+          />
+          <FaJs
+            title="JavaScript"
+            className="text-[#F7DF1E] transition-colors"
+          />
+          <FaBootstrap
+            title="Bootstrap"
+            className="text-[#7952B3] transition-colors"
+          />
           <FaReact title="React" className="text-[#61DBFB] transition-colors" />
-          <FaWordpress title="WordPress" className="text-[#21759B] transition-colors" />
-          <SiGoogleanalytics title="SEO / Google Analytics" className="text-[#E37400] transition-colors" />
+          <FaWordpress
+            title="WordPress"
+            className="text-[#21759B] transition-colors"
+          />
+          <SiGoogleanalytics
+            title="SEO / Google Analytics"
+            className="text-[#E37400] transition-colors"
+          />
         </div>
       </div>
 
@@ -144,7 +158,9 @@ const HeroSection = () => {
             transition={{ repeat: Infinity, duration: 4 }}
             className="absolute -top-3 -right-2 sm:-top-6 sm:-right-6 bg-white dark:bg-[#1a1033] border border-gray-100 dark:border-white/10 p-2.5 sm:p-5 rounded-2xl sm:rounded-3xl shadow-xl z-20"
           >
-            <p className="text-lg sm:text-3xl font-bold text-[#D9A93E] dark:text-[#F7D26B]">1+</p>
+            <p className="text-lg sm:text-3xl font-bold text-[#D9A93E] dark:text-[#F7D26B]">
+              1+
+            </p>
             <p className="text-[7px] sm:text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-widest font-extrabold">
               Year of <br /> Experience
             </p>
@@ -156,7 +172,9 @@ const HeroSection = () => {
             transition={{ repeat: Infinity, duration: 5 }}
             className="absolute -bottom-3 -left-2 sm:-bottom-6 sm:-left-6 bg-white dark:bg-[#1a1033] border border-gray-100 dark:border-white/10 p-2.5 sm:p-5 rounded-2xl sm:rounded-3xl shadow-xl z-20"
           >
-            <p className="text-base sm:text-2xl font-bold text-[#8A6A16] dark:text-[#FBE3A0]">10+</p>
+            <p className="text-base sm:text-2xl font-bold text-[#8A6A16] dark:text-[#FBE3A0]">
+              10+
+            </p>
             <p className="text-[7px] sm:text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-widest font-extrabold">
               Projects <br /> Completed
             </p>
@@ -169,9 +187,12 @@ const HeroSection = () => {
                 icon: <FaLinkedin />,
                 link: "https://www.linkedin.com/in/saifullahbangash/",
               },
-              { icon: <FaGithub />, link: "https://github.com/Saifullahbangash01/" },
+              {
+                icon: <FaGithub />,
+                link: "https://github.com/Saifullahbangash01/",
+              },
             ].map((item, idx) => (
-              <a
+              <Link
                 key={idx}
                 href={item.link}
                 target="_blank"
@@ -179,7 +200,7 @@ const HeroSection = () => {
                 className="w-9 h-9 sm:w-12 sm:h-12 bg-white dark:bg-[#1a1033] border border-gray-100 dark:border-white/10 rounded-full flex items-center justify-center text-gray-400 hover:text-[#1A1300] hover:bg-[#F7D26B] transition-all shadow-md text-sm sm:text-base"
               >
                 {item.icon}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
@@ -221,8 +242,8 @@ const WhatWeDo = () => {
         </h2>
         <p className="text-gray-500 dark:text-gray-400 max-w-2xl text-sm sm:text-base md:text-lg">
           Every project draws on the same foundation: solid development,
-          reliable WordPress delivery, and search visibility that actually
-          moves the needle.
+          reliable WordPress delivery, and search visibility that actually moves
+          the needle.
         </p>
       </div>
 
@@ -299,8 +320,8 @@ const DigitalServices = () => {
           Everything your website needs
         </h2>
         <p className="text-gray-500 dark:text-gray-400 max-w-2xl text-sm sm:text-base md:text-lg">
-          From first build to ongoing SEO and maintenance, one point of
-          contact for the whole site.
+          From first build to ongoing SEO and maintenance, one point of contact
+          for the whole site.
         </p>
       </div>
 
@@ -372,8 +393,8 @@ const HowWeWork = () => {
           A process built for clarity
         </h2>
         <p className="text-gray-500 dark:text-gray-400 max-w-2xl text-sm sm:text-base md:text-lg">
-          A straightforward, five-step process from first conversation to a
-          site that's live and optimized.
+          A straightforward, five-step process from first conversation to a site
+          that's live and optimized.
         </p>
       </div>
 
@@ -409,8 +430,41 @@ const HowWeWork = () => {
     </section>
   );
 };
- 
- 
+
+
+const TechStack = () => {
+  return (
+    <section className="relative w-full bg-[#0F172A] py-16 px-4 sm:px-6 md:px-12 lg:px-20 border-y border-[#F7D26B]/20 transition-colors duration-500">
+      <div className="max-w-6xl mx-auto flex flex-col items-center text-center gap-4 mb-10">
+        <SectionEyebrow>Tools & Technologies</SectionEyebrow>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white">
+          Technology Stack
+        </h2>
+        <p className="text-gray-400 max-w-2xl text-sm sm:text-base leading-relaxed">
+          Modern frameworks, performance optimization tools, and robust web standards I use to build fast, scalable, and search-friendly web applications.
+        </p>
+      </div>
+
+      <div className="max-w-5xl mx-auto flex flex-wrap justify-center gap-3">
+        {techStack.map((tech) => (
+          <div
+            key={tech.name}
+            className="px-4 py-2.5 rounded-2xl bg-[#1E293B] border border-[#F7D26B]/20 text-slate-100 text-xs sm:text-sm font-semibold flex items-center gap-2 hover:border-[#F7D26B] hover:shadow-lg transition-all duration-200"
+            title={`${tech.name} (${tech.category})`}
+            aria-label={`${tech.name} - ${tech.category}`}
+          >
+            <span className="w-2 h-2 rounded-full bg-[#F7D26B]" />
+            <span>{tech.name}</span>
+            <span className="text-[10px] sm:text-xs text-[#FBE3A0]/70 font-medium font-mono">
+              [{tech.category}]
+            </span>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
 
 /* ------------------------------------------------------------------ */
 /*  PAGE — Hero + all sections, exported as default "Hero"            */
@@ -419,17 +473,18 @@ const Hero = () => {
   return (
     <div className="rjs-root">
       <HeroSection />
+      <TechTicker />
       <WhatWeDo />
       <DigitalServices />
       <HowWeWork />
-      
-       <FAQs 
-              data={homeFaqData} 
-              title="Frequently Asked Questions" 
-              eyebrow="// Got Questions?" 
-            />
+      <TechStack />
+      <FAQs
+        data={homeFaqData}
+        title="Frequently Asked Questions"
+        eyebrow="// Got Questions?"
+      />
 
-            <CTA />
+      <CTA />
     </div>
   );
 };
