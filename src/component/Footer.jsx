@@ -14,6 +14,7 @@ import {
   FaMapMarkerAlt,
   FaPhoneAlt,
   FaArrowRight,
+  FaFacebookF
 } from "react-icons/fa";
 
 const Footer = () => {
@@ -91,15 +92,21 @@ const Footer = () => {
       link: "https://www.linkedin.com/in/saifullahbangash/",
       label: "LinkedIn",
     },
-    {
-      icon: <FaGithub />,
-      link: "https://github.com/Saifullahbangash01/",
-      label: "GitHub",
-    },
+
     {
       icon: <FaInstagram />,
       link: "https://www.instagram.com/saifullahbangash480/",
       label: "Instagram",
+    },
+    {
+      icon: <FaFacebookF />,
+      link: "https://www.facebook.com/profile.php?id=61589953537594",
+      label: "Facebook",
+    },
+    {
+      icon: <FaGithub />,
+      link: "https://github.com/Saifullahbangash01/",
+      label: "GitHub",
     },
     {
       icon: <FaWhatsapp />,
@@ -179,10 +186,8 @@ const Footer = () => {
       {/* ================= FOOTER ================= */}
       <footer className="bg-[#05070B] border-t border-white/10 text-[#8891A5] pt-14 sm:pt-16 pb-8">
         <div className="max-w-7xl px-5 sm:px-6 lg:px-8 mx-auto">
-
           {/* ================= MAIN FOOTER GRID ================= */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 mb-14">
-
             {/* ================= ABOUT ================= */}
             <div className="sm:col-span-2 lg:col-span-1">
               <div className="mb-5">
@@ -196,15 +201,15 @@ const Footer = () => {
               </div>
 
               <p className="text-[#8891A5] leading-relaxed text-sm sm:text-base max-w-sm">
-                Web Developer specializing in Web Development, WordPress,
-                React JS, and SEO. I build fast, responsive, user-friendly
-                websites designed for better performance and online visibility.
+                Web Developer specializing in Web Development, WordPress, React
+                JS, and SEO. I build fast, responsive, user-friendly websites
+                designed for better performance and online visibility.
               </p>
 
               {/* Technologies */}
               <div className="flex flex-wrap gap-2 mt-5">
                 <span className="px-3 py-1 text-xs font-medium rounded-full bg-white/5 border border-[#F7D26B]/30 text-[#FBE3A0]">
-                 Web Development
+                  Web Development
                 </span>
 
                 <span className="px-3 py-1 text-xs font-medium rounded-full bg-white/5 border border-[#F7D26B]/30 text-[#FBE3A0]">
@@ -232,7 +237,6 @@ const Footer = () => {
                     >
                       <FaArrowRight className="text-xs text-[#F7D26B] transition-transform duration-300 group-hover:translate-x-1" />
                       {item.name}
-
                     </Link>
                   </li>
                 ))}
@@ -272,7 +276,6 @@ const Footer = () => {
               </h4>
 
               <div className="inline-block space-y-4 text-left">
-
                 {/* Email */}
                 <a
                   href="mailto:saifbangash480@gmail.com"
@@ -292,18 +295,14 @@ const Footer = () => {
                 >
                   <FaPhoneAlt className="text-[#F7D26B] shrink-0" />
 
-                  <span className="text-sm sm:text-base">
-                    +92 332 6767615
-                  </span>
+                  <span className="text-sm sm:text-base">+92 332 6767615</span>
                 </a>
 
                 {/* Location */}
                 <div className="flex items-start gap-3 text-[#8891A5]">
                   <FaMapMarkerAlt className="mt-1 text-[#F7D26B] shrink-0" />
 
-                  <span className="text-sm sm:text-base">
-                    Pakistan
-                  </span>
+                  <span className="text-sm sm:text-base">Pakistan</span>
                 </div>
               </div>
 
@@ -340,7 +339,6 @@ const Footer = () => {
 
           {/* ================= BOTTOM BAR ================= */}
           <div className="mt-8 flex flex-col items-center gap-5 text-center">
-
             {/* Copyright */}
             <p className="text-[#8891A5] text-sm">
               © 2026{" "}
@@ -351,10 +349,9 @@ const Footer = () => {
             </p>
 
             {/* Skills */}
-             
           </div>
         </div>
-      </footer> 
+      </footer>
     </>
   );
 };

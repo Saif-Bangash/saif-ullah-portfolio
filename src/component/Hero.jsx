@@ -435,7 +435,7 @@ const HowWeWork = () => {
 const TechStack = () => {
   return (
     <section className="relative w-full bg-[#0F172A] py-16 px-4 sm:px-6 md:px-12 lg:px-20 border-y border-[#F7D26B]/20 transition-colors duration-500">
-      <div className="max-w-6xl mx-auto flex flex-col items-center text-center gap-4 mb-10">
+      <div className="max-w-5xl mx-auto flex flex-col items-center text-center gap-4 mb-10">
         <SectionEyebrow>Tools & Technologies</SectionEyebrow>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white">
           Technology Stack
