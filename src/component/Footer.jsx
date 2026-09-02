@@ -321,7 +321,7 @@ const Footer = () => {
                       rel="noopener noreferrer"
                       aria-label={social.label}
                       title={social.label}
-                      className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl 
+                      className="w-10 h-10  rounded-xl 
                       flex items-center justify-center 
                       transition-all duration-300 shadow-sm border 
                       hover:-translate-y-1 bg-white/5 border-white/10 text-[#E9EBF2] hover:bg-[#F7D26B] hover:text-[#0B1120] hover:border-[#F7D26B]"
